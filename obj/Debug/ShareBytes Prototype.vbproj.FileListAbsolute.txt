@@ -1,0 +1,25 @@
+D:\UTP\Foundation 3rd Sem\VP\OMC stuff\ShareBytes Prototype\obj\Debug\ShareBytes Prototype.vbproj.AssemblyReference.cache
+D:\UTP\Foundation 3rd Sem\VP\OMC stuff\ShareBytes Prototype\obj\Debug\ShareBytes Prototype.vbproj.SuggestedBindingRedirects.cache
+D:\UTP\Foundation 3rd Sem\VP\OMC stuff\ShareBytes Prototype\obj\Debug\ShareBytes_Prototype.Resources.resources
+D:\UTP\Foundation 3rd Sem\VP\OMC stuff\ShareBytes Prototype\obj\Debug\ShareBytes Prototype.vbproj.GenerateResource.cache
+D:\UTP\Foundation 3rd Sem\VP\OMC stuff\ShareBytes Prototype\obj\Debug\ShareBytes Prototype.vbproj.CoreCompileInputs.cache
+D:\UTP\Foundation 3rd Sem\VP\OMC stuff\ShareBytes Prototype\bin\Debug\ShareBytes Prototype.exe.config
+D:\UTP\Foundation 3rd Sem\VP\OMC stuff\ShareBytes Prototype\bin\Debug\ShareBytes Prototype.exe
+D:\UTP\Foundation 3rd Sem\VP\OMC stuff\ShareBytes Prototype\bin\Debug\ShareBytes Prototype.pdb
+D:\UTP\Foundation 3rd Sem\VP\OMC stuff\ShareBytes Prototype\bin\Debug\ShareBytes Prototype.xml
+D:\UTP\Foundation 3rd Sem\VP\OMC stuff\ShareBytes Prototype\obj\Debug\ShareBytes_Prototype.SplashScreen.resources
+D:\UTP\Foundation 3rd Sem\VP\OMC stuff\ShareBytes Prototype\obj\Debug\ShareBytes Prototype.exe
+D:\UTP\Foundation 3rd Sem\VP\OMC stuff\ShareBytes Prototype\obj\Debug\ShareBytes Prototype.xml
+D:\UTP\Foundation 3rd Sem\VP\OMC stuff\ShareBytes Prototype\obj\Debug\ShareBytes Prototype.pdb
+D:\UTP\Foundation 3rd Sem\VP\OMC stuff\ShareBytes Prototype\bin\Debug\ComponentFactory.Krypton.Toolkit.dll
+D:\UTP\Foundation 3rd Sem\VP\OMC stuff\ShareBytes Prototype\bin\Debug\ComponentFactory.Krypton.Toolkit.pdb
+D:\UTP\Foundation 3rd Sem\VP\OMC stuff\ShareBytes Prototype\obj\Debug\ShareBytes_Prototype.LoginForm.resources
+D:\UTP\Foundation 3rd Sem\VP\OMC stuff\ShareBytes Prototype\obj\Debug\ShareBytes Prototype.vbproj.CopyComplete
+D:\UTP\Foundation 3rd Sem\VP\OMC stuff\ShareBytes Prototype\obj\Debug\ShareBytes_Prototype.SignUpForm.resources
+D:\UTP\Foundation 3rd Sem\VP\OMC stuff\ShareBytes Prototype\obj\Debug\ShareBytes_Prototype.AboutForm.resources
+D:\UTP\Foundation 3rd Sem\VP\OMC stuff\ShareBytes Prototype\obj\Debug\ShareBytes_Prototype.MainForm.resources
+D:\UTP\Foundation 3rd Sem\VP\OMC stuff\ShareBytes Prototype\obj\Debug\ShareBytes_Prototype.HomeForm.resources
+D:\UTP\Foundation 3rd Sem\VP\OMC stuff\ShareBytes Prototype\obj\Debug\ShareBytes_Prototype.InventoryForm.resources
+D:\UTP\Foundation 3rd Sem\VP\OMC stuff\ShareBytes Prototype\obj\Debug\ShareBytes_Prototype.DonateForm.resources
+D:\UTP\Foundation 3rd Sem\VP\OMC stuff\ShareBytes Prototype\obj\Debug\ShareBytes_Prototype.ProfileForm.resources
+D:\UTP\Foundation 3rd Sem\VP\OMC stuff\ShareBytes Prototype\obj\Debug\ShareBytes_Prototype.AddInventoryForm.resources
