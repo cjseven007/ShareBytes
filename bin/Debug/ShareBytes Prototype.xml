@@ -22,12 +22,27 @@ ShareBytes Prototype
   resource lookups using this strongly typed resource class.
 </summary>
 </member>
+<member name="P:ShareBytes_Prototype.My.Resources.Resources._25429">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ShareBytes_Prototype.My.Resources.Resources._254291">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:ShareBytes_Prototype.My.Resources.Resources.burger_rope">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:ShareBytes_Prototype.My.Resources.Resources.dance">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ShareBytes_Prototype.My.Resources.Resources.refresh_page_option">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>

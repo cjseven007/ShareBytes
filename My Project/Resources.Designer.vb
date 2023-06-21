@@ -63,6 +63,26 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property _25429() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("25429", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property _254291() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("254291", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property burger_rope() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("burger rope", resourceCulture)
@@ -76,6 +96,16 @@ Namespace My.Resources
         Friend ReadOnly Property dance() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("dance", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property refresh_page_option() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("refresh-page-option", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

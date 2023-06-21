@@ -226,5 +226,14 @@
   <ItemGroup>
     <None Include="Resources\rounded.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\25429.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\254291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh-page-option.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

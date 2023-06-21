@@ -9,8 +9,6 @@ Public Class InventoryForm
 
 
     Public Sub RefreshData()
-
-
         If connect.State = ConnectionState.Closed Then
             connect.Open()
         End If
@@ -21,7 +19,7 @@ Public Class InventoryForm
         Dim donorID As Integer = LoginForm.globalUserID
         command = New OleDbCommand(sql, connect)
         command.Parameters.AddWithValue("@DonorID", OleDbType.VarChar).Value = donorID
-        Dim reader As OleDbDataReader = Command.ExecuteReader()
+        Dim reader As OleDbDataReader = command.ExecuteReader()
 
 
         Dim table As New TableLayoutPanel
@@ -31,6 +29,18 @@ Public Class InventoryForm
         table.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.3))
         table.Name = "TableLayoutPanel1"
         table.AutoSize = True
+        table.ColumnStyles.Clear()
+        table.RowStyles.Clear()
+
+        ' Determine the number of columns and rows based on the data length
+        Dim columnCount As Integer = 3
+        Dim rowCount As Integer = Math.Ceiling(reader.FieldCount / columnCount)
+
+        For i As Integer = 0 To rowCount - 1
+            table.RowStyles.Add(New RowStyle(SizeType.AutoSize))
+        Next
+
+        table.Controls.Clear()
 
         While reader.Read()
             Dim customContainer As Panel = New Panel()
@@ -107,15 +117,18 @@ Public Class InventoryForm
             customContainer.Controls.Add(IsExpiringLabel)
             customContainer.Controls.Add(button)
 
+            ' Calculate the index for the TableLayoutPanel
+            Dim columnIndex As Integer = (reader.GetOrdinal("product") - 1) Mod columnCount
+            Dim rowIndex As Integer = (reader.GetOrdinal("product") - 1) \ columnCount
 
             ' Add the custom container to the form or container control
-
-
-            table.Controls.Add(customContainer)
+            table.Controls.Add(customContainer, columnIndex, rowIndex)
 
         End While
-
+        pnlInventory.Controls.Clear()
         pnlInventory.Controls.Add(table)
+
+        reader.Close()
     End Sub
 
     'Code starts here
@@ -129,5 +142,10 @@ Public Class InventoryForm
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
         Dim addInventoryForm As New AddInventoryForm(Me) ' Pass the reference of InventoryForm
         addInventoryForm.ShowDialog()
+    End Sub
+
+
+    Private Sub btnRefresh_Click_1(sender As Object, e As EventArgs) Handles btnRefresh.Click
+        RefreshData()
     End Sub
 End Class
