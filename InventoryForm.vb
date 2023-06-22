@@ -19,7 +19,7 @@ Public Class InventoryForm
         Dim reader As OleDbDataReader = command.ExecuteReader()
 
         If reader.Read() Then ' Check if there is a row of data
-            Dim editForm As New InventoryEditForm()
+            Dim editForm As New InventoryEditForm(Me)
             ' Set the product values in the edit form
             editForm.ProductID = productID
             editForm.Product = reader("product").ToString() ' Set the retrieved product value
@@ -44,6 +44,7 @@ Public Class InventoryForm
             command = New OleDbCommand(sql, connect)
             command.Parameters.AddWithValue("@productID", OleDbType.VarChar).Value = productID
             command.ExecuteNonQuery()
+            RefreshData()
             connect.Close()
         End If
 

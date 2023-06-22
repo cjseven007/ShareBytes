@@ -13,6 +13,10 @@ Public Class InventoryEditForm
     Dim command As New OleDbCommand
     Dim sql As String = Nothing
 
+    Public Sub New(inventoryForm As InventoryForm)
+        InitializeComponent()
+        Me.inventoryForm = inventoryForm
+    End Sub
 
     Private Sub InventoryEditForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         connect.ConnectionString = "Provider = Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\USER\CJ\OMC\OMC database.accdb;"
@@ -51,6 +55,7 @@ Public Class InventoryEditForm
         command.ExecuteNonQuery()
         MsgBox("Item Updated.", 0 & MsgBoxStyle.Information, "Updated")
 
+        inventoryForm.RefreshData()
         connect.Close()
         Me.Close()
     End Sub
