@@ -40,7 +40,9 @@ Public Class AddInventoryForm
         command.ExecuteNonQuery()
         MsgBox("Item Added.", 0 & MsgBoxStyle.Information, "Added")
 
+
         inventoryForm.RefreshData()
+
         Me.Close()
 
     End Sub

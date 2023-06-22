@@ -22,11 +22,13 @@ Partial Class InventoryForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.pnlInventory = New System.Windows.Forms.Panel()
         Me.btnAdd = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         Me.KryptonBorderEdge1 = New ComponentFactory.Krypton.Toolkit.KryptonBorderEdge()
         Me.btnRefresh = New ComponentFactory.Krypton.Toolkit.KryptonButton()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.SuspendLayout()
         '
         'Label1
@@ -139,4 +141,5 @@ Partial Class InventoryForm
     Friend WithEvents btnAdd As ComponentFactory.Krypton.Toolkit.KryptonButton
     Friend WithEvents KryptonBorderEdge1 As ComponentFactory.Krypton.Toolkit.KryptonBorderEdge
     Friend WithEvents btnRefresh As ComponentFactory.Krypton.Toolkit.KryptonButton
+    Friend WithEvents Timer1 As Timer
 End Class

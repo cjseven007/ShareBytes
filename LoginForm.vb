@@ -32,17 +32,35 @@ Public Class LoginForm
 
             If check > 0 Then
                 'Get userID to be used globally
-                sql = "SELECT ID FROM [User] WHERE Username = @Username"
+                sql = "SELECT ID FROM [User] WHERE username = @Username"
                 command = New OleDbCommand(sql, connect)
                 command.Parameters.AddWithValue("@Username", txtUsername.Text)
                 Dim reader As OleDbDataReader = command.ExecuteReader()
                 If reader.Read() Then
                     globalUserID = reader.GetInt32(reader.GetOrdinal("ID"))
                 End If
-
+                reader.Close()
 
                 MsgBox("Succeeded", 0, "Successful Login")
-                MainForm.Show()
+
+                sql = "SELECT usertype FROM [User] WHERE ID = @UserID"
+                command = New OleDbCommand(sql, connect)
+                command.Parameters.AddWithValue("@UserID", globalUserID)
+
+                Dim reader1 As OleDbDataReader = command.ExecuteReader()
+                If reader1.Read() Then
+                    If reader1("usertype").ToString = "Donor" Then
+                        MainForm.Show()
+                    ElseIf reader1("usertype").ToString = "Requestor" Then
+                        RequestorMainForm.Show()
+                    Else
+                        MsgBox("Failed")
+                    End If
+                    reader1.Close()
+
+                End If
+
+
                 Me.Hide()
 
 

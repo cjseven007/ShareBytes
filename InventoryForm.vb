@@ -216,6 +216,7 @@ Public Class InventoryForm
         reader.Close()
     End Sub
 
+
     'Code starts here
     Private Sub InventoryForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
