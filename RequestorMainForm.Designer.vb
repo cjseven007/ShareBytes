@@ -28,7 +28,7 @@ Partial Class RequestorMainForm
         Me.btnAbout = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         Me.btnProfile = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         Me.btnInventory = New ComponentFactory.Krypton.Toolkit.KryptonButton()
-        Me.btnDonate = New ComponentFactory.Krypton.Toolkit.KryptonButton()
+        Me.btnRequest = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         Me.pnlChildForm = New System.Windows.Forms.Panel()
         Me.btnExit = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         CType(Me.pnlSideBar, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -43,7 +43,7 @@ Partial Class RequestorMainForm
         Me.pnlSideBar.Controls.Add(Me.btnAbout)
         Me.pnlSideBar.Controls.Add(Me.btnProfile)
         Me.pnlSideBar.Controls.Add(Me.btnInventory)
-        Me.pnlSideBar.Controls.Add(Me.btnDonate)
+        Me.pnlSideBar.Controls.Add(Me.btnRequest)
         Me.pnlSideBar.Dock = System.Windows.Forms.DockStyle.Left
         Me.pnlSideBar.Location = New System.Drawing.Point(0, 0)
         Me.pnlSideBar.Name = "pnlSideBar"
@@ -145,26 +145,26 @@ Partial Class RequestorMainForm
         Me.btnInventory.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer))
         Me.btnInventory.StateCommon.Content.ShortText.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnInventory.TabIndex = 1
-        Me.btnInventory.Values.Text = "INVENTORY"
+        Me.btnInventory.Values.Text = "TRACKING"
         '
-        'btnDonate
+        'btnRequest
         '
-        Me.btnDonate.Location = New System.Drawing.Point(36, 210)
-        Me.btnDonate.Name = "btnDonate"
-        Me.btnDonate.OverrideDefault.Back.Color1 = System.Drawing.Color.Gold
-        Me.btnDonate.OverrideDefault.Back.Color2 = System.Drawing.Color.Gold
-        Me.btnDonate.Size = New System.Drawing.Size(210, 50)
-        Me.btnDonate.StateCommon.Back.Color1 = System.Drawing.Color.Gold
-        Me.btnDonate.StateCommon.Back.Color2 = System.Drawing.Color.Gold
-        Me.btnDonate.StateCommon.Border.DrawBorders = CType((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) _
+        Me.btnRequest.Location = New System.Drawing.Point(36, 210)
+        Me.btnRequest.Name = "btnRequest"
+        Me.btnRequest.OverrideDefault.Back.Color1 = System.Drawing.Color.Gold
+        Me.btnRequest.OverrideDefault.Back.Color2 = System.Drawing.Color.Gold
+        Me.btnRequest.Size = New System.Drawing.Size(210, 50)
+        Me.btnRequest.StateCommon.Back.Color1 = System.Drawing.Color.Gold
+        Me.btnRequest.StateCommon.Back.Color2 = System.Drawing.Color.Gold
+        Me.btnRequest.StateCommon.Border.DrawBorders = CType((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) _
             Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) _
             Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right), ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)
-        Me.btnDonate.StateCommon.Border.Rounding = 20
-        Me.btnDonate.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer))
-        Me.btnDonate.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer))
-        Me.btnDonate.StateCommon.Content.ShortText.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDonate.TabIndex = 0
-        Me.btnDonate.Values.Text = "DONATE"
+        Me.btnRequest.StateCommon.Border.Rounding = 20
+        Me.btnRequest.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer))
+        Me.btnRequest.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer))
+        Me.btnRequest.StateCommon.Content.ShortText.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnRequest.TabIndex = 0
+        Me.btnRequest.Values.Text = "REQUEST"
         '
         'pnlChildForm
         '
@@ -217,7 +217,7 @@ Partial Class RequestorMainForm
     Friend WithEvents btnAbout As ComponentFactory.Krypton.Toolkit.KryptonButton
     Friend WithEvents btnProfile As ComponentFactory.Krypton.Toolkit.KryptonButton
     Friend WithEvents btnInventory As ComponentFactory.Krypton.Toolkit.KryptonButton
-    Friend WithEvents btnDonate As ComponentFactory.Krypton.Toolkit.KryptonButton
+    Friend WithEvents btnRequest As ComponentFactory.Krypton.Toolkit.KryptonButton
     Friend WithEvents pnlChildForm As Panel
     Friend WithEvents btnExit As ComponentFactory.Krypton.Toolkit.KryptonButton
 End Class

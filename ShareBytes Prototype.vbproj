@@ -131,6 +131,12 @@
     <Compile Include="ProfileForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="RequestForm.Designer.vb">
+      <DependentUpon>RequestForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="RequestForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="RequestorMainForm.Designer.vb">
       <DependentUpon>RequestorMainForm.vb</DependentUpon>
     </Compile>
@@ -200,6 +206,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ProfileForm.resx">
       <DependentUpon>ProfileForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RequestForm.resx">
+      <DependentUpon>RequestForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RequestorMainForm.resx">
       <DependentUpon>RequestorMainForm.vb</DependentUpon>
