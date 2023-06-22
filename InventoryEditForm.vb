@@ -21,8 +21,6 @@ Public Class InventoryEditForm
     Private Sub InventoryEditForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         connect.ConnectionString = "Provider = Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\USER\CJ\OMC\OMC database.accdb;"
 
-        lblTitle.Text = Product
-        lblQuantity.Text = Quantity
         txtProductName.Text = Product
         txtQuantity.Text = Quantity
         datExpiry.Text = ExpiryDate

@@ -22,8 +22,6 @@ Partial Class InventoryEditForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.lblTitle = New System.Windows.Forms.Label()
-        Me.lblQuantity = New System.Windows.Forms.Label()
         Me.btnAddItem = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         Me.datExpiry = New System.Windows.Forms.DateTimePicker()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -35,31 +33,13 @@ Partial Class InventoryEditForm
         Me.btnExit = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         Me.SuspendLayout()
         '
-        'lblTitle
-        '
-        Me.lblTitle.AutoSize = True
-        Me.lblTitle.Location = New System.Drawing.Point(42, 123)
-        Me.lblTitle.Name = "lblTitle"
-        Me.lblTitle.Size = New System.Drawing.Size(33, 16)
-        Me.lblTitle.TabIndex = 0
-        Me.lblTitle.Text = "Title"
-        '
-        'lblQuantity
-        '
-        Me.lblQuantity.AutoSize = True
-        Me.lblQuantity.Location = New System.Drawing.Point(42, 166)
-        Me.lblQuantity.Name = "lblQuantity"
-        Me.lblQuantity.Size = New System.Drawing.Size(55, 16)
-        Me.lblQuantity.TabIndex = 1
-        Me.lblQuantity.Text = "Quantity"
-        '
         'btnAddItem
         '
         Me.btnAddItem.Location = New System.Drawing.Point(172, 423)
         Me.btnAddItem.Name = "btnAddItem"
         Me.btnAddItem.Size = New System.Drawing.Size(147, 34)
         Me.btnAddItem.TabIndex = 20
-        Me.btnAddItem.Values.Text = "Add Item"
+        Me.btnAddItem.Values.Text = "Edit Item"
         '
         'datExpiry
         '
@@ -173,8 +153,6 @@ Partial Class InventoryEditForm
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.txtProductName)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.lblQuantity)
-        Me.Controls.Add(Me.lblTitle)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "InventoryEditForm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -183,9 +161,6 @@ Partial Class InventoryEditForm
         Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents lblTitle As Label
-    Friend WithEvents lblQuantity As Label
     Friend WithEvents btnAddItem As ComponentFactory.Krypton.Toolkit.KryptonButton
     Friend WithEvents datExpiry As DateTimePicker
     Friend WithEvents Label4 As Label

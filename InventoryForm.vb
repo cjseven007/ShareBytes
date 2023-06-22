@@ -10,6 +10,9 @@ Public Class InventoryForm
 
     Private Sub btnEdit_Click(sender As Object, e As EventArgs)
         ' Handle the Edit button click event
+        If connect.State = ConnectionState.Closed Then
+            connect.Open()
+        End If
         Dim button As KryptonButton = DirectCast(sender, KryptonButton)
         Dim productID As Integer = CInt(button.Tag)
         sql = "SELECT product, quantity, expiryDate FROM Inventory WHERE ID = @productID"
@@ -35,6 +38,9 @@ Public Class InventoryForm
 
     Private Sub btnDelete_Click(sender As Object, e As EventArgs)
         ' Handle the Delete button click event
+        If connect.State = ConnectionState.Closed Then
+            connect.Open()
+        End If
         Dim res As String
         res = MsgBox("Are you sure you want to delete this item?", 4, "Delete Item")
         If res = vbYes Then
