@@ -23,7 +23,7 @@ Public Class SignUpForm
             connect.Open()
         End If
 
-        If txtEmail.Text = Nothing Or txtUsername.Text = Nothing Or txtPassword.Text = Nothing Or txtConfirmPassword.Text = Nothing Then
+        If txtEmail.Text = Nothing Or txtUsername.Text = Nothing Or txtPassword.Text = Nothing Or txtConfirmPassword.Text = Nothing Or (rbtDonor.Checked = False And rbtRequestor.Checked = False) Then
             MessageBox.Show("Please fill in all blank fields.", "Incomplete details", 0, MessageBoxIcon.Error)
         ElseIf txtPassword.Text <> txtConfirmPassword.Text Then
             MessageBox.Show("Please make sure the passwords are the same.", "Password Not the Same", 0, MessageBoxIcon.Error)
@@ -38,12 +38,17 @@ Public Class SignUpForm
                 MsgBox("User under username '" & txtUsername.Text & "'already exist!", 0, "User Already Exist")
 
             Else
-                sql = "INSERT INTO [user] (email, username, [password]) VALUES (@Email, @Username, @Password)"
+                sql = "INSERT INTO [user] (email, username, [password], usertype) VALUES (@Email, @Username, @Password, @Usertype)"
 
                 command = New OleDbCommand(sql, connect)
                 command.Parameters.AddWithValue("@Email", txtEmail.Text)
                 command.Parameters.AddWithValue("@Username", txtUsername.Text)
                 command.Parameters.AddWithValue("@Password", txtPassword.Text)
+                If rbtDonor.Checked = True Then
+                    command.Parameters.AddWithValue("@Usertype", "Donor")
+                ElseIf rbtRequestor.Checked = True Then
+                    command.Parameters.AddWithValue("@Usertype", "Requestor")
+                End If
 
                 command.ExecuteNonQuery()
 
