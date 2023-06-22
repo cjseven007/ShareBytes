@@ -101,6 +101,12 @@
     <Compile Include="HomeForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="InventoryEditForm.Designer.vb">
+      <DependentUpon>InventoryEditForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryEditForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="InventoryForm.Designer.vb">
       <DependentUpon>InventoryForm.vb</DependentUpon>
     </Compile>
@@ -167,6 +173,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HomeForm.resx">
       <DependentUpon>HomeForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InventoryEditForm.resx">
+      <DependentUpon>InventoryEditForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InventoryForm.resx">
       <DependentUpon>InventoryForm.vb</DependentUpon>
