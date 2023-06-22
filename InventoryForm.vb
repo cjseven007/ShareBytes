@@ -1,6 +1,7 @@
 ﻿Imports System.Data.OleDb
 Imports LoginForm
 Imports ComponentFactory.Krypton.Toolkit
+Imports System.Windows.Forms.VisualStyles
 
 Public Class InventoryForm
     Dim connect As New OleDbConnection
@@ -14,7 +15,7 @@ Public Class InventoryForm
         sql = "SELECT product, quantity, expiryDate FROM Inventory WHERE ID = @productID"
         command = New OleDbCommand(sql, connect)
         command.Parameters.AddWithValue("@productID", OleDbType.VarChar).Value = productID
-        Console.WriteLine(productID)
+
         Dim reader As OleDbDataReader = command.ExecuteReader()
 
         If reader.Read() Then ' Check if there is a row of data
@@ -30,6 +31,22 @@ Public Class InventoryForm
         End If
 
         reader.Close()
+    End Sub
+
+    Private Sub btnDelete_Click(sender As Object, e As EventArgs)
+        ' Handle the Delete button click event
+        Dim res As String
+        res = MsgBox("Are you sure you want to delete this item?", 4, "Delete Item")
+        If res = vbYes Then
+            Dim button As KryptonButton = DirectCast(sender, KryptonButton)
+            Dim productID As Integer = CInt(button.Tag)
+            sql = "DELETE FROM Inventory WHERE ID = @productID"
+            command = New OleDbCommand(sql, connect)
+            command.Parameters.AddWithValue("@productID", OleDbType.VarChar).Value = productID
+            command.ExecuteNonQuery()
+            connect.Close()
+        End If
+
     End Sub
 
     Public Sub RefreshData()
@@ -120,7 +137,7 @@ Public Class InventoryForm
             Dim btnEdit As KryptonButton = New KryptonButton()
             btnEdit.Values.Text = "Edit"
 
-            btnEdit.Location = New System.Drawing.Point(81, 107)
+            btnEdit.Location = New System.Drawing.Point(10, 107)
             btnEdit.Name = "btnEdit"
             btnEdit.OverrideDefault.Back.Color1 = System.Drawing.Color.Gold
             btnEdit.OverrideDefault.Back.Color2 = System.Drawing.Color.Gold
@@ -135,6 +152,7 @@ Public Class InventoryForm
             btnEdit.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.Black
             btnEdit.StateCommon.Content.ShortText.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 
+
             'function of the button
             'get productID
             Dim productID As Integer = reader.GetInt32(reader.GetOrdinal("ID"))
@@ -144,14 +162,17 @@ Public Class InventoryForm
 
             'Delete Button
             Dim btnDelete As KryptonButton = New KryptonButton()
-            'btnDelete.Values.Text = "Delete"
+            btnDelete.Values.Text = ""
+            btnDelete.StateCommon.Back.Image = Image.FromFile("D:/UTP/Foundation 3rd Sem/VP/OMC stuff/ShareBytes Prototype/Resources/binbin.png")
+            btnDelete.StateCommon.Back.ImageStyle = PaletteImageStyle.CenterMiddle
 
-            btnDelete.BackgroundImage = Image.FromFile("D:/UTP/Foundation 3rd Sem/VP/OMC stuff/ShareBytes Prototype/Resources/bin.png")
-            btnDelete.Location = New System.Drawing.Point(30, 107)
+
+
+            btnDelete.Location = New System.Drawing.Point(155, 107)
             btnDelete.Name = "btnDelete"
             btnDelete.OverrideDefault.Back.Color1 = System.Drawing.Color.Red
             btnDelete.OverrideDefault.Back.Color2 = System.Drawing.Color.Red
-            btnDelete.Size = New System.Drawing.Size(50, 30)
+            btnDelete.Size = New System.Drawing.Size(30, 30)
             btnDelete.StateCommon.Back.Color1 = System.Drawing.Color.Red
             btnDelete.StateCommon.Back.Color2 = System.Drawing.Color.Red
             btnDelete.StateCommon.Border.DrawBorders = CType((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) _
@@ -161,6 +182,9 @@ Public Class InventoryForm
             btnDelete.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White
             btnDelete.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.White
             btnDelete.StateCommon.Content.ShortText.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+            'Delete function
+            btnDelete.Tag = productID
+            AddHandler btnDelete.Click, AddressOf btnDelete_Click
             '///////////////////////////////////////
 
 
