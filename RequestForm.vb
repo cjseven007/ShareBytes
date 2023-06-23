@@ -1,4 +1,5 @@
 ﻿Imports System.Data.OleDb
+Imports ComponentFactory.Krypton.Toolkit
 
 Public Class RequestForm
     Dim connect As New OleDbConnection
@@ -35,5 +36,113 @@ Public Class RequestForm
         Next
 
         table.Controls.Clear()
+
+        While reader.Read()
+            Dim customContainer As Panel = New Panel()
+            customContainer.BorderStyle = BorderStyle.FixedSingle
+            customContainer.Width = 600
+            customContainer.Height = 150
+            customContainer.BackColor = System.Drawing.Color.FromArgb(255, 255, 255)
+            customContainer.BorderStyle = BorderStyle.None
+
+
+            Dim ProductLabel As Label = New Label()
+            ProductLabel.Text = reader("title").ToString()
+            ProductLabel.Location = New Point(10, 10)
+            ProductLabel.AutoSize = True
+            ProductLabel.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+            ProductLabel.Name = "lblProduct"
+            ProductLabel.Size = New System.Drawing.Size(74, 28)
+
+            Dim QuantityLabel As Label = New Label()
+            QuantityLabel.Text = "Location: " & reader("location").ToString()
+            QuantityLabel.Location = New Point(10, 30)
+            QuantityLabel.AutoSize = True
+            QuantityLabel.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+            QuantityLabel.Name = "lblQuantity"
+            QuantityLabel.Size = New System.Drawing.Size(59, 23)
+
+            Dim ExpiryLabel As Label = New Label()
+            'convert to date only
+            Dim expiryDate As String = reader("pax").ToString
+
+            ExpiryLabel.Text = "Pax: " & expiryDate
+            ExpiryLabel.Location = New Point(10, 50)
+            ExpiryLabel.AutoSize = True
+            ExpiryLabel.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+            ExpiryLabel.Name = "lblExpiryDate"
+
+
+
+            Dim btnEdit As KryptonButton = New KryptonButton()
+            btnEdit.Values.Text = "Edit"
+
+            btnEdit.Location = New System.Drawing.Point(10, 107)
+            btnEdit.Name = "btnEdit"
+            btnEdit.OverrideDefault.Back.Color1 = System.Drawing.Color.Gold
+            btnEdit.OverrideDefault.Back.Color2 = System.Drawing.Color.Gold
+            btnEdit.Size = New System.Drawing.Size(100, 30)
+            btnEdit.StateCommon.Back.Color1 = System.Drawing.Color.Gold
+            btnEdit.StateCommon.Back.Color2 = System.Drawing.Color.Gold
+            btnEdit.StateCommon.Border.DrawBorders = CType((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) _
+            Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) _
+            Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right), ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)
+            btnEdit.StateCommon.Border.Rounding = 10
+            btnEdit.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.Black
+            btnEdit.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.Black
+            btnEdit.StateCommon.Content.ShortText.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+
+
+            'function of the button
+            'get productID
+
+            '////////////////////////////////////
+
+            'Delete Button
+            Dim btnDelete As KryptonButton = New KryptonButton()
+            btnDelete.Values.Text = ""
+            btnDelete.StateCommon.Back.Image = Image.FromFile("D:/UTP/Foundation 3rd Sem/VP/OMC stuff/ShareBytes Prototype/Resources/binbin.png")
+            btnDelete.StateCommon.Back.ImageStyle = PaletteImageStyle.CenterMiddle
+
+
+
+            btnDelete.Location = New System.Drawing.Point(155, 107)
+            btnDelete.Name = "btnDelete"
+            btnDelete.OverrideDefault.Back.Color1 = System.Drawing.Color.Red
+            btnDelete.OverrideDefault.Back.Color2 = System.Drawing.Color.Red
+            btnDelete.Size = New System.Drawing.Size(30, 30)
+            btnDelete.StateCommon.Back.Color1 = System.Drawing.Color.Red
+            btnDelete.StateCommon.Back.Color2 = System.Drawing.Color.Red
+            btnDelete.StateCommon.Border.DrawBorders = CType((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) _
+            Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) _
+            Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right), ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)
+            btnDelete.StateCommon.Border.Rounding = 10
+            btnDelete.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White
+            btnDelete.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.White
+            btnDelete.StateCommon.Content.ShortText.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+            'Delete function
+
+            '///////////////////////////////////////
+
+
+            customContainer.Controls.Add(ProductLabel)
+            customContainer.Controls.Add(QuantityLabel)
+            customContainer.Controls.Add(ExpiryLabel)
+
+            customContainer.Controls.Add(btnEdit)
+            customContainer.Controls.Add(btnDelete)
+
+            ' Calculate the index for the TableLayoutPanel
+            Dim columnIndex As Integer = (reader.GetOrdinal("title") - 1) Mod columnCount
+            Dim rowIndex As Integer = (reader.GetOrdinal("title") - 1) \ columnCount
+
+            ' Add the custom container to the form or container control
+            table.Controls.Add(customContainer, columnIndex, rowIndex)
+
+        End While
+        pnlRequest.Controls.Clear()
+        pnlRequest.Controls.Add(table)
+
+        reader.Close()
     End Sub
 End Class

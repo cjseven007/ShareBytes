@@ -23,7 +23,7 @@ Partial Class RequestForm
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.pnlRequest = New System.Windows.Forms.Panel()
         Me.SuspendLayout()
         '
         'Label1
@@ -38,12 +38,13 @@ Partial Class RequestForm
         Me.Label1.Text = "REQUEST"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'Panel1
+        'pnlRequest
         '
-        Me.Panel1.Location = New System.Drawing.Point(87, 92)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(799, 525)
-        Me.Panel1.TabIndex = 3
+        Me.pnlRequest.AutoScroll = True
+        Me.pnlRequest.Location = New System.Drawing.Point(87, 92)
+        Me.pnlRequest.Name = "pnlRequest"
+        Me.pnlRequest.Size = New System.Drawing.Size(799, 525)
+        Me.pnlRequest.TabIndex = 3
         '
         'RequestForm
         '
@@ -51,7 +52,7 @@ Partial Class RequestForm
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(972, 700)
-        Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.pnlRequest)
         Me.Controls.Add(Me.Label1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "RequestForm"
@@ -61,5 +62,5 @@ Partial Class RequestForm
     End Sub
 
     Friend WithEvents Label1 As Label
-    Friend WithEvents Panel1 As Panel
+    Friend WithEvents pnlRequest As Panel
 End Class
