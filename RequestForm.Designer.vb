@@ -25,6 +25,7 @@ Partial Class RequestForm
         Me.Label1 = New System.Windows.Forms.Label()
         Me.pnlRequest = New System.Windows.Forms.Panel()
         Me.btnAdd = New ComponentFactory.Krypton.Toolkit.KryptonButton()
+        Me.btnRefresh = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         Me.SuspendLayout()
         '
         'Label1
@@ -75,12 +76,43 @@ Partial Class RequestForm
         Me.btnAdd.TabIndex = 4
         Me.btnAdd.Values.Text = "Request"
         '
+        'btnRefresh
+        '
+        Me.btnRefresh.Location = New System.Drawing.Point(841, 25)
+        Me.btnRefresh.Name = "btnRefresh"
+        Me.btnRefresh.OverrideDefault.Back.Color1 = System.Drawing.Color.Gold
+        Me.btnRefresh.OverrideDefault.Back.Color2 = System.Drawing.Color.Gold
+        Me.btnRefresh.OverrideDefault.Border.Color1 = System.Drawing.Color.Black
+        Me.btnRefresh.OverrideDefault.Border.Color2 = System.Drawing.Color.Black
+        Me.btnRefresh.OverrideDefault.Border.DrawBorders = CType((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) _
+            Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) _
+            Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right), ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)
+        Me.btnRefresh.OverrideDefault.Border.Rounding = 15
+        Me.btnRefresh.OverrideDefault.Border.Width = 2
+        Me.btnRefresh.Size = New System.Drawing.Size(62, 61)
+        Me.btnRefresh.StateCommon.Back.Color1 = System.Drawing.Color.Gold
+        Me.btnRefresh.StateCommon.Back.Color2 = System.Drawing.Color.Gold
+        Me.btnRefresh.StateCommon.Border.Color1 = System.Drawing.Color.Black
+        Me.btnRefresh.StateCommon.Border.Color2 = System.Drawing.Color.Black
+        Me.btnRefresh.StateCommon.Border.DrawBorders = CType((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) _
+            Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) _
+            Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right), ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)
+        Me.btnRefresh.StateCommon.Border.Rounding = 15
+        Me.btnRefresh.StateCommon.Border.Width = 2
+        Me.btnRefresh.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.Black
+        Me.btnRefresh.StateCommon.Content.ShortText.Font = New System.Drawing.Font("Segoe UI Black", 19.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnRefresh.StateCommon.Content.ShortText.Image = Global.ShareBytes_Prototype.My.Resources.Resources._25429
+        Me.btnRefresh.TabIndex = 7
+        Me.btnRefresh.Values.Image = Global.ShareBytes_Prototype.My.Resources.Resources.refresh_page_option
+        Me.btnRefresh.Values.Text = ""
+        '
         'RequestForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(972, 700)
+        Me.Controls.Add(Me.btnRefresh)
         Me.Controls.Add(Me.btnAdd)
         Me.Controls.Add(Me.pnlRequest)
         Me.Controls.Add(Me.Label1)
@@ -94,4 +126,5 @@ Partial Class RequestForm
     Friend WithEvents Label1 As Label
     Friend WithEvents pnlRequest As Panel
     Friend WithEvents btnAdd As ComponentFactory.Krypton.Toolkit.KryptonButton
+    Friend WithEvents btnRefresh As ComponentFactory.Krypton.Toolkit.KryptonButton
 End Class

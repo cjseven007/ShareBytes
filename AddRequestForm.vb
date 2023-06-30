@@ -4,7 +4,8 @@ Public Class AddRequestForm
     Dim connect As New OleDbConnection
     Dim command As New OleDbCommand
     Dim sql As String = Nothing
-    Private requestForm As RequestForm ' Reference to InventoryForm
+    Private requestForm As RequestForm ' Reference to requestForm
+
 
     Public Sub New(requestForm As RequestForm)
         InitializeComponent()
@@ -47,6 +48,7 @@ Public Class AddRequestForm
 
         command.ExecuteNonQuery()
         MsgBox("Request Successful.", 0 & MsgBoxStyle.Information, "Success")
+        requestForm.RefreshData()
         Me.Close()
     End Sub
 

@@ -6,8 +6,26 @@ Public Class RequestForm
     Dim command As New OleDbCommand
     Dim sql As String = Nothing
 
-    Private Sub RequestForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        connect.ConnectionString = "Provider = Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\USER\CJ\OMC\OMC database.accdb;"
+    Private Sub btnDelete_Click(sender As Object, e As EventArgs)
+        ' Handle the Delete button click event
+        If connect.State = ConnectionState.Closed Then
+            connect.Open()
+        End If
+        Dim res As String
+        res = MsgBox("Are you sure you want to delete this item?", 4, "Delete Item")
+        If res = vbYes Then
+            Dim button As KryptonButton = DirectCast(sender, KryptonButton)
+            Dim requestID As Integer = CInt(button.Tag)
+            sql = "DELETE FROM Requests WHERE RequestID = @RequestID"
+            command = New OleDbCommand(sql, connect)
+            command.Parameters.AddWithValue("@RequestID", OleDbType.VarChar).Value = requestID
+            command.ExecuteNonQuery()
+            RefreshData()
+            connect.Close()
+        End If
+
+    End Sub
+    Public Sub RefreshData()
         If connect.State = ConnectionState.Closed Then
             connect.Open()
         End If
@@ -55,19 +73,20 @@ Public Class RequestForm
             lblTitle.Size = New System.Drawing.Size(74, 28)
 
             Dim lblLocation As Label = New Label()
+            lblLocation.AutoSize = False
+            lblLocation.AutoEllipsis = True
             lblLocation.Text = "Location: " & reader("location").ToString()
             lblLocation.Location = New Point(30, 50)
-            lblLocation.AutoSize = True
             lblLocation.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
             lblLocation.Name = "lblLocation"
-            lblLocation.Size = New System.Drawing.Size(59, 23)
+            lblLocation.Size = New System.Drawing.Size(350, 40)
 
             Dim lblPax As Label = New Label()
             'convert to date only
             Dim expiryDate As String = reader("pax").ToString
 
             lblPax.Text = "Pax: " & expiryDate
-            lblPax.Location = New Point(30, 70)
+            lblPax.Location = New Point(30, 90)
             lblPax.AutoSize = True
             lblPax.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
             lblPax.Name = "lblPax"
@@ -94,7 +113,8 @@ Public Class RequestForm
 
 
             'function of the button
-            'get productID
+            'get RequestID
+            Dim requestID As Integer = reader.GetInt32(reader.GetOrdinal("RequestID"))
 
             '////////////////////////////////////
 
@@ -121,7 +141,8 @@ Public Class RequestForm
             btnDelete.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.White
             btnDelete.StateCommon.Content.ShortText.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
             'Delete function
-
+            btnDelete.Tag = requestID
+            AddHandler btnDelete.Click, AddressOf btnDelete_Click
             '///////////////////////////////////////
 
 
@@ -145,9 +166,17 @@ Public Class RequestForm
 
         reader.Close()
     End Sub
+    Private Sub RequestForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        connect.ConnectionString = "Provider = Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\USER\CJ\OMC\OMC database.accdb;"
+        RefreshData()
+    End Sub
 
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
         Dim addRequestForm As New AddRequestForm(Me) ' Pass the reference of InventoryForm
         addRequestForm.ShowDialog()
+    End Sub
+
+    Private Sub btnRefresh_Click(sender As Object, e As EventArgs) Handles btnRefresh.Click
+        RefreshData()
     End Sub
 End Class
