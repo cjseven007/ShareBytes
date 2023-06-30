@@ -40,44 +40,44 @@ Public Class RequestForm
         While reader.Read()
             Dim customContainer As Panel = New Panel()
             customContainer.BorderStyle = BorderStyle.FixedSingle
-            customContainer.Width = 600
+            customContainer.Width = 550
             customContainer.Height = 150
             customContainer.BackColor = System.Drawing.Color.FromArgb(255, 255, 255)
             customContainer.BorderStyle = BorderStyle.None
 
 
-            Dim ProductLabel As Label = New Label()
-            ProductLabel.Text = reader("title").ToString()
-            ProductLabel.Location = New Point(10, 10)
-            ProductLabel.AutoSize = True
-            ProductLabel.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-            ProductLabel.Name = "lblProduct"
-            ProductLabel.Size = New System.Drawing.Size(74, 28)
+            Dim lblTitle As Label = New Label()
+            lblTitle.Text = reader("title").ToString()
+            lblTitle.Location = New Point(30, 30)
+            lblTitle.AutoSize = True
+            lblTitle.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+            lblTitle.Name = "lblTitle"
+            lblTitle.Size = New System.Drawing.Size(74, 28)
 
-            Dim QuantityLabel As Label = New Label()
-            QuantityLabel.Text = "Location: " & reader("location").ToString()
-            QuantityLabel.Location = New Point(10, 30)
-            QuantityLabel.AutoSize = True
-            QuantityLabel.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-            QuantityLabel.Name = "lblQuantity"
-            QuantityLabel.Size = New System.Drawing.Size(59, 23)
+            Dim lblLocation As Label = New Label()
+            lblLocation.Text = "Location: " & reader("location").ToString()
+            lblLocation.Location = New Point(30, 50)
+            lblLocation.AutoSize = True
+            lblLocation.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+            lblLocation.Name = "lblLocation"
+            lblLocation.Size = New System.Drawing.Size(59, 23)
 
-            Dim ExpiryLabel As Label = New Label()
+            Dim lblPax As Label = New Label()
             'convert to date only
             Dim expiryDate As String = reader("pax").ToString
 
-            ExpiryLabel.Text = "Pax: " & expiryDate
-            ExpiryLabel.Location = New Point(10, 50)
-            ExpiryLabel.AutoSize = True
-            ExpiryLabel.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-            ExpiryLabel.Name = "lblExpiryDate"
+            lblPax.Text = "Pax: " & expiryDate
+            lblPax.Location = New Point(30, 70)
+            lblPax.AutoSize = True
+            lblPax.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+            lblPax.Name = "lblPax"
 
 
 
             Dim btnEdit As KryptonButton = New KryptonButton()
             btnEdit.Values.Text = "Edit"
 
-            btnEdit.Location = New System.Drawing.Point(10, 107)
+            btnEdit.Location = New System.Drawing.Point(420, 30)
             btnEdit.Name = "btnEdit"
             btnEdit.OverrideDefault.Back.Color1 = System.Drawing.Color.Gold
             btnEdit.OverrideDefault.Back.Color2 = System.Drawing.Color.Gold
@@ -106,7 +106,7 @@ Public Class RequestForm
 
 
 
-            btnDelete.Location = New System.Drawing.Point(155, 107)
+            btnDelete.Location = New System.Drawing.Point(490, 70)
             btnDelete.Name = "btnDelete"
             btnDelete.OverrideDefault.Back.Color1 = System.Drawing.Color.Red
             btnDelete.OverrideDefault.Back.Color2 = System.Drawing.Color.Red
@@ -125,9 +125,9 @@ Public Class RequestForm
             '///////////////////////////////////////
 
 
-            customContainer.Controls.Add(ProductLabel)
-            customContainer.Controls.Add(QuantityLabel)
-            customContainer.Controls.Add(ExpiryLabel)
+            customContainer.Controls.Add(lblTitle)
+            customContainer.Controls.Add(lblLocation)
+            customContainer.Controls.Add(lblPax)
 
             customContainer.Controls.Add(btnEdit)
             customContainer.Controls.Add(btnDelete)
@@ -144,5 +144,10 @@ Public Class RequestForm
         pnlRequest.Controls.Add(table)
 
         reader.Close()
+    End Sub
+
+    Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
+        Dim addRequestForm As New AddRequestForm(Me) ' Pass the reference of InventoryForm
+        addRequestForm.ShowDialog()
     End Sub
 End Class

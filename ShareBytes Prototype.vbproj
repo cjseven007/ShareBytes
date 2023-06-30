@@ -89,6 +89,12 @@
     <Compile Include="AddInventoryForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="AddRequestForm.Designer.vb">
+      <DependentUpon>AddRequestForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AddRequestForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="DonateForm.Designer.vb">
       <DependentUpon>DonateForm.vb</DependentUpon>
     </Compile>
@@ -143,6 +149,12 @@
     <Compile Include="RequestorMainForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="SelectLocationForm.Designer.vb">
+      <DependentUpon>SelectLocationForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SelectLocationForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="SignUpForm.Designer.vb">
       <DependentUpon>SignUpForm.vb</DependentUpon>
     </Compile>
@@ -180,6 +192,9 @@
     <EmbeddedResource Include="AddInventoryForm.resx">
       <DependentUpon>AddInventoryForm.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AddRequestForm.resx">
+      <DependentUpon>AddRequestForm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DonateForm.resx">
       <DependentUpon>DonateForm.vb</DependentUpon>
     </EmbeddedResource>
@@ -212,6 +227,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RequestorMainForm.resx">
       <DependentUpon>RequestorMainForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SelectLocationForm.resx">
+      <DependentUpon>SelectLocationForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SignUpForm.resx">
       <DependentUpon>SignUpForm.vb</DependentUpon>
