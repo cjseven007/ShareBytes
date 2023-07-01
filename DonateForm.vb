@@ -37,10 +37,53 @@ Public Class DonateForm
         reader.Close()
     End Sub
 
+
+    ' Function to calculate the distance using the Haversine formula
+    ' This is for the distance label in the custom container
+    Private Function CalculateDistance(lat1 As Double, lon1 As Double, lat2 As Double, lon2 As Double) As Double
+        Dim R As Double = 6371 ' Earth's radius in kilometers
+
+        Dim dLat As Double = DegreeToRadian(lat2 - lat1)
+        Dim dLon As Double = DegreeToRadian(lon2 - lon1)
+
+        Dim a As Double = Math.Sin(dLat / 2) * Math.Sin(dLat / 2) +
+                      Math.Cos(DegreeToRadian(lat1)) * Math.Cos(DegreeToRadian(lat2)) *
+                      Math.Sin(dLon / 2) * Math.Sin(dLon / 2)
+
+        Dim c As Double = 2 * Math.Atan2(Math.Sqrt(a), Math.Sqrt(1 - a))
+
+        Dim distance As Double = R * c
+        Return distance
+    End Function
+
+    Private Function DegreeToRadian(deg As Double) As Double
+        Return deg * (Math.PI / 180)
+    End Function
+
     Public Sub DonateFormRefreshData()
         If connect.State = ConnectionState.Closed Then
             connect.Open()
         End If
+
+        'Get user latitude and longitude
+        Dim userID As Integer = LoginForm.globalUserID
+        sql = "SELECT latitude, longitude FROM [User] WHERE ID = @UserID"
+        command = New OleDbCommand(sql, connect)
+        command.Parameters.AddWithValue("@UserID", userID)
+        Dim reader1 As OleDbDataReader = command.ExecuteReader()
+
+
+        Dim userLatitude As Double
+        Dim userLongitude As Double
+        If reader1.Read() Then
+            userLatitude = CDbl(reader1("latitude"))
+            userLongitude = CDbl(reader1("longitude"))
+            reader1.Close()
+        Else
+            reader1.Close()
+        End If
+
+
 
         'Retrieve data from database
         sql = "SELECT RequestID, title, description, location, latitude, longitude, pax, status FROM Requests"
@@ -98,6 +141,20 @@ Public Class DonateForm
                 paxLabel.Name = "lblPax"
 
 
+                ' Retrieve request information from the database
+                Dim latitude As Double = CDbl(reader("latitude"))
+                Dim longitude As Double = CDbl(reader("longitude"))
+                ' Calculate the distance using the Haversine formula
+                Dim distance As Double = CalculateDistance(userLatitude, userLongitude, latitude, longitude)
+                '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+                Dim distanceLabel As Label = New Label()
+                distanceLabel.Text = "Distance: " & distance.ToString("F2") & " km from you"
+                distanceLabel.Location = New Point(10, 110)
+                distanceLabel.AutoSize = True
+                distanceLabel.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+                distanceLabel.Name = "lblPax"
+
+
 
                 Dim button As KryptonButton = New KryptonButton()
                 button.Values.Text = "View"
@@ -126,6 +183,7 @@ Public Class DonateForm
                 customContainer.Controls.Add(titleLabel)
                 customContainer.Controls.Add(descriptionLabel)
                 customContainer.Controls.Add(paxLabel)
+                customContainer.Controls.Add(distanceLabel)
                 customContainer.Controls.Add(button)
 
 
