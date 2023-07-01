@@ -33,7 +33,7 @@ Partial Class ViewRequestForm
         Me.lblPax = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.lblDistance = New System.Windows.Forms.Label()
-        Me.btnSave = New ComponentFactory.Krypton.Toolkit.KryptonButton()
+        Me.btnDonate = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
@@ -155,28 +155,28 @@ Partial Class ViewRequestForm
         Me.lblDistance.TabIndex = 21
         Me.lblDistance.Text = "Distance"
         '
-        'btnSave
+        'btnDonate
         '
-        Me.btnSave.Location = New System.Drawing.Point(598, 530)
-        Me.btnSave.Name = "btnSave"
-        Me.btnSave.OverrideDefault.Back.Color1 = System.Drawing.Color.Gold
-        Me.btnSave.OverrideDefault.Back.Color2 = System.Drawing.Color.Gold
-        Me.btnSave.OverrideDefault.Border.DrawBorders = CType((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) _
+        Me.btnDonate.Location = New System.Drawing.Point(598, 530)
+        Me.btnDonate.Name = "btnDonate"
+        Me.btnDonate.OverrideDefault.Back.Color1 = System.Drawing.Color.Gold
+        Me.btnDonate.OverrideDefault.Back.Color2 = System.Drawing.Color.Gold
+        Me.btnDonate.OverrideDefault.Border.DrawBorders = CType((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) _
             Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) _
             Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right), ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)
-        Me.btnSave.OverrideDefault.Border.Rounding = 10
-        Me.btnSave.Size = New System.Drawing.Size(139, 46)
-        Me.btnSave.StateCommon.Back.Color1 = System.Drawing.Color.Gold
-        Me.btnSave.StateCommon.Back.Color2 = System.Drawing.Color.Gold
-        Me.btnSave.StateCommon.Border.Color1 = System.Drawing.Color.Gold
-        Me.btnSave.StateCommon.Border.Color2 = System.Drawing.Color.Gold
-        Me.btnSave.StateCommon.Border.DrawBorders = CType((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) _
+        Me.btnDonate.OverrideDefault.Border.Rounding = 10
+        Me.btnDonate.Size = New System.Drawing.Size(139, 46)
+        Me.btnDonate.StateCommon.Back.Color1 = System.Drawing.Color.Gold
+        Me.btnDonate.StateCommon.Back.Color2 = System.Drawing.Color.Gold
+        Me.btnDonate.StateCommon.Border.Color1 = System.Drawing.Color.Gold
+        Me.btnDonate.StateCommon.Border.Color2 = System.Drawing.Color.Gold
+        Me.btnDonate.StateCommon.Border.DrawBorders = CType((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) _
             Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) _
             Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right), ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)
-        Me.btnSave.StateCommon.Border.Rounding = 10
-        Me.btnSave.StateCommon.Content.ShortText.Font = New System.Drawing.Font("Segoe UI", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSave.TabIndex = 33
-        Me.btnSave.Values.Text = "Donate"
+        Me.btnDonate.StateCommon.Border.Rounding = 10
+        Me.btnDonate.StateCommon.Content.ShortText.Font = New System.Drawing.Font("Segoe UI", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDonate.TabIndex = 33
+        Me.btnDonate.Values.Text = "Donate"
         '
         'Label6
         '
@@ -195,7 +195,7 @@ Partial Class ViewRequestForm
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(800, 625)
         Me.Controls.Add(Me.Label6)
-        Me.Controls.Add(Me.btnSave)
+        Me.Controls.Add(Me.btnDonate)
         Me.Controls.Add(Me.lblDistance)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.lblPax)
@@ -227,6 +227,6 @@ Partial Class ViewRequestForm
     Friend WithEvents lblPax As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents lblDistance As Label
-    Friend WithEvents btnSave As ComponentFactory.Krypton.Toolkit.KryptonButton
+    Friend WithEvents btnDonate As ComponentFactory.Krypton.Toolkit.KryptonButton
     Friend WithEvents Label6 As Label
 End Class

@@ -30,7 +30,7 @@ Partial Class ProfileForm
         Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label1.Font = New System.Drawing.Font("Segoe UI Black", 22.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.Gold
-        Me.Label1.Location = New System.Drawing.Point(2, 88)
+        Me.Label1.Location = New System.Drawing.Point(2, 29)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(970, 50)
         Me.Label1.TabIndex = 3
