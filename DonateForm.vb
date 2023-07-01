@@ -15,7 +15,7 @@ Public Class DonateForm
         End If
         Dim button As KryptonButton = DirectCast(sender, KryptonButton)
         Dim requestID As Integer = CInt(button.Tag)
-        sql = "SELECT title, description, location, latitude, longitude, pax FROM Requests WHERE RequestID = @RequestID"
+        sql = "SELECT requestorID, title, description, location, latitude, longitude, pax FROM Requests WHERE RequestID = @RequestID"
         command = New OleDbCommand(sql, connect)
         command.Parameters.AddWithValue("@RequestID", OleDbType.VarChar).Value = requestID
 
@@ -24,11 +24,14 @@ Public Class DonateForm
         If reader.Read() Then ' Check if there is a row of data
             Dim viewRequestForm As New ViewRequestForm(Me)
             ' Set the product values in the edit form
+            viewRequestForm.RequestorID = reader("requestorID").ToString()
             viewRequestForm.RequestID = requestID
             viewRequestForm.Title = reader("title").ToString()
             viewRequestForm.Description = reader("description").ToString() ' Set the retrieved product value
             viewRequestForm.Location = reader("location").ToString() ' Set the retrieved quantity value
             viewRequestForm.Pax = reader("pax").ToString() ' Set the retrieved expiry date value
+            viewRequestForm.Latitude = reader("latitude").ToString()
+            viewRequestForm.Longitude = reader("longitude").ToString()
 
             ' Show the InventoryEditForm
             viewRequestForm.ShowDialog()
