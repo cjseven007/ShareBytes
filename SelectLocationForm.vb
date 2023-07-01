@@ -5,6 +5,7 @@ Imports System.Windows.Forms
 Public Class SelectLocationForm
     Private addRequestForm As AddRequestForm ' Reference to AddRequestForm
     Private editRequestForm As EditRequestForm
+    Private editProfileForm As EditProfileForm
     Public Shared latitudeGlobal, longitudeGlobal, addressGlobal As String
 
     Public Sub New(addRequestForm As AddRequestForm)
@@ -15,6 +16,10 @@ Public Class SelectLocationForm
     Public Sub New(editRequestForm As EditRequestForm)
         InitializeComponent()
         Me.editRequestForm = editRequestForm
+    End Sub
+    Public Sub New(editProfileForm As EditProfileForm)
+        InitializeComponent()
+        Me.editProfileForm = editProfileForm
     End Sub
 
     Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
@@ -55,6 +60,8 @@ Public Class SelectLocationForm
             addRequestForm.txtRLocation.Text = addressGlobal
         ElseIf editRequestForm IsNot Nothing AndAlso editRequestForm.Visible Then
             editRequestForm.txtRLocation.Text = addressGlobal
+        ElseIf editProfileForm IsNot Nothing AndAlso editProfileForm.Visible Then
+            editProfileForm.txtAddress.Text = addressGlobal
         End If
         Me.Hide()
     End Sub

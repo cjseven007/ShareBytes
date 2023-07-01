@@ -22,7 +22,21 @@ Partial Class ProfileForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ProfileForm))
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.lblUsername = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.lblEmail = New System.Windows.Forms.Label()
+        Me.lblOrganization = New System.Windows.Forms.Label()
+        Me.lblAddress = New System.Windows.Forms.Label()
+        Me.picProfile = New System.Windows.Forms.PictureBox()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.btnEdit = New ComponentFactory.Krypton.Toolkit.KryptonButton()
+        CType(Me.picProfile, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
@@ -37,20 +51,166 @@ Partial Class ProfileForm
         Me.Label1.Text = "PROFILE"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(34, 103)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(207, 28)
+        Me.Label2.TabIndex = 15
+        Me.Label2.Text = "Username                :"
+        '
+        'lblUsername
+        '
+        Me.lblUsername.AutoSize = True
+        Me.lblUsername.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblUsername.Location = New System.Drawing.Point(271, 103)
+        Me.lblUsername.Name = "lblUsername"
+        Me.lblUsername.Size = New System.Drawing.Size(96, 28)
+        Me.lblUsername.TabIndex = 20
+        Me.lblUsername.Text = "username"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(34, 158)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(207, 28)
+        Me.Label3.TabIndex = 21
+        Me.Label3.Text = "Email                       :"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(34, 214)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(206, 28)
+        Me.Label4.TabIndex = 22
+        Me.Label4.Text = "Organization           :"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(34, 281)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(206, 28)
+        Me.Label5.TabIndex = 23
+        Me.Label5.Text = "Address                   :"
+        '
+        'lblEmail
+        '
+        Me.lblEmail.AutoSize = True
+        Me.lblEmail.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblEmail.Location = New System.Drawing.Point(271, 158)
+        Me.lblEmail.Name = "lblEmail"
+        Me.lblEmail.Size = New System.Drawing.Size(59, 28)
+        Me.lblEmail.TabIndex = 24
+        Me.lblEmail.Text = "email"
+        '
+        'lblOrganization
+        '
+        Me.lblOrganization.AutoSize = True
+        Me.lblOrganization.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblOrganization.Location = New System.Drawing.Point(271, 214)
+        Me.lblOrganization.Name = "lblOrganization"
+        Me.lblOrganization.Size = New System.Drawing.Size(176, 28)
+        Me.lblOrganization.TabIndex = 25
+        Me.lblOrganization.Text = "organization name"
+        '
+        'lblAddress
+        '
+        Me.lblAddress.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblAddress.Location = New System.Drawing.Point(271, 281)
+        Me.lblAddress.Name = "lblAddress"
+        Me.lblAddress.Size = New System.Drawing.Size(525, 130)
+        Me.lblAddress.TabIndex = 26
+        Me.lblAddress.Text = "address"
+        '
+        'picProfile
+        '
+        Me.picProfile.Image = CType(resources.GetObject("picProfile.Image"), System.Drawing.Image)
+        Me.picProfile.InitialImage = CType(resources.GetObject("picProfile.InitialImage"), System.Drawing.Image)
+        Me.picProfile.Location = New System.Drawing.Point(606, 46)
+        Me.picProfile.Name = "picProfile"
+        Me.picProfile.Size = New System.Drawing.Size(182, 196)
+        Me.picProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picProfile.TabIndex = 27
+        Me.picProfile.TabStop = False
+        '
+        'Panel1
+        '
+        Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel1.Controls.Add(Me.lblAddress)
+        Me.Panel1.Controls.Add(Me.picProfile)
+        Me.Panel1.Controls.Add(Me.lblOrganization)
+        Me.Panel1.Controls.Add(Me.Label2)
+        Me.Panel1.Controls.Add(Me.lblEmail)
+        Me.Panel1.Controls.Add(Me.lblUsername)
+        Me.Panel1.Controls.Add(Me.Label5)
+        Me.Panel1.Controls.Add(Me.Label3)
+        Me.Panel1.Controls.Add(Me.Label4)
+        Me.Panel1.Location = New System.Drawing.Point(73, 104)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(838, 478)
+        Me.Panel1.TabIndex = 28
+        '
+        'btnEdit
+        '
+        Me.btnEdit.Location = New System.Drawing.Point(732, 619)
+        Me.btnEdit.Name = "btnEdit"
+        Me.btnEdit.OverrideDefault.Back.Color1 = System.Drawing.Color.Gold
+        Me.btnEdit.OverrideDefault.Back.Color2 = System.Drawing.Color.Gold
+        Me.btnEdit.OverrideDefault.Border.DrawBorders = CType((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) _
+            Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) _
+            Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right), ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)
+        Me.btnEdit.OverrideDefault.Border.Rounding = 10
+        Me.btnEdit.Size = New System.Drawing.Size(179, 46)
+        Me.btnEdit.StateCommon.Back.Color1 = System.Drawing.Color.Gold
+        Me.btnEdit.StateCommon.Back.Color2 = System.Drawing.Color.Gold
+        Me.btnEdit.StateCommon.Border.Color1 = System.Drawing.Color.Gold
+        Me.btnEdit.StateCommon.Border.Color2 = System.Drawing.Color.Gold
+        Me.btnEdit.StateCommon.Border.DrawBorders = CType((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) _
+            Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) _
+            Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right), ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)
+        Me.btnEdit.StateCommon.Border.Rounding = 10
+        Me.btnEdit.StateCommon.Content.ShortText.Font = New System.Drawing.Font("Segoe UI", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEdit.TabIndex = 34
+        Me.btnEdit.Values.Text = "Edit Profile"
+        '
         'ProfileForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(972, 700)
+        Me.Controls.Add(Me.btnEdit)
         Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "ProfileForm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "ProfileForm"
+        CType(Me.picProfile, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
 
     Friend WithEvents Label1 As Label
+    Friend WithEvents Label2 As Label
+    Friend WithEvents lblUsername As Label
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Label5 As Label
+    Friend WithEvents lblEmail As Label
+    Friend WithEvents lblOrganization As Label
+    Friend WithEvents lblAddress As Label
+    Friend WithEvents picProfile As PictureBox
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents btnEdit As ComponentFactory.Krypton.Toolkit.KryptonButton
 End Class
