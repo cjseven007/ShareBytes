@@ -101,6 +101,12 @@
     <Compile Include="DonateForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="EditRequestForm.Designer.vb">
+      <DependentUpon>EditRequestForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="EditRequestForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="HomeForm.Designer.vb">
       <DependentUpon>HomeForm.vb</DependentUpon>
     </Compile>
@@ -197,6 +203,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DonateForm.resx">
       <DependentUpon>DonateForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditRequestForm.resx">
+      <DependentUpon>EditRequestForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HomeForm.resx">
       <DependentUpon>HomeForm.vb</DependentUpon>

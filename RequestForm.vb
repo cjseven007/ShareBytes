@@ -6,6 +6,35 @@ Public Class RequestForm
     Dim command As New OleDbCommand
     Dim sql As String = Nothing
 
+
+    Private Sub btnEdit_Click(sender As Object, e As EventArgs)
+        ' Handle the Edit button click event
+        If connect.State = ConnectionState.Closed Then
+            connect.Open()
+        End If
+        Dim button As KryptonButton = DirectCast(sender, KryptonButton)
+        Dim requestID As Integer = CInt(button.Tag)
+        sql = "SELECT title, description, location, pax FROM Requests WHERE RequestID = @RequestID"
+        command = New OleDbCommand(sql, connect)
+        command.Parameters.AddWithValue("@RequestID", OleDbType.VarChar).Value = requestID
+
+        Dim reader As OleDbDataReader = command.ExecuteReader()
+
+        If reader.Read() Then ' Check if there is a row of data
+            Dim editRequestForm As New EditRequestForm(Me)
+            ' Set the request values in the edit form
+            editRequestForm.RequestID = requestID
+            editRequestForm.Title = reader("title").ToString() ' Set the retrieved title
+            editRequestForm.Description = reader("description").ToString() ' Set the retrieved description
+            editRequestForm.Location = reader("location").ToString() ' Set the retrieved location
+            editRequestForm.Pax = reader("pax").ToString() ' Set the retrieved pax
+
+            ' Show the EditRequestForm
+            editRequestForm.ShowDialog()
+        End If
+
+        reader.Close()
+    End Sub
     Private Sub btnDelete_Click(sender As Object, e As EventArgs)
         ' Handle the Delete button click event
         If connect.State = ConnectionState.Closed Then
@@ -115,7 +144,8 @@ Public Class RequestForm
             'function of the button
             'get RequestID
             Dim requestID As Integer = reader.GetInt32(reader.GetOrdinal("RequestID"))
-
+            btnEdit.Tag = requestID
+            AddHandler btnEdit.Click, AddressOf btnEdit_Click
             '////////////////////////////////////
 
             'Delete Button

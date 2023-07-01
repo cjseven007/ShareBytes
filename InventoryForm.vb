@@ -91,6 +91,7 @@ Public Class InventoryForm
         table.Controls.Clear()
 
         While reader.Read()
+
             Dim customContainer As Panel = New Panel()
             customContainer.BorderStyle = BorderStyle.FixedSingle
             customContainer.Width = 200
@@ -129,15 +130,24 @@ Public Class InventoryForm
             Dim datNow As Date = Now()
             Dim remaining As TimeSpan = expiryDateOnly - datNow
             Dim daysLeft As Integer = CInt(remaining.Days)
-            IsExpiringLabel.Text = "Expiring in " & daysLeft & " days"
+            If daysLeft > 0 Then
+                IsExpiringLabel.Text = "Expiring in " & daysLeft & " days"
+            ElseIf daysLeft = 0 Then
+                IsExpiringLabel.Text = "Expiring Today"
+            Else
+                IsExpiringLabel.Text = "Expired " & -(daysLeft) & " days ago"
+            End If
+
             IsExpiringLabel.Location = New Point(10, 70)
             IsExpiringLabel.AutoSize = True
             IsExpiringLabel.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
             IsExpiringLabel.Name = "lblExpiring"
-            If daysLeft <= 7 Then
+            If daysLeft <= 0 Then
                 IsExpiringLabel.ForeColor = Color.Red
+            ElseIf daysLeft <= 7 Then
+                IsExpiringLabel.ForeColor = Color.Orange
             Else
-                IsExpiringLabel.ForeColor = Color.Black
+                IsExpiringLabel.ForeColor = Color.Green
             End If
 
 

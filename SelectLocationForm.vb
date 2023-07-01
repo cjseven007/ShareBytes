@@ -4,11 +4,17 @@ Imports System.Windows.Forms
 <ComVisible(True)>
 Public Class SelectLocationForm
     Private addRequestForm As AddRequestForm ' Reference to AddRequestForm
+    Private editRequestForm As EditRequestForm
     Public Shared latitudeGlobal, longitudeGlobal, addressGlobal As String
 
     Public Sub New(addRequestForm As AddRequestForm)
         InitializeComponent()
         Me.addRequestForm = addRequestForm
+
+    End Sub
+    Public Sub New(editRequestForm As EditRequestForm)
+        InitializeComponent()
+        Me.editRequestForm = editRequestForm
     End Sub
 
     Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
@@ -45,7 +51,11 @@ Public Class SelectLocationForm
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         'Update the address in the textbox
-        addRequestForm.txtRLocation.Text = addressGlobal
+        If addRequestForm IsNot Nothing AndAlso addRequestForm.Visible Then
+            addRequestForm.txtRLocation.Text = addressGlobal
+        ElseIf editRequestForm IsNot Nothing AndAlso editRequestForm.Visible Then
+            editRequestForm.txtRLocation.Text = addressGlobal
+        End If
         Me.Hide()
     End Sub
 End Class

@@ -61,9 +61,9 @@ Partial Class SelectLocationForm
         'Panel1
         '
         Me.Panel1.Controls.Add(Me.wbbMap)
-        Me.Panel1.Location = New System.Drawing.Point(393, 102)
+        Me.Panel1.Location = New System.Drawing.Point(368, 102)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(550, 500)
+        Me.Panel1.Size = New System.Drawing.Size(561, 511)
         Me.Panel1.TabIndex = 20
         '
         'wbbMap
@@ -72,7 +72,7 @@ Partial Class SelectLocationForm
         Me.wbbMap.Location = New System.Drawing.Point(0, 0)
         Me.wbbMap.MinimumSize = New System.Drawing.Size(20, 20)
         Me.wbbMap.Name = "wbbMap"
-        Me.wbbMap.Size = New System.Drawing.Size(550, 500)
+        Me.wbbMap.Size = New System.Drawing.Size(561, 511)
         Me.wbbMap.TabIndex = 0
         '
         'Label1
@@ -87,7 +87,7 @@ Partial Class SelectLocationForm
         '
         'txtLocation
         '
-        Me.txtLocation.Location = New System.Drawing.Point(67, 129)
+        Me.txtLocation.Location = New System.Drawing.Point(53, 129)
         Me.txtLocation.Name = "txtLocation"
         Me.txtLocation.Size = New System.Drawing.Size(277, 40)
         Me.txtLocation.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
@@ -104,7 +104,7 @@ Partial Class SelectLocationForm
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(63, 103)
+        Me.Label2.Location = New System.Drawing.Point(49, 103)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(131, 23)
         Me.Label2.TabIndex = 23
@@ -112,7 +112,7 @@ Partial Class SelectLocationForm
         '
         'btnSelectLocation
         '
-        Me.btnSelectLocation.Location = New System.Drawing.Point(67, 185)
+        Me.btnSelectLocation.Location = New System.Drawing.Point(53, 185)
         Me.btnSelectLocation.Name = "btnSelectLocation"
         Me.btnSelectLocation.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btnSelectLocation.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
@@ -137,7 +137,7 @@ Partial Class SelectLocationForm
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(389, 619)
+        Me.Label3.Location = New System.Drawing.Point(373, 630)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(306, 23)
         Me.Label3.TabIndex = 25
@@ -145,7 +145,7 @@ Partial Class SelectLocationForm
         '
         'txtLatitude
         '
-        Me.txtLatitude.Location = New System.Drawing.Point(67, 279)
+        Me.txtLatitude.Location = New System.Drawing.Point(53, 279)
         Me.txtLatitude.Name = "txtLatitude"
         Me.txtLatitude.ReadOnly = True
         Me.txtLatitude.Size = New System.Drawing.Size(277, 40)
@@ -161,7 +161,7 @@ Partial Class SelectLocationForm
         '
         'txtLongitude
         '
-        Me.txtLongitude.Location = New System.Drawing.Point(67, 348)
+        Me.txtLongitude.Location = New System.Drawing.Point(53, 348)
         Me.txtLongitude.Name = "txtLongitude"
         Me.txtLongitude.ReadOnly = True
         Me.txtLongitude.Size = New System.Drawing.Size(277, 40)
@@ -177,7 +177,7 @@ Partial Class SelectLocationForm
         '
         'txtAddress
         '
-        Me.txtAddress.Location = New System.Drawing.Point(67, 428)
+        Me.txtAddress.Location = New System.Drawing.Point(53, 428)
         Me.txtAddress.Multiline = True
         Me.txtAddress.Name = "txtAddress"
         Me.txtAddress.ReadOnly = True
@@ -196,7 +196,7 @@ Partial Class SelectLocationForm
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(63, 253)
+        Me.Label4.Location = New System.Drawing.Point(49, 253)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(72, 23)
         Me.Label4.TabIndex = 29
@@ -206,7 +206,7 @@ Partial Class SelectLocationForm
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(63, 322)
+        Me.Label5.Location = New System.Drawing.Point(49, 322)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(87, 23)
         Me.Label5.TabIndex = 30
@@ -216,7 +216,7 @@ Partial Class SelectLocationForm
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(63, 402)
+        Me.Label6.Location = New System.Drawing.Point(49, 402)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(70, 23)
         Me.Label6.TabIndex = 31
@@ -224,7 +224,7 @@ Partial Class SelectLocationForm
         '
         'btnSave
         '
-        Me.btnSave.Location = New System.Drawing.Point(804, 619)
+        Me.btnSave.Location = New System.Drawing.Point(790, 619)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btnSave.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
