@@ -7,6 +7,35 @@ Public Class DonateForm
     Dim connect As New OleDbConnection
     Dim command As New OleDbCommand
     Dim sql As String = Nothing
+
+    Private Sub button_Click(sender As Object, e As EventArgs)
+        ' Handle the Edit button click event
+        If connect.State = ConnectionState.Closed Then
+            connect.Open()
+        End If
+        Dim button As KryptonButton = DirectCast(sender, KryptonButton)
+        Dim requestID As Integer = CInt(button.Tag)
+        sql = "SELECT title, description, location, latitude, longitude, pax FROM Requests WHERE RequestID = @RequestID"
+        command = New OleDbCommand(sql, connect)
+        command.Parameters.AddWithValue("@productID", OleDbType.VarChar).Value = requestID
+
+        Dim reader As OleDbDataReader = command.ExecuteReader()
+
+        If reader.Read() Then ' Check if there is a row of data
+            Dim viewRequestForm As New ViewRequestForm(Me)
+            ' Set the product values in the edit form
+            viewRequestForm.RequestID = requestID
+            viewRequestForm.Title = reader("title").ToString()
+            viewRequestForm.Description = reader("description").ToString() ' Set the retrieved product value
+            viewRequestForm.Location = reader("location").ToString() ' Set the retrieved quantity value
+            viewRequestForm.Pax = reader("pax").ToString() ' Set the retrieved expiry date value
+
+            ' Show the InventoryEditForm
+            viewRequestForm.ShowDialog()
+        End If
+
+        reader.Close()
+    End Sub
     Private Sub DonateForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         connect.ConnectionString = "Provider = Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\USER\CJ\OMC\OMC database.accdb;"
         If connect.State = ConnectionState.Closed Then
@@ -14,13 +43,13 @@ Public Class DonateForm
         End If
 
         'Retrieve data from database
-        sql = "SELECT title, location, pax FROM Requests"
+        sql = "SELECT RequestID, title, description, location, latitude, longitude, pax FROM Requests"
 
         command = New OleDbCommand(sql, connect)
         Dim reader As OleDbDataReader = command.ExecuteReader()
 
         Dim table As New TableLayoutPanel
-        table.ColumnCount = 3
+        table.ColumnCount = 2
         table.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.3))
         table.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.3))
         table.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.3))
@@ -31,8 +60,8 @@ Public Class DonateForm
         While reader.Read()
             Dim customContainer As Panel = New Panel()
             customContainer.BorderStyle = BorderStyle.FixedSingle
-            customContainer.Width = 200
-            customContainer.Height = 150
+            customContainer.Width = 300
+            customContainer.Height = 180
             customContainer.BackColor = System.Drawing.Color.FromArgb(255, 255, 255)
             customContainer.BorderStyle = BorderStyle.None
 
@@ -40,22 +69,22 @@ Public Class DonateForm
             Dim titleLabel As Label = New Label()
             titleLabel.Text = reader("title").ToString()
             titleLabel.Location = New Point(10, 10)
-            titleLabel.AutoSize = True
             titleLabel.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
             titleLabel.Name = "lblTitle"
-            titleLabel.Size = New System.Drawing.Size(74, 28)
+            titleLabel.Size = New System.Drawing.Size(250, 20)
+            titleLabel.AutoEllipsis = True
 
-            Dim locationLabel As Label = New Label()
-            locationLabel.Text = "Location: " & reader("location").ToString()
-            locationLabel.Location = New Point(10, 30)
-            locationLabel.AutoSize = True
-            locationLabel.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-            locationLabel.Name = "lblDescription"
-            locationLabel.Size = New System.Drawing.Size(59, 23)
+            Dim descriptionLabel As Label = New Label()
+            descriptionLabel.Text = "Description: " & reader("description").ToString()
+            descriptionLabel.Location = New Point(10, 30)
+            descriptionLabel.AutoEllipsis = True
+            descriptionLabel.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+            descriptionLabel.Name = "lblDescription"
+            descriptionLabel.Size = New System.Drawing.Size(250, 60)
 
             Dim paxLabel As Label = New Label()
             paxLabel.Text = "Pax: " & reader("pax").ToString()
-            paxLabel.Location = New Point(10, 50)
+            paxLabel.Location = New Point(10, 90)
             paxLabel.AutoSize = True
             paxLabel.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
             paxLabel.Name = "lblPax"
@@ -63,10 +92,10 @@ Public Class DonateForm
 
 
             Dim button As KryptonButton = New KryptonButton()
-            button.Values.Text = "DONATE"
+            button.Values.Text = "View"
 
-            button.Location = New System.Drawing.Point(81, 107)
-            button.Name = "btnConfirmDonate"
+            button.Location = New System.Drawing.Point(185, 135)
+            button.Name = "btnView"
             button.OverrideDefault.Back.Color1 = System.Drawing.Color.Gold
             button.OverrideDefault.Back.Color2 = System.Drawing.Color.Gold
             button.Size = New System.Drawing.Size(100, 30)
@@ -80,8 +109,14 @@ Public Class DonateForm
             button.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.Black
             button.StateCommon.Content.ShortText.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 
+            'Get request ID and handles the view button
+            Dim requestID As Integer = reader.GetInt32(reader.GetOrdinal("RequestID"))
+            button.Tag = requestID
+            AddHandler button.Click, AddressOf button_Click
+
+
             customContainer.Controls.Add(titleLabel)
-            customContainer.Controls.Add(locationLabel)
+            customContainer.Controls.Add(descriptionLabel)
             customContainer.Controls.Add(paxLabel)
             customContainer.Controls.Add(button)
 

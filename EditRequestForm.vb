@@ -54,6 +54,7 @@ Public Class EditRequestForm
         sql = "UPDATE Requests SET title = @Title, description = @Description, location = @Location"
 
         If latitude IsNot Nothing And longitude IsNot Nothing Then
+            'Check if the location is updated, if yes then update the latitude and longitude
             sql += ",latitude = @Latitude, longitude = @longitude, pax = @Pax WHERE RequestID = @RequestID"
             command = New OleDbCommand(sql, connect)
             command.Parameters.AddWithValue("@Title", title)
@@ -65,6 +66,7 @@ Public Class EditRequestForm
             command.Parameters.AddWithValue("@RequestID", RequestID)
             command.ExecuteNonQuery()
         Else
+            'if not just proceed
             sql += ",pax = @Pax WHERE RequestID = @RequestID"
             command = New OleDbCommand(sql, connect)
             command.Parameters.AddWithValue("@Title", title)

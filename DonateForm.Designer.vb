@@ -41,9 +41,9 @@ Partial Class DonateForm
         'pnlGridView
         '
         Me.pnlGridView.AutoScroll = True
-        Me.pnlGridView.Location = New System.Drawing.Point(70, 100)
+        Me.pnlGridView.Location = New System.Drawing.Point(62, 100)
         Me.pnlGridView.Name = "pnlGridView"
-        Me.pnlGridView.Size = New System.Drawing.Size(832, 535)
+        Me.pnlGridView.Size = New System.Drawing.Size(848, 535)
         Me.pnlGridView.TabIndex = 3
         '
         'DonateForm

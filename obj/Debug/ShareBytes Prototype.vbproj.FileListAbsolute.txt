@@ -29,3 +29,4 @@ D:\UTP\Foundation 3rd Sem\VP\OMC stuff\ShareBytes Prototype\obj\Debug\ShareBytes
 D:\UTP\Foundation 3rd Sem\VP\OMC stuff\ShareBytes Prototype\obj\Debug\ShareBytes_Prototype.AddRequestForm.resources
 D:\UTP\Foundation 3rd Sem\VP\OMC stuff\ShareBytes Prototype\obj\Debug\ShareBytes_Prototype.SelectLocationForm.resources
 D:\UTP\Foundation 3rd Sem\VP\OMC stuff\ShareBytes Prototype\obj\Debug\ShareBytes_Prototype.EditRequestForm.resources
+D:\UTP\Foundation 3rd Sem\VP\OMC stuff\ShareBytes Prototype\obj\Debug\ShareBytes_Prototype.ViewRequestForm.resources
