@@ -131,6 +131,7 @@
     <Compile Include="InventoryForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="LinearRegressionModel.vb" />
     <Compile Include="LoginForm.Designer.vb">
       <DependentUpon>LoginForm.vb</DependentUpon>
     </Compile>

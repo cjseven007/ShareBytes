@@ -19,7 +19,7 @@
     End Sub
 
     Private Sub btnHome_Click(sender As Object, e As EventArgs) Handles btnHome.Click
-
+        OpenChildFormInPanel(HomeForm)
     End Sub
 
     Private Sub btnAbout_Click(sender As Object, e As EventArgs) Handles btnAbout.Click
@@ -28,5 +28,13 @@
 
     Private Sub btnRequest_Click(sender As Object, e As EventArgs) Handles btnRequest.Click
         OpenChildFormInPanel(RequestForm)
+    End Sub
+
+    Private Sub btnProfile_Click(sender As Object, e As EventArgs) Handles btnProfile.Click
+        OpenChildFormInPanel(ProfileForm)
+    End Sub
+
+    Private Sub btnTracking_Click(sender As Object, e As EventArgs) Handles btnTracking.Click
+
     End Sub
 End Class

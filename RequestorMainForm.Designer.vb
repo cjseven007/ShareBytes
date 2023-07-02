@@ -27,7 +27,7 @@ Partial Class RequestorMainForm
         Me.btnLogOut = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         Me.btnAbout = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         Me.btnProfile = New ComponentFactory.Krypton.Toolkit.KryptonButton()
-        Me.btnInventory = New ComponentFactory.Krypton.Toolkit.KryptonButton()
+        Me.btnTracking = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         Me.btnRequest = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         Me.pnlChildForm = New System.Windows.Forms.Panel()
         Me.btnExit = New ComponentFactory.Krypton.Toolkit.KryptonButton()
@@ -42,7 +42,7 @@ Partial Class RequestorMainForm
         Me.pnlSideBar.Controls.Add(Me.btnLogOut)
         Me.pnlSideBar.Controls.Add(Me.btnAbout)
         Me.pnlSideBar.Controls.Add(Me.btnProfile)
-        Me.pnlSideBar.Controls.Add(Me.btnInventory)
+        Me.pnlSideBar.Controls.Add(Me.btnTracking)
         Me.pnlSideBar.Controls.Add(Me.btnRequest)
         Me.pnlSideBar.Dock = System.Windows.Forms.DockStyle.Left
         Me.pnlSideBar.Location = New System.Drawing.Point(0, 0)
@@ -128,24 +128,24 @@ Partial Class RequestorMainForm
         Me.btnProfile.TabIndex = 2
         Me.btnProfile.Values.Text = "PROFILE"
         '
-        'btnInventory
+        'btnTracking
         '
-        Me.btnInventory.Location = New System.Drawing.Point(36, 274)
-        Me.btnInventory.Name = "btnInventory"
-        Me.btnInventory.OverrideDefault.Back.Color1 = System.Drawing.Color.Gold
-        Me.btnInventory.OverrideDefault.Back.Color2 = System.Drawing.Color.Gold
-        Me.btnInventory.Size = New System.Drawing.Size(210, 50)
-        Me.btnInventory.StateCommon.Back.Color1 = System.Drawing.Color.Gold
-        Me.btnInventory.StateCommon.Back.Color2 = System.Drawing.Color.Gold
-        Me.btnInventory.StateCommon.Border.DrawBorders = CType((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) _
+        Me.btnTracking.Location = New System.Drawing.Point(36, 274)
+        Me.btnTracking.Name = "btnTracking"
+        Me.btnTracking.OverrideDefault.Back.Color1 = System.Drawing.Color.Gold
+        Me.btnTracking.OverrideDefault.Back.Color2 = System.Drawing.Color.Gold
+        Me.btnTracking.Size = New System.Drawing.Size(210, 50)
+        Me.btnTracking.StateCommon.Back.Color1 = System.Drawing.Color.Gold
+        Me.btnTracking.StateCommon.Back.Color2 = System.Drawing.Color.Gold
+        Me.btnTracking.StateCommon.Border.DrawBorders = CType((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) _
             Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) _
             Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right), ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)
-        Me.btnInventory.StateCommon.Border.Rounding = 20
-        Me.btnInventory.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer))
-        Me.btnInventory.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer))
-        Me.btnInventory.StateCommon.Content.ShortText.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnInventory.TabIndex = 1
-        Me.btnInventory.Values.Text = "TRACKING"
+        Me.btnTracking.StateCommon.Border.Rounding = 20
+        Me.btnTracking.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer))
+        Me.btnTracking.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer))
+        Me.btnTracking.StateCommon.Content.ShortText.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnTracking.TabIndex = 1
+        Me.btnTracking.Values.Text = "TRACKING"
         '
         'btnRequest
         '
@@ -216,7 +216,7 @@ Partial Class RequestorMainForm
     Friend WithEvents btnLogOut As ComponentFactory.Krypton.Toolkit.KryptonButton
     Friend WithEvents btnAbout As ComponentFactory.Krypton.Toolkit.KryptonButton
     Friend WithEvents btnProfile As ComponentFactory.Krypton.Toolkit.KryptonButton
-    Friend WithEvents btnInventory As ComponentFactory.Krypton.Toolkit.KryptonButton
+    Friend WithEvents btnTracking As ComponentFactory.Krypton.Toolkit.KryptonButton
     Friend WithEvents btnRequest As ComponentFactory.Krypton.Toolkit.KryptonButton
     Friend WithEvents pnlChildForm As Panel
     Friend WithEvents btnExit As ComponentFactory.Krypton.Toolkit.KryptonButton
