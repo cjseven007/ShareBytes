@@ -35,6 +35,6 @@
     End Sub
 
     Private Sub btnTracking_Click(sender As Object, e As EventArgs) Handles btnTracking.Click
-
+        OpenChildFormInPanel(RequestorTrackingForm)
     End Sub
 End Class

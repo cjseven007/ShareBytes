@@ -162,6 +162,12 @@
     <Compile Include="RequestorMainForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="RequestorTrackingForm.Designer.vb">
+      <DependentUpon>RequestorTrackingForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="RequestorTrackingForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="SelectLocationForm.Designer.vb">
       <DependentUpon>SelectLocationForm.vb</DependentUpon>
     </Compile>
@@ -252,6 +258,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RequestorMainForm.resx">
       <DependentUpon>RequestorMainForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RequestorTrackingForm.resx">
+      <DependentUpon>RequestorTrackingForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SelectLocationForm.resx">
       <DependentUpon>SelectLocationForm.vb</DependentUpon>

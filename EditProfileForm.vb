@@ -2,6 +2,7 @@
 
 Public Class EditProfileForm
     Private profileForm As ProfileForm 'referencing the profile form
+    Private loginForm As LoginForm 'referencing the login form
     Public Shared Username, Email, Organization, Address As String
 
     Dim connect As New OleDbConnection
@@ -11,6 +12,10 @@ Public Class EditProfileForm
     Public Sub New(profileForm As ProfileForm)
         InitializeComponent()
         Me.profileForm = profileForm
+    End Sub
+    Public Sub New(loginForm As LoginForm)
+        InitializeComponent()
+        Me.loginForm = loginForm
     End Sub
 
     Private Sub btnSaveChanges_Click(sender As Object, e As EventArgs) Handles btnSaveChanges.Click
@@ -52,7 +57,11 @@ Public Class EditProfileForm
 
         MsgBox("Your details have been updated.", 0 & MsgBoxStyle.Information, "Profile Updated")
 
-        profileForm.ProfileFormRefreshData()
+        'If edit profile is made from the login form, then no need refresh
+        If profileForm IsNot Nothing AndAlso profileForm.Visible Then
+            profileForm.ProfileFormRefreshData()
+        End If
+
         connect.Close()
         Me.Close()
     End Sub

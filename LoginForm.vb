@@ -5,6 +5,7 @@ Public Class LoginForm
     Dim connect As New OleDbConnection
     Dim command As New OleDbCommand
     Dim sql As String = Nothing
+    Dim editProfileForm As New EditProfileForm(Me)
 
     Public Shared globalUserID As Integer
     Private Sub LoginForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -43,18 +44,33 @@ Public Class LoginForm
 
                 MsgBox("Succeeded", 0, "Successful Login")
 
-                sql = "SELECT usertype FROM [User] WHERE ID = @UserID"
+                sql = "SELECT * FROM [User] WHERE ID = @UserID"
                 command = New OleDbCommand(sql, connect)
                 command.Parameters.AddWithValue("@UserID", globalUserID)
 
                 Dim reader1 As OleDbDataReader = command.ExecuteReader()
+
                 If reader1.Read() Then
                     If reader1("usertype").ToString = "Donor" Then
                         MainForm.Show()
+                        'Check if all details is filled in
+                        If reader1("organization") Is DBNull.Value Or reader1("address") Is DBNull.Value Or reader1("latitude") Is DBNull.Value Or reader1("longitude") Is DBNull.Value Then
+                            MsgBox("It appears there are additional details that you need to fill in. Please complete them to proceed.", 0, "Additional Details Required")
+                            EditProfileForm.Username = reader1("username").ToString()
+                            EditProfileForm.Email = reader1("email").ToString()
+                            editProfileForm.ShowDialog()
+                        End If
+
                     ElseIf reader1("usertype").ToString = "Requestor" Then
                         RequestorMainForm.Show()
+                        If reader1("organization") Is DBNull.Value Or reader1("address") Is DBNull.Value Or reader1("latitude") Is DBNull.Value Or reader1("longitude") Is DBNull.Value Then
+                            MsgBox("It appears there are additional details that you need to fill in. Please complete them to proceed.", 0, "Additional Details Required")
+                            EditProfileForm.Username = reader1("username").ToString()
+                            EditProfileForm.Email = reader1("email").ToString()
+                            editProfileForm.ShowDialog()
+                        End If
                     Else
-                        MsgBox("Failed")
+                        MsgBox("Login failed")
                     End If
                     reader1.Close()
 
