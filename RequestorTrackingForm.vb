@@ -74,87 +74,100 @@ Public Class RequestorTrackingForm
 
             Dim customContainer As Panel = New Panel()
                 customContainer.BorderStyle = BorderStyle.FixedSingle
-                customContainer.Width = 550
-                customContainer.Height = 150
+            customContainer.Width = 450
+            customContainer.Height = 150
                 customContainer.BackColor = System.Drawing.Color.FromArgb(255, 255, 255)
                 customContainer.BorderStyle = BorderStyle.None
 
 
                 Dim lblTitle As Label = New Label()
             lblTitle.Text = requestTitle
-            lblTitle.Location = New Point(30, 30)
+            lblTitle.Location = New Point(30, 15)
             lblTitle.AutoSize = True
                 lblTitle.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
                 lblTitle.Name = "lblTitle"
                 lblTitle.Size = New System.Drawing.Size(74, 28)
 
-                Dim lblLocation As Label = New Label()
-                lblLocation.AutoSize = False
-                lblLocation.AutoEllipsis = True
-            lblLocation.Text = "Donor: " & donorOrganization
-            lblLocation.Location = New Point(30, 50)
-                lblLocation.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-                lblLocation.Name = "lblLocation"
-                lblLocation.Size = New System.Drawing.Size(350, 40)
+            Dim lblDonorOrg As Label = New Label()
+            lblDonorOrg.AutoSize = False
+            lblDonorOrg.AutoEllipsis = True
+            lblDonorOrg.Text = "Donor: " & donorOrganization
+            lblDonorOrg.Location = New Point(30, 35)
+            lblDonorOrg.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+            lblDonorOrg.Name = "lblDonorOrg"
+            lblDonorOrg.Size = New System.Drawing.Size(350, 20)
 
+            Dim lblFare As Label = New Label()
+            lblFare.AutoSize = False
+            lblFare.AutoEllipsis = True
+            lblFare.Text = "Price: RM" & fare
+            lblFare.Location = New Point(30, 55)
+            lblFare.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+            lblFare.Name = "lblFare"
+            lblFare.Size = New System.Drawing.Size(350, 20)
 
-                Dim btnEdit As KryptonButton = New KryptonButton()
-                btnEdit.Values.Text = "Edit"
+            Dim lblStatus As Label = New Label()
+            lblStatus.AutoSize = False
+            lblStatus.AutoEllipsis = True
+            lblStatus.Text = "Status: " & status
+            lblStatus.Location = New Point(30, 75)
+            lblStatus.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+            lblStatus.Name = "lblStatus"
+            lblStatus.Size = New System.Drawing.Size(350, 20)
 
-                btnEdit.Location = New System.Drawing.Point(420, 30)
-                btnEdit.Name = "btnEdit"
-                btnEdit.OverrideDefault.Back.Color1 = System.Drawing.Color.Gold
-                btnEdit.OverrideDefault.Back.Color2 = System.Drawing.Color.Gold
-                btnEdit.Size = New System.Drawing.Size(100, 30)
-                btnEdit.StateCommon.Back.Color1 = System.Drawing.Color.Gold
-                btnEdit.StateCommon.Back.Color2 = System.Drawing.Color.Gold
-                btnEdit.StateCommon.Border.DrawBorders = CType((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) _
+            Dim btnView As KryptonButton = New KryptonButton()
+            btnView.Values.Text = "View"
+
+            btnView.Location = New System.Drawing.Point(260, 100)
+            btnView.Name = "btnView"
+            btnView.OverrideDefault.Back.Color1 = System.Drawing.Color.Gold
+            btnView.OverrideDefault.Back.Color2 = System.Drawing.Color.Gold
+            btnView.Size = New System.Drawing.Size(100, 30)
+            btnView.StateCommon.Back.Color1 = System.Drawing.Color.Gold
+            btnView.StateCommon.Back.Color2 = System.Drawing.Color.Gold
+            btnView.StateCommon.Border.DrawBorders = CType((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) _
                 Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) _
                 Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right), ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)
-                btnEdit.StateCommon.Border.Rounding = 10
-                btnEdit.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.Black
-                btnEdit.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.Black
-                btnEdit.StateCommon.Content.ShortText.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+            btnView.StateCommon.Border.Rounding = 10
+            btnView.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.Black
+            btnView.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.Black
+            btnView.StateCommon.Content.ShortText.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 
 
             'function of the button
             'get RequestID
 
-            btnEdit.Tag = requestID
-                '////////////////////////////////////
+            btnView.Tag = requestID
+            '////////////////////////////////////
 
-                'Delete Button
-                Dim btnDelete As KryptonButton = New KryptonButton()
-                btnDelete.Values.Text = ""
-                btnDelete.StateCommon.Back.Image = Image.FromFile("D:/UTP/Foundation 3rd Sem/VP/OMC stuff/ShareBytes Prototype/Resources/binbin.png")
-                btnDelete.StateCommon.Back.ImageStyle = PaletteImageStyle.CenterMiddle
-
-
-
-                btnDelete.Location = New System.Drawing.Point(490, 70)
-                btnDelete.Name = "btnDelete"
-                btnDelete.OverrideDefault.Back.Color1 = System.Drawing.Color.Red
-                btnDelete.OverrideDefault.Back.Color2 = System.Drawing.Color.Red
-                btnDelete.Size = New System.Drawing.Size(30, 30)
-                btnDelete.StateCommon.Back.Color1 = System.Drawing.Color.Red
-                btnDelete.StateCommon.Back.Color2 = System.Drawing.Color.Red
-                btnDelete.StateCommon.Border.DrawBorders = CType((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) _
+            'Delete Button
+            Dim btnPay As KryptonButton = New KryptonButton()
+            btnPay.Values.Text = "Pay"
+            btnPay.Location = New System.Drawing.Point(370, 100)
+            btnPay.Name = "btnPay"
+            btnPay.OverrideDefault.Back.Color1 = System.Drawing.Color.Orange
+            btnPay.OverrideDefault.Back.Color2 = System.Drawing.Color.Orange
+            btnPay.Size = New System.Drawing.Size(50, 30)
+            btnPay.StateCommon.Back.Color1 = System.Drawing.Color.Orange
+            btnPay.StateCommon.Back.Color2 = System.Drawing.Color.Orange
+            btnPay.StateCommon.Border.DrawBorders = CType((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) _
                 Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) _
                 Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right), ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)
-                btnDelete.StateCommon.Border.Rounding = 10
-                btnDelete.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White
-                btnDelete.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.White
-                btnDelete.StateCommon.Content.ShortText.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-                'Delete function
-                btnDelete.Tag = requestID
-                '///////////////////////////////////////
+            btnPay.StateCommon.Border.Rounding = 10
+            btnPay.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White
+            btnPay.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.White
+            btnPay.StateCommon.Content.ShortText.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+            'Delete function
+            btnPay.Tag = requestID
+            '///////////////////////////////////////
 
 
-                customContainer.Controls.Add(lblTitle)
-                customContainer.Controls.Add(lblLocation)
-
-                customContainer.Controls.Add(btnEdit)
-                customContainer.Controls.Add(btnDelete)
+            customContainer.Controls.Add(lblTitle)
+            customContainer.Controls.Add(lblDonorOrg)
+            customContainer.Controls.Add(lblFare)
+            customContainer.Controls.Add(lblStatus)
+            customContainer.Controls.Add(btnView)
+            customContainer.Controls.Add(btnPay)
 
             ' Calculate the index for the TableLayoutPanel
             Dim columnIndex As Integer = (reader.GetOrdinal("ID") - 1) Mod columnCount
@@ -171,4 +184,5 @@ Public Class RequestorTrackingForm
 
         reader.Close()
     End Sub
+
 End Class
