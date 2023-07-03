@@ -144,6 +144,12 @@
     <Compile Include="MainForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="PaymentForm.Designer.vb">
+      <DependentUpon>PaymentForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ProfileForm.Designer.vb">
       <DependentUpon>ProfileForm.vb</DependentUpon>
     </Compile>
@@ -203,6 +209,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="ViewDonationForm.Designer.vb">
+      <DependentUpon>ViewDonationForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ViewDonationForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ViewRequestForm.Designer.vb">
       <DependentUpon>ViewRequestForm.vb</DependentUpon>
     </Compile>
@@ -250,6 +262,9 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="PaymentForm.resx">
+      <DependentUpon>PaymentForm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ProfileForm.resx">
       <DependentUpon>ProfileForm.vb</DependentUpon>
     </EmbeddedResource>
@@ -270,6 +285,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SplashScreen.resx">
       <DependentUpon>SplashScreen.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewDonationForm.resx">
+      <DependentUpon>ViewDonationForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewRequestForm.resx">
       <DependentUpon>ViewRequestForm.vb</DependentUpon>

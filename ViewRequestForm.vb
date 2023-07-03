@@ -12,6 +12,7 @@ Public Class ViewRequestForm
     Public Property Latitude As String
     Public Property Longitude As String
     Public Property Pax As String
+    Public Property Distance As String
 
     Dim connect As New OleDbConnection
     Dim command As New OleDbCommand
@@ -31,6 +32,7 @@ Public Class ViewRequestForm
         lblDescription.Text = Description
         lblLocation.Text = Location
         lblPax.Text = Pax
+        lblDistance.Text = Distance & " km"
 
 
     End Sub

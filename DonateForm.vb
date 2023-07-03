@@ -27,11 +27,18 @@ Public Class DonateForm
             viewRequestForm.RequestorID = reader("requestorID").ToString()
             viewRequestForm.RequestID = requestID
             viewRequestForm.Title = reader("title").ToString()
-            viewRequestForm.Description = reader("description").ToString() ' Set the retrieved product value
-            viewRequestForm.Location = reader("location").ToString() ' Set the retrieved quantity value
-            viewRequestForm.Pax = reader("pax").ToString() ' Set the retrieved expiry date value
-            viewRequestForm.Latitude = reader("latitude").ToString()
-            viewRequestForm.Longitude = reader("longitude").ToString()
+            viewRequestForm.Description = reader("description").ToString() ' Set the retrieved description value
+            viewRequestForm.Location = reader("location").ToString() ' Set the retrieved location value
+            viewRequestForm.Pax = reader("pax").ToString() ' Set the retrieved pax value
+            'Get lat and long
+            Dim requestLatitude As String = reader("latitude").ToString()
+            Dim requestLongitude As String = reader("longitude").ToString()
+            viewRequestForm.Latitude = requestLatitude
+            viewRequestForm.Longitude = requestLongitude
+
+            'Calculate distance
+            Dim distance As Double = CalculateDistance(userLatitude, userLongitude, CDbl(requestLatitude), CDbl(requestLongitude))
+            viewRequestForm.Distance = distance.ToString("0.00")
 
             ' Show the InventoryEditForm
             viewRequestForm.ShowDialog()
@@ -76,6 +83,8 @@ Public Class DonateForm
         Public Property Distance As Double
     End Class
 
+    Dim userLatitude As Double
+    Dim userLongitude As Double
     Public Sub DonateFormRefreshData()
         If connect.State = ConnectionState.Closed Then
             connect.Open()
@@ -89,8 +98,7 @@ Public Class DonateForm
         Dim reader1 As OleDbDataReader = command.ExecuteReader()
 
 
-        Dim userLatitude As Double
-        Dim userLongitude As Double
+
         If reader1.Read() Then
             userLatitude = CDbl(reader1("latitude"))
             userLongitude = CDbl(reader1("longitude"))

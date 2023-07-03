@@ -7,19 +7,33 @@ Public Class RequestorTrackingForm
     Dim sql As String = Nothing
     Private Sub RequestorTrackingForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         connect.ConnectionString = "Provider = Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\USER\CJ\OMC\OMC database.accdb;"
+        FilterByStatus("All")
+    End Sub
 
+    Private Sub FilterByStatus(ByVal selectedStatus As String)
         If connect.State = ConnectionState.Closed Then
             connect.Open()
         End If
 
-        sql = "SELECT * FROM Donations WHERE requestorID = @RequestorID"
+        'Filter according to status
+        If selectedStatus = "All" Then
+            sql = "SELECT * FROM Donations WHERE requestorID = @RequestorID"
+        Else
+            sql = "SELECT * FROM Donations WHERE requestorID = @RequestorID AND deliverStatus = @Status"
+        End If
+
         'Get requestorID to retrieve data accordingly
         Dim requestorID As Integer = LoginForm.globalUserID
         command = New OleDbCommand(sql, connect)
         command.Parameters.AddWithValue("@RequestorID", OleDbType.VarChar).Value = requestorID
+        If selectedStatus IsNot "All" Then
+            command.Parameters.AddWithValue("@Status", OleDbType.VarChar).Value = selectedStatus 'Filter
+        End If
+
         Dim reader As OleDbDataReader = command.ExecuteReader()
 
-
+        'Initialize the counter for labels pending, paid and delivered
+        Dim numPending, numPaid, numDelivered As Integer
 
         'generate table
         Dim table As New TableLayoutPanel
@@ -73,20 +87,20 @@ Public Class RequestorTrackingForm
 
 
             Dim customContainer As Panel = New Panel()
-                customContainer.BorderStyle = BorderStyle.FixedSingle
+            customContainer.BorderStyle = BorderStyle.FixedSingle
             customContainer.Width = 450
             customContainer.Height = 150
-                customContainer.BackColor = System.Drawing.Color.FromArgb(255, 255, 255)
-                customContainer.BorderStyle = BorderStyle.None
+            customContainer.BackColor = System.Drawing.Color.FromArgb(255, 255, 255)
+            customContainer.BorderStyle = BorderStyle.None
 
 
-                Dim lblTitle As Label = New Label()
+            Dim lblTitle As Label = New Label()
             lblTitle.Text = requestTitle
             lblTitle.Location = New Point(30, 15)
             lblTitle.AutoSize = True
-                lblTitle.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-                lblTitle.Name = "lblTitle"
-                lblTitle.Size = New System.Drawing.Size(74, 28)
+            lblTitle.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+            lblTitle.Name = "lblTitle"
+            lblTitle.Size = New System.Drawing.Size(74, 28)
 
             Dim lblDonorOrg As Label = New Label()
             lblDonorOrg.AutoSize = False
@@ -114,6 +128,16 @@ Public Class RequestorTrackingForm
             lblStatus.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
             lblStatus.Name = "lblStatus"
             lblStatus.Size = New System.Drawing.Size(350, 20)
+            If status = "Pending Payment" Then
+                lblStatus.ForeColor = Color.Gold
+                numPending += 1 'Add counter
+            ElseIf status = "Paid" Then
+                lblStatus.ForeColor = Color.Green
+                numPaid += 1 'Add counter
+            ElseIf status = "Delivered" Then
+                lblStatus.ForeColor = Color.Blue
+                numDelivered += 1 'counter
+            End If
 
             Dim btnView As KryptonButton = New KryptonButton()
             btnView.Values.Text = "View"
@@ -135,9 +159,20 @@ Public Class RequestorTrackingForm
 
 
             'function of the button
-            'get RequestID
+            ' Add the handler for the button click event
+            AddHandler btnView.Click, Sub(sender As Object, e As EventArgs)
+                                          ' Get the corresponding data for the selected button
+                                          Dim selectedDonationID = donationID
+                                          Dim selectedTitle As String = requestTitle
+                                          Dim selectedOrganization As String = donorOrganization
+                                          Dim selectedDistance As String = distance
+                                          Dim selectedFare As String = fare
+                                          Dim selectedDeliverStatus As String = status
 
-            btnView.Tag = requestID
+                                          ' Create an instance of the other form
+                                          Dim viewDonationForm As New ViewDonationForm(selectedDonationID, selectedTitle, selectedOrganization, selectedDistance, selectedFare, selectedDeliverStatus)
+                                          viewDonationForm.ShowDialog()
+                                      End Sub
             '////////////////////////////////////
 
             'Delete Button
@@ -182,7 +217,31 @@ Public Class RequestorTrackingForm
         pnlTracking.Controls.Clear()
         pnlTracking.Controls.Add(table)
 
+        'Pass value to the labels
+        lblPending.Text = "Pending: " & numPending
+        lblPaid.Text = "Paid: " & numPaid
+        lblDelivered.Text = "Delivered: " & numDelivered
+
         reader.Close()
     End Sub
 
+
+    Private Sub btnPendingFilter_Click(sender As Object, e As EventArgs) Handles btnPendingFilter.Click
+        FilterByStatus("Pending Payment")
+    End Sub
+    Private Sub btnPaidFilter_Click(sender As Object, e As EventArgs) Handles btnPaidFilter.Click
+        FilterByStatus("Paid")
+    End Sub
+
+    Private Sub btnDeliveredFilter_Click(sender As Object, e As EventArgs) Handles btnDeliveredFilter.Click
+        FilterByStatus("Delivered")
+    End Sub
+
+    Private Sub btnAll_Click(sender As Object, e As EventArgs) Handles btnAll.Click
+        FilterByStatus("All")
+    End Sub
+
+    Private Sub btnPayment_Click(sender As Object, e As EventArgs) Handles btnPayment.Click
+        PaymentForm.ShowDialog()
+    End Sub
 End Class
