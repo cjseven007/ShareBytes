@@ -32,6 +32,16 @@ ShareBytes Prototype
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:ShareBytes_Prototype.My.Resources.Resources.atm_card">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ShareBytes_Prototype.My.Resources.Resources.atm_card__1_">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:ShareBytes_Prototype.My.Resources.Resources.burger_rope">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
