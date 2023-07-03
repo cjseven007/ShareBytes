@@ -23,6 +23,9 @@ Partial Class RequestorTrackingForm
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.pnlTracking = New System.Windows.Forms.Panel()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.btnPayment = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         Me.SuspendLayout()
         '
         'Label1
@@ -37,12 +40,55 @@ Partial Class RequestorTrackingForm
         Me.Label1.Text = "TRACKING"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'pnlTracking
+        '
+        Me.pnlTracking.Location = New System.Drawing.Point(281, 115)
+        Me.pnlTracking.Name = "pnlTracking"
+        Me.pnlTracking.Size = New System.Drawing.Size(637, 499)
+        Me.pnlTracking.TabIndex = 5
+        '
+        'Panel2
+        '
+        Me.Panel2.BackColor = System.Drawing.Color.White
+        Me.Panel2.Location = New System.Drawing.Point(55, 115)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(200, 244)
+        Me.Panel2.TabIndex = 6
+        '
+        'btnPayment
+        '
+        Me.btnPayment.Location = New System.Drawing.Point(55, 393)
+        Me.btnPayment.Name = "btnPayment"
+        Me.btnPayment.OverrideDefault.Back.Color1 = System.Drawing.Color.Gold
+        Me.btnPayment.OverrideDefault.Back.Color2 = System.Drawing.Color.Gold
+        Me.btnPayment.OverrideDefault.Border.DrawBorders = CType((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) _
+            Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) _
+            Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right), ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)
+        Me.btnPayment.OverrideDefault.Border.Rounding = 10
+        Me.btnPayment.Size = New System.Drawing.Size(200, 52)
+        Me.btnPayment.StateCommon.Back.Color1 = System.Drawing.Color.Gold
+        Me.btnPayment.StateCommon.Back.Color2 = System.Drawing.Color.Gold
+        Me.btnPayment.StateCommon.Border.Color1 = System.Drawing.Color.Gold
+        Me.btnPayment.StateCommon.Border.Color2 = System.Drawing.Color.Gold
+        Me.btnPayment.StateCommon.Border.DrawBorders = CType((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) _
+            Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) _
+            Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right), ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)
+        Me.btnPayment.StateCommon.Border.Rounding = 10
+        Me.btnPayment.StateCommon.Content.LongText.MultiLine = ComponentFactory.Krypton.Toolkit.InheritBool.[True]
+        Me.btnPayment.StateCommon.Content.ShortText.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnPayment.StateCommon.Content.ShortText.MultiLine = ComponentFactory.Krypton.Toolkit.InheritBool.[True]
+        Me.btnPayment.TabIndex = 35
+        Me.btnPayment.Values.Text = "Payment Method"
+        '
         'RequestorTrackingForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(972, 700)
+        Me.Controls.Add(Me.btnPayment)
+        Me.Controls.Add(Me.Panel2)
+        Me.Controls.Add(Me.pnlTracking)
         Me.Controls.Add(Me.Label1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "RequestorTrackingForm"
@@ -53,4 +99,7 @@ Partial Class RequestorTrackingForm
     End Sub
 
     Friend WithEvents Label1 As Label
+    Friend WithEvents pnlTracking As Panel
+    Friend WithEvents Panel2 As Panel
+    Friend WithEvents btnPayment As ComponentFactory.Krypton.Toolkit.KryptonButton
 End Class

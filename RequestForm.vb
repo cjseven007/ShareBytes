@@ -59,7 +59,7 @@ Public Class RequestForm
             connect.Open()
         End If
 
-        sql = "SELECT RequestID, title, location, pax FROM Requests WHERE requestorID = @RequestorID"
+        sql = "SELECT RequestID, title, location, pax, status FROM Requests WHERE requestorID = @RequestorID"
         'Get donorID to retrieve data accordingly
         Dim requestorID As Integer = LoginForm.globalUserID
         command = New OleDbCommand(sql, connect)
@@ -85,110 +85,115 @@ Public Class RequestForm
         table.Controls.Clear()
 
         While reader.Read()
-            Dim customContainer As Panel = New Panel()
-            customContainer.BorderStyle = BorderStyle.FixedSingle
-            customContainer.Width = 550
-            customContainer.Height = 150
-            customContainer.BackColor = System.Drawing.Color.FromArgb(255, 255, 255)
-            customContainer.BorderStyle = BorderStyle.None
+            Dim status As Object = reader("status")
+
+            If status Is DBNull.Value Then ' Check if the status column is null
+                Dim customContainer As Panel = New Panel()
+                customContainer.BorderStyle = BorderStyle.FixedSingle
+                customContainer.Width = 550
+                customContainer.Height = 150
+                customContainer.BackColor = System.Drawing.Color.FromArgb(255, 255, 255)
+                customContainer.BorderStyle = BorderStyle.None
 
 
-            Dim lblTitle As Label = New Label()
-            lblTitle.Text = reader("title").ToString()
-            lblTitle.Location = New Point(30, 30)
-            lblTitle.AutoSize = True
-            lblTitle.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-            lblTitle.Name = "lblTitle"
-            lblTitle.Size = New System.Drawing.Size(74, 28)
+                Dim lblTitle As Label = New Label()
+                lblTitle.Text = reader("title").ToString()
+                lblTitle.Location = New Point(30, 30)
+                lblTitle.AutoSize = True
+                lblTitle.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+                lblTitle.Name = "lblTitle"
+                lblTitle.Size = New System.Drawing.Size(74, 28)
 
-            Dim lblLocation As Label = New Label()
-            lblLocation.AutoSize = False
-            lblLocation.AutoEllipsis = True
-            lblLocation.Text = "Location: " & reader("location").ToString()
-            lblLocation.Location = New Point(30, 50)
-            lblLocation.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-            lblLocation.Name = "lblLocation"
-            lblLocation.Size = New System.Drawing.Size(350, 40)
+                Dim lblLocation As Label = New Label()
+                lblLocation.AutoSize = False
+                lblLocation.AutoEllipsis = True
+                lblLocation.Text = "Location: " & reader("location").ToString()
+                lblLocation.Location = New Point(30, 50)
+                lblLocation.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+                lblLocation.Name = "lblLocation"
+                lblLocation.Size = New System.Drawing.Size(350, 40)
 
-            Dim lblPax As Label = New Label()
-            'convert to date only
-            Dim expiryDate As String = reader("pax").ToString
+                Dim lblPax As Label = New Label()
+                'convert to date only
+                Dim expiryDate As String = reader("pax").ToString
 
-            lblPax.Text = "Pax: " & expiryDate
-            lblPax.Location = New Point(30, 90)
-            lblPax.AutoSize = True
-            lblPax.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-            lblPax.Name = "lblPax"
-
-
-
-            Dim btnEdit As KryptonButton = New KryptonButton()
-            btnEdit.Values.Text = "Edit"
-
-            btnEdit.Location = New System.Drawing.Point(420, 30)
-            btnEdit.Name = "btnEdit"
-            btnEdit.OverrideDefault.Back.Color1 = System.Drawing.Color.Gold
-            btnEdit.OverrideDefault.Back.Color2 = System.Drawing.Color.Gold
-            btnEdit.Size = New System.Drawing.Size(100, 30)
-            btnEdit.StateCommon.Back.Color1 = System.Drawing.Color.Gold
-            btnEdit.StateCommon.Back.Color2 = System.Drawing.Color.Gold
-            btnEdit.StateCommon.Border.DrawBorders = CType((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) _
-            Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) _
-            Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right), ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)
-            btnEdit.StateCommon.Border.Rounding = 10
-            btnEdit.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.Black
-            btnEdit.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.Black
-            btnEdit.StateCommon.Content.ShortText.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-
-
-            'function of the button
-            'get RequestID
-            Dim requestID As Integer = reader.GetInt32(reader.GetOrdinal("RequestID"))
-            btnEdit.Tag = requestID
-            AddHandler btnEdit.Click, AddressOf btnEdit_Click
-            '////////////////////////////////////
-
-            'Delete Button
-            Dim btnDelete As KryptonButton = New KryptonButton()
-            btnDelete.Values.Text = ""
-            btnDelete.StateCommon.Back.Image = Image.FromFile("D:/UTP/Foundation 3rd Sem/VP/OMC stuff/ShareBytes Prototype/Resources/binbin.png")
-            btnDelete.StateCommon.Back.ImageStyle = PaletteImageStyle.CenterMiddle
+                lblPax.Text = "Pax: " & expiryDate
+                lblPax.Location = New Point(30, 90)
+                lblPax.AutoSize = True
+                lblPax.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+                lblPax.Name = "lblPax"
 
 
 
-            btnDelete.Location = New System.Drawing.Point(490, 70)
-            btnDelete.Name = "btnDelete"
-            btnDelete.OverrideDefault.Back.Color1 = System.Drawing.Color.Red
-            btnDelete.OverrideDefault.Back.Color2 = System.Drawing.Color.Red
-            btnDelete.Size = New System.Drawing.Size(30, 30)
-            btnDelete.StateCommon.Back.Color1 = System.Drawing.Color.Red
-            btnDelete.StateCommon.Back.Color2 = System.Drawing.Color.Red
-            btnDelete.StateCommon.Border.DrawBorders = CType((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) _
-            Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) _
-            Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right), ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)
-            btnDelete.StateCommon.Border.Rounding = 10
-            btnDelete.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White
-            btnDelete.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.White
-            btnDelete.StateCommon.Content.ShortText.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-            'Delete function
-            btnDelete.Tag = requestID
-            AddHandler btnDelete.Click, AddressOf btnDelete_Click
-            '///////////////////////////////////////
+                Dim btnEdit As KryptonButton = New KryptonButton()
+                btnEdit.Values.Text = "Edit"
+
+                btnEdit.Location = New System.Drawing.Point(420, 30)
+                btnEdit.Name = "btnEdit"
+                btnEdit.OverrideDefault.Back.Color1 = System.Drawing.Color.Gold
+                btnEdit.OverrideDefault.Back.Color2 = System.Drawing.Color.Gold
+                btnEdit.Size = New System.Drawing.Size(100, 30)
+                btnEdit.StateCommon.Back.Color1 = System.Drawing.Color.Gold
+                btnEdit.StateCommon.Back.Color2 = System.Drawing.Color.Gold
+                btnEdit.StateCommon.Border.DrawBorders = CType((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) _
+                Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) _
+                Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right), ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)
+                btnEdit.StateCommon.Border.Rounding = 10
+                btnEdit.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.Black
+                btnEdit.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.Black
+                btnEdit.StateCommon.Content.ShortText.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 
 
-            customContainer.Controls.Add(lblTitle)
-            customContainer.Controls.Add(lblLocation)
-            customContainer.Controls.Add(lblPax)
+                'function of the button
+                'get RequestID
+                Dim requestID As Integer = reader.GetInt32(reader.GetOrdinal("RequestID"))
+                btnEdit.Tag = requestID
+                AddHandler btnEdit.Click, AddressOf btnEdit_Click
+                '////////////////////////////////////
 
-            customContainer.Controls.Add(btnEdit)
-            customContainer.Controls.Add(btnDelete)
+                'Delete Button
+                Dim btnDelete As KryptonButton = New KryptonButton()
+                btnDelete.Values.Text = ""
+                btnDelete.StateCommon.Back.Image = Image.FromFile("D:/UTP/Foundation 3rd Sem/VP/OMC stuff/ShareBytes Prototype/Resources/binbin.png")
+                btnDelete.StateCommon.Back.ImageStyle = PaletteImageStyle.CenterMiddle
 
-            ' Calculate the index for the TableLayoutPanel
-            Dim columnIndex As Integer = (reader.GetOrdinal("title") - 1) Mod columnCount
-            Dim rowIndex As Integer = (reader.GetOrdinal("title") - 1) \ columnCount
 
-            ' Add the custom container to the form or container control
-            table.Controls.Add(customContainer, columnIndex, rowIndex)
+
+                btnDelete.Location = New System.Drawing.Point(490, 70)
+                btnDelete.Name = "btnDelete"
+                btnDelete.OverrideDefault.Back.Color1 = System.Drawing.Color.Red
+                btnDelete.OverrideDefault.Back.Color2 = System.Drawing.Color.Red
+                btnDelete.Size = New System.Drawing.Size(30, 30)
+                btnDelete.StateCommon.Back.Color1 = System.Drawing.Color.Red
+                btnDelete.StateCommon.Back.Color2 = System.Drawing.Color.Red
+                btnDelete.StateCommon.Border.DrawBorders = CType((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) _
+                Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) _
+                Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right), ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)
+                btnDelete.StateCommon.Border.Rounding = 10
+                btnDelete.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White
+                btnDelete.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.White
+                btnDelete.StateCommon.Content.ShortText.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+                'Delete function
+                btnDelete.Tag = requestID
+                AddHandler btnDelete.Click, AddressOf btnDelete_Click
+                '///////////////////////////////////////
+
+
+                customContainer.Controls.Add(lblTitle)
+                customContainer.Controls.Add(lblLocation)
+                customContainer.Controls.Add(lblPax)
+
+                customContainer.Controls.Add(btnEdit)
+                customContainer.Controls.Add(btnDelete)
+
+                ' Calculate the index for the TableLayoutPanel
+                Dim columnIndex As Integer = (reader.GetOrdinal("title") - 1) Mod columnCount
+                Dim rowIndex As Integer = (reader.GetOrdinal("title") - 1) \ columnCount
+
+                ' Add the custom container to the form or container control
+                table.Controls.Add(customContainer, columnIndex, rowIndex)
+            End If
+
 
         End While
         pnlRequest.Controls.Clear()

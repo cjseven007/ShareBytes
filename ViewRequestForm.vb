@@ -109,14 +109,15 @@ Public Class ViewRequestForm
         Dim predictedFare = linearRegressionModel.PredictFare(distance)
         '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
         'Add donation to Donations Table
-        sql = "INSERT INTO Donations (donorID, requestorID, distance, fare, deliverStatus) VALUES (@DonorID, @RequestorID, @Distance, @Fare, @Status)"
+        sql = "INSERT INTO Donations (donorID, requestorID, requestID, distance, fare, deliverStatus) VALUES (@DonorID, @RequestorID, @RequestID, @Distance, @Fare, @Status)"
         command = New OleDbCommand(sql, connect)
         command.Parameters.AddWithValue("@DonorID", userID)
         command.Parameters.AddWithValue("@RequestorID", RequestorID)
+        command.Parameters.AddWithValue("@RequestID", RequestID)
         command.Parameters.AddWithValue("@Distance", distance.ToString("0.00"))
         'Add predicted fare
         command.Parameters.AddWithValue("@Fare", predictedFare.ToString("0.00"))
-        command.Parameters.AddWithValue("@Status", "Pending")
+        command.Parameters.AddWithValue("@Status", "Pending Payment")
         command.ExecuteNonQuery()
 
 
