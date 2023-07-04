@@ -26,13 +26,16 @@ Partial Class PaymentForm
         Me.btnExit = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         Me.btnCard = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.btnBanking = New ComponentFactory.Krypton.Toolkit.KryptonButton()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.btnManageAcc = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         Me.SuspendLayout()
         '
         'Label6
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Segoe UI", 16.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(168, 28)
+        Me.Label6.Location = New System.Drawing.Point(120, 66)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(459, 38)
         Me.Label6.TabIndex = 35
@@ -41,7 +44,7 @@ Partial Class PaymentForm
         'btnExit
         '
         Me.btnExit.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnExit.Location = New System.Drawing.Point(771, -1)
+        Me.btnExit.Location = New System.Drawing.Point(678, -1)
         Me.btnExit.Name = "btnExit"
         Me.btnExit.OverrideDefault.Back.Color1 = System.Drawing.Color.Red
         Me.btnExit.OverrideDefault.Back.Color2 = System.Drawing.Color.Red
@@ -58,7 +61,7 @@ Partial Class PaymentForm
         '
         'btnCard
         '
-        Me.btnCard.Location = New System.Drawing.Point(113, 143)
+        Me.btnCard.Location = New System.Drawing.Point(104, 126)
         Me.btnCard.Name = "btnCard"
         Me.btnCard.OverrideDefault.Back.Color1 = System.Drawing.Color.White
         Me.btnCard.OverrideDefault.Back.Color2 = System.Drawing.Color.White
@@ -89,18 +92,85 @@ Partial Class PaymentForm
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.White
         Me.Label1.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(171, 303)
+        Me.Label1.Location = New System.Drawing.Point(172, 283)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(104, 23)
+        Me.Label1.Size = New System.Drawing.Size(82, 23)
         Me.Label1.TabIndex = 38
-        Me.Label1.Text = "Credit/Debit"
+        Me.Label1.Text = "Add Card"
+        '
+        'btnBanking
+        '
+        Me.btnBanking.Location = New System.Drawing.Point(382, 126)
+        Me.btnBanking.Name = "btnBanking"
+        Me.btnBanking.OverrideDefault.Back.Color1 = System.Drawing.Color.White
+        Me.btnBanking.OverrideDefault.Back.Color2 = System.Drawing.Color.White
+        Me.btnBanking.OverrideDefault.Border.Color1 = System.Drawing.Color.White
+        Me.btnBanking.OverrideDefault.Border.Color2 = System.Drawing.Color.White
+        Me.btnBanking.OverrideDefault.Border.DrawBorders = CType((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) _
+            Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) _
+            Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right), ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)
+        Me.btnBanking.OverrideDefault.Border.Rounding = 20
+        Me.btnBanking.Size = New System.Drawing.Size(220, 200)
+        Me.btnBanking.StateCommon.Back.Color1 = System.Drawing.Color.White
+        Me.btnBanking.StateCommon.Back.Color2 = System.Drawing.Color.White
+        Me.btnBanking.StateCommon.Back.Image = Global.ShareBytes_Prototype.My.Resources.Resources.bank
+        Me.btnBanking.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Stretch
+        Me.btnBanking.StateCommon.Border.Color1 = System.Drawing.Color.White
+        Me.btnBanking.StateCommon.Border.Color2 = System.Drawing.Color.White
+        Me.btnBanking.StateCommon.Border.DrawBorders = CType((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) _
+            Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) _
+            Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right), ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)
+        Me.btnBanking.StateCommon.Border.Rounding = 20
+        Me.btnBanking.StateCommon.Border.Width = 50
+        Me.btnBanking.StateCommon.Content.ShortText.MultiLine = ComponentFactory.Krypton.Toolkit.InheritBool.[True]
+        Me.btnBanking.TabIndex = 39
+        Me.btnBanking.Values.Text = ""
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.BackColor = System.Drawing.Color.White
+        Me.Label2.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(426, 283)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(127, 23)
+        Me.Label2.TabIndex = 40
+        Me.Label2.Text = "Online Banking"
+        '
+        'btnManageAcc
+        '
+        Me.btnManageAcc.Location = New System.Drawing.Point(246, 358)
+        Me.btnManageAcc.Name = "btnManageAcc"
+        Me.btnManageAcc.OverrideDefault.Back.Color1 = System.Drawing.Color.Gold
+        Me.btnManageAcc.OverrideDefault.Back.Color2 = System.Drawing.Color.Gold
+        Me.btnManageAcc.OverrideDefault.Border.DrawBorders = CType((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) _
+            Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) _
+            Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right), ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)
+        Me.btnManageAcc.OverrideDefault.Border.Rounding = 10
+        Me.btnManageAcc.Size = New System.Drawing.Size(215, 48)
+        Me.btnManageAcc.StateCommon.Back.Color1 = System.Drawing.Color.Gold
+        Me.btnManageAcc.StateCommon.Back.Color2 = System.Drawing.Color.Gold
+        Me.btnManageAcc.StateCommon.Border.Color1 = System.Drawing.Color.Gold
+        Me.btnManageAcc.StateCommon.Border.Color2 = System.Drawing.Color.Gold
+        Me.btnManageAcc.StateCommon.Border.DrawBorders = CType((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) _
+            Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) _
+            Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right), ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)
+        Me.btnManageAcc.StateCommon.Border.Rounding = 10
+        Me.btnManageAcc.StateCommon.Content.LongText.MultiLine = ComponentFactory.Krypton.Toolkit.InheritBool.[True]
+        Me.btnManageAcc.StateCommon.Content.ShortText.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnManageAcc.StateCommon.Content.ShortText.MultiLine = ComponentFactory.Krypton.Toolkit.InheritBool.[True]
+        Me.btnManageAcc.TabIndex = 62
+        Me.btnManageAcc.Values.Text = "Manage Accounts"
         '
         'PaymentForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.PaleTurquoise
-        Me.ClientSize = New System.Drawing.Size(800, 512)
+        Me.ClientSize = New System.Drawing.Size(707, 464)
+        Me.Controls.Add(Me.btnManageAcc)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.btnBanking)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btnCard)
         Me.Controls.Add(Me.btnExit)
@@ -118,4 +188,7 @@ Partial Class PaymentForm
     Friend WithEvents btnExit As ComponentFactory.Krypton.Toolkit.KryptonButton
     Friend WithEvents btnCard As ComponentFactory.Krypton.Toolkit.KryptonButton
     Friend WithEvents Label1 As Label
+    Friend WithEvents btnBanking As ComponentFactory.Krypton.Toolkit.KryptonButton
+    Friend WithEvents Label2 As Label
+    Friend WithEvents btnManageAcc As ComponentFactory.Krypton.Toolkit.KryptonButton
 End Class

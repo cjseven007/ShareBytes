@@ -95,6 +95,12 @@
     <Compile Include="AddRequestForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="BankingForm.Designer.vb">
+      <DependentUpon>BankingForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BankingForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="CardForm.Designer.vb">
       <DependentUpon>CardForm.vb</DependentUpon>
     </Compile>
@@ -148,6 +154,12 @@
       <DependentUpon>MainForm.vb</DependentUpon>
     </Compile>
     <Compile Include="MainForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManagePayments.Designer.vb">
+      <DependentUpon>ManagePayments.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ManagePayments.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="PaymentForm.Designer.vb">
@@ -238,6 +250,9 @@
     <EmbeddedResource Include="AddRequestForm.resx">
       <DependentUpon>AddRequestForm.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BankingForm.resx">
+      <DependentUpon>BankingForm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CardForm.resx">
       <DependentUpon>CardForm.vb</DependentUpon>
     </EmbeddedResource>
@@ -264,6 +279,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManagePayments.resx">
+      <DependentUpon>ManagePayments.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -349,6 +367,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\atm-card %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bank.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eye.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

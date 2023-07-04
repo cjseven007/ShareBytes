@@ -37,4 +37,8 @@
     Private Sub btnTracking_Click(sender As Object, e As EventArgs) Handles btnTracking.Click
         OpenChildFormInPanel(RequestorTrackingForm)
     End Sub
+
+    Private Sub RequestorMainForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        OpenChildFormInPanel(HomeForm)
+    End Sub
 End Class
