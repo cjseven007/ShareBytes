@@ -57,7 +57,17 @@ ShareBytes Prototype
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:ShareBytes_Prototype.My.Resources.Resources.checked">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:ShareBytes_Prototype.My.Resources.Resources.dance">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ShareBytes_Prototype.My.Resources.Resources.donation">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -67,7 +77,27 @@ ShareBytes Prototype
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:ShareBytes_Prototype.My.Resources.Resources.food_donation">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ShareBytes_Prototype.My.Resources.Resources.hand">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ShareBytes_Prototype.My.Resources.Resources.hand__1_">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:ShareBytes_Prototype.My.Resources.Resources.law">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ShareBytes_Prototype.My.Resources.Resources.recipient">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>

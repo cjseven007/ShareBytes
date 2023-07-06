@@ -386,5 +386,23 @@
   <ItemGroup>
     <None Include="Resources\law.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\donation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hand.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checked.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hand %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\food-donation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\recipient.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
