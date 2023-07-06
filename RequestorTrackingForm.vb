@@ -52,7 +52,10 @@ Public Class RequestorTrackingForm
         Next
 
         table.Controls.Clear()
+        'If reader.Read() = False Then
+        '    pnlTracking.BackColor = Color.White
 
+        'End If
         While reader.Read()
 
             Dim donationID As String = reader("ID").ToString()

@@ -15,7 +15,10 @@
         childForm.Show()
     End Sub
     Private Sub btnExit_Click_1(sender As Object, e As EventArgs) Handles btnExit.Click
-        Application.ExitThread()
+        Dim res As String = MsgBox("Are you sure?", MessageBoxIcon.Question & 4, "Exit Program")
+        If res = vbYes Then
+            Application.ExitThread()
+        End If
     End Sub
 
     Private Sub btnHome_Click(sender As Object, e As EventArgs) Handles btnHome.Click
@@ -40,5 +43,14 @@
 
     Private Sub RequestorMainForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         OpenChildFormInPanel(HomeForm)
+    End Sub
+
+    Private Sub btnLogOut_Click(sender As Object, e As EventArgs) Handles btnLogOut.Click
+        Dim res As String = MsgBox("Are you sure?", MessageBoxIcon.Question & 4, "Log Out")
+        If res = vbYes Then
+            LoginForm.Show()
+            Me.Close()
+        End If
+
     End Sub
 End Class
