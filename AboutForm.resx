@@ -117,4 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Label10.Text" xml:space="preserve">
+    <value>ShareBytes is your one-stop platform for food donation and redistribution. The app aims to provide a seamless experience for both donors and requestors with the integration of technology. By addressing SDG 2: Zero Hunger, we aim to lower food waste and food insecurity as part of our contribution to society. Donate Now!</value>
+  </data>
 </root>

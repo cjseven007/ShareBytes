@@ -374,5 +374,17 @@
   <ItemGroup>
     <None Include="Resources\eye.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\app logo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zero2hero.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\version-control.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\law.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
