@@ -23,7 +23,7 @@ Partial Class AdminMessagesForm
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.pnlMessages = New System.Windows.Forms.Panel()
         Me.SuspendLayout()
         '
         'Label1
@@ -36,12 +36,13 @@ Partial Class AdminMessagesForm
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Messages"
         '
-        'Panel1
+        'pnlMessages
         '
-        Me.Panel1.Location = New System.Drawing.Point(42, 93)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(516, 297)
-        Me.Panel1.TabIndex = 2
+        Me.pnlMessages.AutoScroll = True
+        Me.pnlMessages.Location = New System.Drawing.Point(61, 95)
+        Me.pnlMessages.Name = "pnlMessages"
+        Me.pnlMessages.Size = New System.Drawing.Size(478, 297)
+        Me.pnlMessages.TabIndex = 2
         '
         'AdminMessagesForm
         '
@@ -49,7 +50,7 @@ Partial Class AdminMessagesForm
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(600, 450)
-        Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.pnlMessages)
         Me.Controls.Add(Me.Label1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "AdminMessagesForm"
@@ -60,5 +61,5 @@ Partial Class AdminMessagesForm
     End Sub
 
     Friend WithEvents Label1 As Label
-    Friend WithEvents Panel1 As Panel
+    Friend WithEvents pnlMessages As Panel
 End Class
