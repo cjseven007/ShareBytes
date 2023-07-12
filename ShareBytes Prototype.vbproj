@@ -95,6 +95,18 @@
     <Compile Include="AddRequestForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="AdminMainForm.Designer.vb">
+      <DependentUpon>AdminMainForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AdminMainForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminMessagesForm.Designer.vb">
+      <DependentUpon>AdminMessagesForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AdminMessagesForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="BankingForm.Designer.vb">
       <DependentUpon>BankingForm.vb</DependentUpon>
     </Compile>
@@ -249,6 +261,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddRequestForm.resx">
       <DependentUpon>AddRequestForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminMainForm.resx">
+      <DependentUpon>AdminMainForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminMessagesForm.resx">
+      <DependentUpon>AdminMessagesForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BankingForm.resx">
       <DependentUpon>BankingForm.vb</DependentUpon>

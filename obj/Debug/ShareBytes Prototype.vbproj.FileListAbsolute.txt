@@ -37,3 +37,5 @@ D:\UTP\Foundation 3rd Sem\VP\OMC stuff\ShareBytes Prototype\obj\Debug\ShareBytes
 D:\UTP\Foundation 3rd Sem\VP\OMC stuff\ShareBytes Prototype\obj\Debug\ShareBytes_Prototype.CardForm.resources
 D:\UTP\Foundation 3rd Sem\VP\OMC stuff\ShareBytes Prototype\obj\Debug\ShareBytes_Prototype.BankingForm.resources
 D:\UTP\Foundation 3rd Sem\VP\OMC stuff\ShareBytes Prototype\obj\Debug\ShareBytes_Prototype.ManagePayments.resources
+D:\UTP\Foundation 3rd Sem\VP\OMC stuff\ShareBytes Prototype\obj\Debug\ShareBytes_Prototype.AdminMainForm.resources
+D:\UTP\Foundation 3rd Sem\VP\OMC stuff\ShareBytes Prototype\obj\Debug\ShareBytes_Prototype.AdminMessagesForm.resources
