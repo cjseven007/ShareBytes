@@ -28,7 +28,9 @@ Partial Class AdminMainForm
         Me.btnStatistics = New System.Windows.Forms.Button()
         Me.btnUsers = New System.Windows.Forms.Button()
         Me.pnlChildForm = New System.Windows.Forms.Panel()
+        Me.btnExit = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         Me.Panel1.SuspendLayout()
+        Me.pnlChildForm.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel1
@@ -91,11 +93,30 @@ Partial Class AdminMainForm
         'pnlChildForm
         '
         Me.pnlChildForm.BackColor = System.Drawing.Color.White
+        Me.pnlChildForm.Controls.Add(Me.btnExit)
         Me.pnlChildForm.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnlChildForm.Location = New System.Drawing.Point(200, 0)
         Me.pnlChildForm.Name = "pnlChildForm"
         Me.pnlChildForm.Size = New System.Drawing.Size(600, 450)
         Me.pnlChildForm.TabIndex = 1
+        '
+        'btnExit
+        '
+        Me.btnExit.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnExit.Location = New System.Drawing.Point(570, 0)
+        Me.btnExit.Name = "btnExit"
+        Me.btnExit.OverrideDefault.Back.Color1 = System.Drawing.Color.Red
+        Me.btnExit.OverrideDefault.Back.Color2 = System.Drawing.Color.Red
+        Me.btnExit.Size = New System.Drawing.Size(30, 30)
+        Me.btnExit.StateCommon.Back.Color1 = System.Drawing.Color.Red
+        Me.btnExit.StateCommon.Back.Color2 = System.Drawing.Color.Red
+        Me.btnExit.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White
+        Me.btnExit.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.White
+        Me.btnExit.StateCommon.Content.ShortText.Font = New System.Drawing.Font("Segoe UI", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnExit.StateCommon.Content.ShortText.TextH = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center
+        Me.btnExit.StateCommon.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Center
+        Me.btnExit.TabIndex = 11
+        Me.btnExit.Values.Text = "X"
         '
         'AdminMainForm
         '
@@ -109,6 +130,7 @@ Partial Class AdminMainForm
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "AdminMainForm"
         Me.Panel1.ResumeLayout(False)
+        Me.pnlChildForm.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -119,4 +141,5 @@ Partial Class AdminMainForm
     Friend WithEvents btnStatistics As Button
     Friend WithEvents btnUsers As Button
     Friend WithEvents btnLogOut As Button
+    Friend WithEvents btnExit As ComponentFactory.Krypton.Toolkit.KryptonButton
 End Class

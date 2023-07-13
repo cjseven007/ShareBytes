@@ -31,6 +31,7 @@ Partial Class RequestorMainForm
         Me.btnRequest = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         Me.pnlChildForm = New System.Windows.Forms.Panel()
         Me.btnExit = New ComponentFactory.Krypton.Toolkit.KryptonButton()
+        Me.btnAdminChat = New System.Windows.Forms.Button()
         CType(Me.pnlSideBar, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlSideBar.SuspendLayout()
         Me.pnlChildForm.SuspendLayout()
@@ -38,6 +39,7 @@ Partial Class RequestorMainForm
         '
         'pnlSideBar
         '
+        Me.pnlSideBar.Controls.Add(Me.btnAdminChat)
         Me.pnlSideBar.Controls.Add(Me.btnHome)
         Me.pnlSideBar.Controls.Add(Me.btnLogOut)
         Me.pnlSideBar.Controls.Add(Me.btnAbout)
@@ -194,6 +196,18 @@ Partial Class RequestorMainForm
         Me.btnExit.TabIndex = 9
         Me.btnExit.Values.Text = "X"
         '
+        'btnAdminChat
+        '
+        Me.btnAdminChat.BackColor = System.Drawing.Color.Gold
+        Me.btnAdminChat.FlatAppearance.BorderSize = 0
+        Me.btnAdminChat.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAdminChat.Image = Global.ShareBytes_Prototype.My.Resources.Resources.customer_service
+        Me.btnAdminChat.Location = New System.Drawing.Point(73, 27)
+        Me.btnAdminChat.Name = "btnAdminChat"
+        Me.btnAdminChat.Size = New System.Drawing.Size(90, 90)
+        Me.btnAdminChat.TabIndex = 5
+        Me.btnAdminChat.UseVisualStyleBackColor = False
+        '
         'RequestorMainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -220,4 +234,5 @@ Partial Class RequestorMainForm
     Friend WithEvents btnRequest As ComponentFactory.Krypton.Toolkit.KryptonButton
     Friend WithEvents pnlChildForm As Panel
     Friend WithEvents btnExit As ComponentFactory.Krypton.Toolkit.KryptonButton
+    Friend WithEvents btnAdminChat As Button
 End Class

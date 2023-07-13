@@ -1,44 +1,31 @@
-﻿Imports System.Data.OleDb
+﻿Imports Microsoft.VisualBasic.ApplicationServices
+Imports System.Data.OleDb
+Imports System.Runtime.Remoting.Contexts
 
-Public Class MessagesForm
+Public Class UserMessageForm
     Dim connect As New OleDbConnection
     Dim command As New OleDbCommand
     Dim sql As String = Nothing
     Dim currentSender As String
-    Dim userID As String
+    Dim userID As String = LoginForm.globalUserID
 
-    Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
-        Me.Close()
-    End Sub
-
-    Private Sub MessagesForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub UserMessageForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         connect.ConnectionString = "Provider = Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\USER\CJ\OMC\OMC database.accdb;"
 
         LoadMessages()
     End Sub
-
     Public Sub LoadMessages()
         If connect.State = ConnectionState.Closed Then
             connect.Open()
         End If
-        Dim username As String = AdminMessagesForm.globalUserName
 
-        lblName.Text = username
 
-        sql = "SELECT ID FROM [User] WHERE username = @Username"
-        command = New OleDbCommand(sql, connect)
-        command.Parameters.AddWithValue("@Username", username)
-        Dim reader As OleDbDataReader = command.ExecuteReader()
-
-        If reader.Read() Then
-            userID = reader("ID").ToString()
-        End If
         pnlMessages.Controls.Clear()
         Dim table As New TableLayoutPanel
         table.ColumnCount = 1
         'table.Location = New System.Drawing.Point(79, 94)
         table.Name = "TableLayoutPanel1"
-        table.Width = 500
+        table.Width = 600
         table.AutoSize = True
         table.TabIndex = 0
         ' Clear the existing message panels in the container control
@@ -47,8 +34,8 @@ Public Class MessagesForm
 
 
         ' Execute a query to fetch the messages between the two users
-        sql = "SELECT * FROM Messages WHERE (senderID = @User1 AND recipientID = @User2) OR (senderID = @User2 AND recipientID = @User1) ORDER BY Timestamp"
-        Using command As New OleDbCommand(sql, connect)
+        Sql = "SELECT * FROM Messages WHERE (senderID = @User1 AND recipientID = @User2) OR (senderID = @User2 AND recipientID = @User1) ORDER BY Timestamp"
+        Using command As New OleDbCommand(Sql, connect)
             command.Parameters.AddWithValue("@User1", userID)
             command.Parameters.AddWithValue("@User2", "admin")
 
@@ -65,7 +52,7 @@ Public Class MessagesForm
                     messagePanel.AutoSize = True
 
                     ' Set the position of the message panel based on the sender
-                    If currentSender = "admin" Then
+                    If currentSender = userID Then
                         messagePanel.BackColor = Color.LightBlue
                         messagePanel.Anchor = AnchorStyles.Right
                     Else
@@ -90,8 +77,7 @@ Public Class MessagesForm
         End Using
         connect.Close()
     End Sub
-
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub BtnSend_Click(sender As Object, e As EventArgs) Handles btnSend.Click
         If txtMessage.Text = "" Then
             MsgBox("Please input a message.", 0 + MsgBoxStyle.Exclamation, "EMPTY MESSAGE")
         Else
@@ -105,8 +91,8 @@ Public Class MessagesForm
 
             Dim timeStamp As String = Format(DateTime.Now, "yyyy/MM/dd HH:mm:ss")
             command = New OleDbCommand(sql, connect)
-            command.Parameters.AddWithValue("@SenderID", "admin")
-            command.Parameters.AddWithValue("@RecipientID", userID)
+            command.Parameters.AddWithValue("@SenderID", userID)
+            command.Parameters.AddWithValue("@RecipientID", "admin")
             command.Parameters.AddWithValue("@TimeStamp", timeStamp)
             command.Parameters.AddWithValue("@Message", message)
 
@@ -115,6 +101,7 @@ Public Class MessagesForm
             LoadMessages()
             txtMessage.Clear()
         End If
-
     End Sub
+
+
 End Class

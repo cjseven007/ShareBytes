@@ -17,7 +17,9 @@ Public Class AdminMessagesForm
     End Sub
 
     Private Sub PopulateUserPanels()
-
+        If connect.State = ConnectionState.Closed Then
+            connect.Open()
+        End If
         'Retrieve data from database
         sql = "SELECT DISTINCT senderID FROM Messages"
         'Get donorID to retrieve data accordingly
@@ -100,4 +102,5 @@ Public Class AdminMessagesForm
         ' ...
         MessagesForm.ShowDialog()
     End Sub
+
 End Class

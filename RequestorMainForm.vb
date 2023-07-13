@@ -53,4 +53,8 @@
         End If
 
     End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnAdminChat.Click
+        OpenChildFormInPanel(UserMessageForm)
+    End Sub
 End Class

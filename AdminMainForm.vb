@@ -29,4 +29,11 @@
     Private Sub btnMessages_Click(sender As Object, e As EventArgs) Handles btnMessages.Click
         OpenChildFormInPanel(AdminMessagesForm)
     End Sub
+
+    Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
+        Dim res As String = MsgBox("Are you sure?", MessageBoxIcon.Question & 4, "Exit Program")
+        If res = vbYes Then
+            Application.ExitThread()
+        End If
+    End Sub
 End Class
