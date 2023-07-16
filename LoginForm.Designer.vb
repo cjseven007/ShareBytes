@@ -24,7 +24,6 @@ Partial Class LoginForm
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.pblBack = New System.Windows.Forms.Panel()
-        Me.btnEye = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.btnLogin = New ComponentFactory.Krypton.Toolkit.KryptonButton()
@@ -33,12 +32,13 @@ Partial Class LoginForm
         Me.lblTitle = New System.Windows.Forms.Label()
         Me.pnlCard = New System.Windows.Forms.Panel()
         Me.btnSignUp = New ComponentFactory.Krypton.Toolkit.KryptonButton()
-        Me.picGif = New System.Windows.Forms.PictureBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.btnExit = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.lblForgotPassword = New System.Windows.Forms.Label()
+        Me.picGif = New System.Windows.Forms.PictureBox()
+        Me.btnEye = New System.Windows.Forms.Button()
         Me.pblBack.SuspendLayout()
         Me.pnlCard.SuspendLayout()
         CType(Me.picGif, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -59,17 +59,6 @@ Partial Class LoginForm
         Me.pblBack.Name = "pblBack"
         Me.pblBack.Size = New System.Drawing.Size(780, 450)
         Me.pblBack.TabIndex = 0
-        '
-        'btnEye
-        '
-        Me.btnEye.BackColor = System.Drawing.Color.Transparent
-        Me.btnEye.BackgroundImage = Global.ShareBytes_Prototype.My.Resources.Resources.eye
-        Me.btnEye.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnEye.Location = New System.Drawing.Point(478, 270)
-        Me.btnEye.Name = "btnEye"
-        Me.btnEye.Size = New System.Drawing.Size(35, 35)
-        Me.btnEye.TabIndex = 61
-        Me.btnEye.UseVisualStyleBackColor = False
         '
         'Label2
         '
@@ -108,7 +97,7 @@ Partial Class LoginForm
         Me.btnLogin.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer))
         Me.btnLogin.StateCommon.Content.ShortText.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnLogin.TabIndex = 3
-        Me.btnLogin.Values.Text = "LOGIN"
+        Me.btnLogin.Values.Text = "&LOGIN"
         '
         'txtPassword
         '
@@ -181,17 +170,7 @@ Partial Class LoginForm
         Me.btnSignUp.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer))
         Me.btnSignUp.StateCommon.Content.ShortText.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSignUp.TabIndex = 6
-        Me.btnSignUp.Values.Text = "SIGN UP HERE"
-        '
-        'picGif
-        '
-        Me.picGif.Image = Global.ShareBytes_Prototype.My.Resources.Resources.burger_rope
-        Me.picGif.Location = New System.Drawing.Point(92, 198)
-        Me.picGif.Name = "picGif"
-        Me.picGif.Size = New System.Drawing.Size(200, 200)
-        Me.picGif.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.picGif.TabIndex = 7
-        Me.picGif.TabStop = False
+        Me.btnSignUp.Values.Text = "&SIGN UP HERE"
         '
         'Label4
         '
@@ -250,6 +229,27 @@ Partial Class LoginForm
         Me.lblForgotPassword.Size = New System.Drawing.Size(113, 17)
         Me.lblForgotPassword.TabIndex = 62
         Me.lblForgotPassword.Text = "Forgot Password?"
+        '
+        'picGif
+        '
+        Me.picGif.Image = Global.ShareBytes_Prototype.My.Resources.Resources.burger_rope
+        Me.picGif.Location = New System.Drawing.Point(92, 198)
+        Me.picGif.Name = "picGif"
+        Me.picGif.Size = New System.Drawing.Size(200, 200)
+        Me.picGif.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picGif.TabIndex = 7
+        Me.picGif.TabStop = False
+        '
+        'btnEye
+        '
+        Me.btnEye.BackColor = System.Drawing.Color.Transparent
+        Me.btnEye.BackgroundImage = Global.ShareBytes_Prototype.My.Resources.Resources.eye
+        Me.btnEye.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnEye.Location = New System.Drawing.Point(478, 270)
+        Me.btnEye.Name = "btnEye"
+        Me.btnEye.Size = New System.Drawing.Size(35, 35)
+        Me.btnEye.TabIndex = 61
+        Me.btnEye.UseVisualStyleBackColor = False
         '
         'LoginForm
         '

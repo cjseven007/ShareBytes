@@ -50,7 +50,8 @@ Partial Class AdminMainForm
         '
         Me.btnLogOut.BackColor = System.Drawing.Color.LightSteelBlue
         Me.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnLogOut.Location = New System.Drawing.Point(0, 341)
+        Me.btnLogOut.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnLogOut.Location = New System.Drawing.Point(0, 298)
         Me.btnLogOut.Name = "btnLogOut"
         Me.btnLogOut.Size = New System.Drawing.Size(200, 46)
         Me.btnLogOut.TabIndex = 3
@@ -61,7 +62,8 @@ Partial Class AdminMainForm
         '
         Me.btnMessages.BackColor = System.Drawing.Color.LightSteelBlue
         Me.btnMessages.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnMessages.Location = New System.Drawing.Point(0, 261)
+        Me.btnMessages.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnMessages.Location = New System.Drawing.Point(0, 218)
         Me.btnMessages.Name = "btnMessages"
         Me.btnMessages.Size = New System.Drawing.Size(200, 46)
         Me.btnMessages.TabIndex = 2
@@ -72,7 +74,8 @@ Partial Class AdminMainForm
         '
         Me.btnStatistics.BackColor = System.Drawing.Color.LightSteelBlue
         Me.btnStatistics.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnStatistics.Location = New System.Drawing.Point(0, 209)
+        Me.btnStatistics.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnStatistics.Location = New System.Drawing.Point(0, 166)
         Me.btnStatistics.Name = "btnStatistics"
         Me.btnStatistics.Size = New System.Drawing.Size(200, 46)
         Me.btnStatistics.TabIndex = 1
@@ -83,7 +86,8 @@ Partial Class AdminMainForm
         '
         Me.btnUsers.BackColor = System.Drawing.Color.LightSteelBlue
         Me.btnUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnUsers.Location = New System.Drawing.Point(0, 157)
+        Me.btnUsers.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnUsers.Location = New System.Drawing.Point(0, 114)
         Me.btnUsers.Name = "btnUsers"
         Me.btnUsers.Size = New System.Drawing.Size(200, 46)
         Me.btnUsers.TabIndex = 0
@@ -95,6 +99,7 @@ Partial Class AdminMainForm
         Me.pnlChildForm.BackColor = System.Drawing.Color.White
         Me.pnlChildForm.Controls.Add(Me.btnExit)
         Me.pnlChildForm.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.pnlChildForm.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
         Me.pnlChildForm.Location = New System.Drawing.Point(200, 0)
         Me.pnlChildForm.Name = "pnlChildForm"
         Me.pnlChildForm.Size = New System.Drawing.Size(600, 450)

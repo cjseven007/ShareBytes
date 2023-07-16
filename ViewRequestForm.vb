@@ -58,72 +58,70 @@ Public Class ViewRequestForm
         Return deg * (Math.PI / 180)
     End Function
     Private Sub btnDonate_Click(sender As Object, e As EventArgs) Handles btnDonate.Click
+        Dim destinationForm As New ChooseDonationItemForm(RequestorID, RequestID, Latitude, Longitude)
+        destinationForm.ShowDialog()
+        'If connect.State = ConnectionState.Closed Then
+        '    connect.Open()
+        'End If
+        'sql = "UPDATE Requests SET status = @Status where RequestID = @RequestID"
+        'command = New OleDbCommand(sql, connect)
+        'command.Parameters.AddWithValue("@Status", "Pending")
+        'command.Parameters.AddWithValue("@RequestID", RequestID)
 
-        If connect.State = ConnectionState.Closed Then
-            connect.Open()
-        End If
-        sql = "UPDATE Requests SET status = @Status where RequestID = @RequestID"
-        command = New OleDbCommand(sql, connect)
-        command.Parameters.AddWithValue("@Status", "Pending")
-        command.Parameters.AddWithValue("@RequestID", RequestID)
+        'command.ExecuteNonQuery()
 
-        command.ExecuteNonQuery()
-
-        'Get user latitude and longitude
-        Dim userID As Integer = LoginForm.globalUserID
-        sql = "SELECT latitude, longitude FROM [User] WHERE ID = @UserID"
-        command = New OleDbCommand(sql, connect)
-        command.Parameters.AddWithValue("@UserID", userID)
-        Dim reader1 As OleDbDataReader = command.ExecuteReader()
+        ''Get user latitude and longitude
+        'Dim userID As Integer = LoginForm.globalUserID
+        'sql = "SELECT latitude, longitude FROM [User] WHERE ID = @UserID"
+        'command = New OleDbCommand(sql, connect)
+        'command.Parameters.AddWithValue("@UserID", userID)
+        'Dim reader1 As OleDbDataReader = command.ExecuteReader()
 
 
-        Dim userLatitude As Double
-        Dim userLongitude As Double
-        If reader1.Read() Then
-            userLatitude = CDbl(reader1("latitude"))
-            userLongitude = CDbl(reader1("longitude"))
-            reader1.Close()
-        Else
-            reader1.Close()
-        End If
-        ' Calculate the distance using the Haversine formula
-        Dim distance As Double = CalculateDistance(userLatitude, userLongitude, Latitude, Longitude)
-        '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-        '''
-        'Use distance obatained to predict the fare price
-        ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-        'Reads csv file to predict fare
-        ' Read the CSV file
-        Dim csvData = File.ReadAllLines("D:/UTP/Foundation 3rd Sem/VP/ml.csv") 'change to real dataset later
-
-        ' Parse the data into arrays
-        Dim distances = csvData.Skip(1).Select(Function(line) Double.Parse(line.Split(","c)(0))).ToArray()
-        Dim fares = csvData.Skip(1).Select(Function(line) Double.Parse(line.Split(","c)(1))).ToArray()
-
-        ' Create an instance of LinearRegressionModel
-        Dim linearRegressionModel As New LinearRegressionModel(distances, fares)
-        ' Train the linear regression model
-        linearRegressionModel.Train()
-        ' Access the slope and intercept
-        Dim slope As Double = linearRegressionModel.Slope
-        Dim intercept As Double = linearRegressionModel.Intercept
-
-        Dim predictedFare = linearRegressionModel.PredictFare(distance)
+        'Dim userLatitude As Double
+        'Dim userLongitude As Double
+        'If reader1.Read() Then
+        '    userLatitude = CDbl(reader1("latitude"))
+        '    userLongitude = CDbl(reader1("longitude"))
+        '    reader1.Close()
+        'Else
+        '    reader1.Close()
+        'End If
+        '' Calculate the distance using the Haversine formula
+        'Dim distance As Double = CalculateDistance(userLatitude, userLongitude, Latitude, Longitude)
+        ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+        ''''
+        ''Use distance obatained to predict the fare price
         '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-        'Add donation to Donations Table
-        sql = "INSERT INTO Donations (donorID, requestorID, requestID, distance, fare, deliverStatus) VALUES (@DonorID, @RequestorID, @RequestID, @Distance, @Fare, @Status)"
-        command = New OleDbCommand(sql, connect)
-        command.Parameters.AddWithValue("@DonorID", userID)
-        command.Parameters.AddWithValue("@RequestorID", RequestorID)
-        command.Parameters.AddWithValue("@RequestID", RequestID)
-        command.Parameters.AddWithValue("@Distance", distance.ToString("0.00"))
-        'Add predicted fare
-        command.Parameters.AddWithValue("@Fare", predictedFare.ToString("0.00"))
-        command.Parameters.AddWithValue("@Status", "Pending Payment")
-        command.ExecuteNonQuery()
+        ''Reads csv file to predict fare
+        '' Read the CSV file
+        'Dim csvData = File.ReadAllLines("D:/UTP/Foundation 3rd Sem/VP/ml.csv") 'change to real dataset later
 
+        '' Parse the data into arrays
+        'Dim distances = csvData.Skip(1).Select(Function(line) Double.Parse(line.Split(","c)(0))).ToArray()
+        'Dim fares = csvData.Skip(1).Select(Function(line) Double.Parse(line.Split(","c)(1))).ToArray()
 
-        MsgBox("Donation record addedd. Status: Pending", 0, "Donation Added")
+        '' Create an instance of LinearRegressionModel
+        'Dim linearRegressionModel As New LinearRegressionModel(distances, fares)
+        '' Train the linear regression model
+        'linearRegressionModel.Train()
+        '' Access the slope and intercept
+        'Dim slope As Double = linearRegressionModel.Slope
+        'Dim intercept As Double = linearRegressionModel.Intercept
+
+        'Dim predictedFare = linearRegressionModel.PredictFare(distance)
+        ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+        ''Add donation to Donations Table
+        'sql = "INSERT INTO Donations (donorID, requestorID, requestID, distance, fare, deliverStatus) VALUES (@DonorID, @RequestorID, @RequestID, @Distance, @Fare, @Status)"
+        'command = New OleDbCommand(sql, connect)
+        'command.Parameters.AddWithValue("@DonorID", userID)
+        'command.Parameters.AddWithValue("@RequestorID", RequestorID)
+        'command.Parameters.AddWithValue("@RequestID", RequestID)
+        'command.Parameters.AddWithValue("@Distance", distance.ToString("0.00"))
+        ''Add predicted fare
+        'command.Parameters.AddWithValue("@Fare", predictedFare.ToString("0.00"))
+        'command.Parameters.AddWithValue("@Status", "Pending Payment")
+        'command.ExecuteNonQuery()
 
         donateForm.DonateFormRefreshData()
         Me.Close()

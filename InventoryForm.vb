@@ -62,7 +62,7 @@ Public Class InventoryForm
         End If
 
         'Retrieve data from database
-        sql = "SELECT ID, product, quantity, expiryDate FROM Inventory WHERE donorID = @DonorID"
+        sql = "SELECT ID, product, quantity, expiryDate FROM Inventory WHERE donorID = @DonorID AND status IS NULL"
         'Get donorID to retrieve data accordingly
         Dim donorID As Integer = LoginForm.globalUserID
         command = New OleDbCommand(sql, connect)
@@ -244,4 +244,6 @@ Public Class InventoryForm
     Private Sub btnRefresh_Click_1(sender As Object, e As EventArgs) Handles btnRefresh.Click
         RefreshData()
     End Sub
+
+
 End Class

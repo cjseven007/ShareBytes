@@ -34,6 +34,7 @@ Partial Class ViewDonationForm
         Me.lblFare = New System.Windows.Forms.Label()
         Me.lblStatus = New System.Windows.Forms.Label()
         Me.lstDonationItem = New System.Windows.Forms.ListBox()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'btnExit
@@ -156,12 +157,23 @@ Partial Class ViewDonationForm
         '
         'lstDonationItem
         '
+        Me.lstDonationItem.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lstDonationItem.FormattingEnabled = True
-        Me.lstDonationItem.ItemHeight = 16
-        Me.lstDonationItem.Location = New System.Drawing.Point(464, 105)
+        Me.lstDonationItem.ItemHeight = 23
+        Me.lstDonationItem.Location = New System.Drawing.Point(513, 137)
         Me.lstDonationItem.Name = "lstDonationItem"
-        Me.lstDonationItem.Size = New System.Drawing.Size(255, 244)
+        Me.lstDonationItem.Size = New System.Drawing.Size(206, 211)
         Me.lstDonationItem.TabIndex = 40
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(555, 111)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(123, 23)
+        Me.Label6.TabIndex = 41
+        Me.Label6.Text = "Donated Items"
         '
         'ViewDonationForm
         '
@@ -169,6 +181,7 @@ Partial Class ViewDonationForm
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(800, 516)
+        Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.lstDonationItem)
         Me.Controls.Add(Me.lblStatus)
         Me.Controls.Add(Me.lblFare)
@@ -202,4 +215,5 @@ Partial Class ViewDonationForm
     Friend WithEvents lblFare As Label
     Friend WithEvents lblStatus As Label
     Friend WithEvents lstDonationItem As ListBox
+    Friend WithEvents Label6 As Label
 End Class

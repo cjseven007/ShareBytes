@@ -119,6 +119,12 @@
     <Compile Include="CardForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ChooseDonationItemForm.Designer.vb">
+      <DependentUpon>ChooseDonationItemForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ChooseDonationItemForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="DonateForm.Designer.vb">
       <DependentUpon>DonateForm.vb</DependentUpon>
     </Compile>
@@ -303,6 +309,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CardForm.resx">
       <DependentUpon>CardForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChooseDonationItemForm.resx">
+      <DependentUpon>ChooseDonationItemForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DonateForm.resx">
       <DependentUpon>DonateForm.vb</DependentUpon>

@@ -79,7 +79,7 @@ Partial Class SignUpForm
         Me.btnLogin.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer))
         Me.btnLogin.StateCommon.Content.ShortText.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnLogin.TabIndex = 6
-        Me.btnLogin.Values.Text = "LOGIN HERE"
+        Me.btnLogin.Values.Text = "&LOGIN HERE"
         '
         'picGif
         '
@@ -239,7 +239,7 @@ Partial Class SignUpForm
         Me.btnSignUp.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer))
         Me.btnSignUp.StateCommon.Content.ShortText.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSignUp.TabIndex = 3
-        Me.btnSignUp.Values.Text = "SIGN UP"
+        Me.btnSignUp.Values.Text = "&SIGN UP"
         '
         'txtPassword
         '
