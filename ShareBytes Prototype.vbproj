@@ -107,6 +107,12 @@
     <Compile Include="AdminMessagesForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="AdminUserForm.Designer.vb">
+      <DependentUpon>AdminUserForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AdminUserForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="BankingForm.Designer.vb">
       <DependentUpon>BankingForm.vb</DependentUpon>
     </Compile>
@@ -303,6 +309,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminMessagesForm.resx">
       <DependentUpon>AdminMessagesForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminUserForm.resx">
+      <DependentUpon>AdminUserForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BankingForm.resx">
       <DependentUpon>BankingForm.vb</DependentUpon>
