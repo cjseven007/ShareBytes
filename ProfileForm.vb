@@ -4,6 +4,7 @@ Public Class ProfileForm
     Dim connect As New OleDbConnection
     Dim command As New OleDbCommand
     Dim sql As String = Nothing
+    Dim userID As Integer = LoginForm.globalUserID
     Dim editProfileForm As New EditProfileForm(Me)
 
     Public Sub ProfileFormRefreshData()
@@ -11,7 +12,7 @@ Public Class ProfileForm
             connect.Open()
         End If
 
-        Dim userID As Integer = LoginForm.globalUserID
+
         sql = "SELECT * FROM [User] WHERE ID = @UserID "
 
         command = New OleDbCommand(sql, connect)
@@ -25,6 +26,8 @@ Public Class ProfileForm
             Dim organization As String = ""
             Dim organizationOrdinal As Integer = reader.GetOrdinal("organization")
 
+
+            'If they are empty, return something
             If Not reader.IsDBNull(organizationOrdinal) Then
                 organization = reader.GetString(organizationOrdinal)
             End If
@@ -36,6 +39,13 @@ Public Class ProfileForm
                 address = reader.GetString(addressOrdinal)
             End If
 
+            Dim pictureFilePath As String = ""
+            Dim pictureFilePathOrdinal As Integer = reader.GetOrdinal("picture")
+            If Not reader.IsDBNull(pictureFilePathOrdinal) Then
+                pictureFilePath = reader.GetString(pictureFilePathOrdinal)
+                ' Display the picture in the picture box
+                picProfile.Image = Image.FromFile(pictureFilePath)
+            End If
 
             lblUsername.Text = username
             lblEmail.Text = email
@@ -72,5 +82,33 @@ Public Class ProfileForm
     Private Sub btnEdit_Click(sender As Object, e As EventArgs) Handles btnEdit.Click
 
         editProfileForm.ShowDialog()
+    End Sub
+
+    Private Sub btnChoosePic_Click(sender As Object, e As EventArgs) Handles btnChoosePic.Click
+        Dim openFileDialog As New OpenFileDialog()
+        openFileDialog.Filter = "Image Files (*.jpg, *.png, *.bmp)|*.jpg;*.png;*.bmp"
+
+        Try
+            If openFileDialog.ShowDialog() = DialogResult.OK Then
+                Dim selectedFilePath As String = openFileDialog.FileName
+
+                If connect.State = ConnectionState.Closed Then
+                    connect.Open()
+                End If
+
+                Dim sql As String = "UPDATE [user] SET picture = @Picture WHERE ID = @UserID"
+                command = New OleDbCommand(sql, connect)
+                command.Parameters.AddWithValue("@Picture", selectedFilePath)
+                command.Parameters.AddWithValue("@UserID", userID)
+                command.ExecuteNonQuery()
+
+                MsgBox("Picture is added successfully.", 0 & MsgBoxStyle.Information, "PROFILE PICTURE ADDED")
+                ProfileFormRefreshData()
+            End If
+        Catch ex As Exception
+            MessageBox.Show("An error occurred: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            openFileDialog.Dispose()
+        End Try
     End Sub
 End Class

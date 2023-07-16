@@ -34,6 +34,7 @@ Partial Class ProfileForm
         Me.lblAddress = New System.Windows.Forms.Label()
         Me.picProfile = New System.Windows.Forms.PictureBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.btnChoosePic = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         Me.btnEdit = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         CType(Me.picProfile, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
@@ -134,9 +135,9 @@ Partial Class ProfileForm
         '
         Me.picProfile.Image = CType(resources.GetObject("picProfile.Image"), System.Drawing.Image)
         Me.picProfile.InitialImage = CType(resources.GetObject("picProfile.InitialImage"), System.Drawing.Image)
-        Me.picProfile.Location = New System.Drawing.Point(606, 46)
+        Me.picProfile.Location = New System.Drawing.Point(618, 40)
         Me.picProfile.Name = "picProfile"
-        Me.picProfile.Size = New System.Drawing.Size(182, 196)
+        Me.picProfile.Size = New System.Drawing.Size(156, 168)
         Me.picProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.picProfile.TabIndex = 27
         Me.picProfile.TabStop = False
@@ -144,6 +145,7 @@ Partial Class ProfileForm
         'Panel1
         '
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel1.Controls.Add(Me.btnChoosePic)
         Me.Panel1.Controls.Add(Me.lblAddress)
         Me.Panel1.Controls.Add(Me.picProfile)
         Me.Panel1.Controls.Add(Me.lblOrganization)
@@ -157,6 +159,29 @@ Partial Class ProfileForm
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(838, 478)
         Me.Panel1.TabIndex = 28
+        '
+        'btnChoosePic
+        '
+        Me.btnChoosePic.Location = New System.Drawing.Point(618, 214)
+        Me.btnChoosePic.Name = "btnChoosePic"
+        Me.btnChoosePic.OverrideDefault.Back.Color1 = System.Drawing.Color.Gold
+        Me.btnChoosePic.OverrideDefault.Back.Color2 = System.Drawing.Color.Gold
+        Me.btnChoosePic.OverrideDefault.Border.DrawBorders = CType((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) _
+            Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) _
+            Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right), ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)
+        Me.btnChoosePic.OverrideDefault.Border.Rounding = 10
+        Me.btnChoosePic.Size = New System.Drawing.Size(156, 39)
+        Me.btnChoosePic.StateCommon.Back.Color1 = System.Drawing.Color.Gold
+        Me.btnChoosePic.StateCommon.Back.Color2 = System.Drawing.Color.Gold
+        Me.btnChoosePic.StateCommon.Border.Color1 = System.Drawing.Color.Gold
+        Me.btnChoosePic.StateCommon.Border.Color2 = System.Drawing.Color.Gold
+        Me.btnChoosePic.StateCommon.Border.DrawBorders = CType((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) _
+            Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) _
+            Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right), ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)
+        Me.btnChoosePic.StateCommon.Border.Rounding = 10
+        Me.btnChoosePic.StateCommon.Content.ShortText.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnChoosePic.TabIndex = 35
+        Me.btnChoosePic.Values.Text = "Choose Picture"
         '
         'btnEdit
         '
@@ -213,4 +238,5 @@ Partial Class ProfileForm
     Friend WithEvents picProfile As PictureBox
     Friend WithEvents Panel1 As Panel
     Friend WithEvents btnEdit As ComponentFactory.Krypton.Toolkit.KryptonButton
+    Friend WithEvents btnChoosePic As ComponentFactory.Krypton.Toolkit.KryptonButton
 End Class
