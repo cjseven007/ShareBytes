@@ -137,6 +137,18 @@
     <Compile Include="EditRequestForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ForgotPasswordForm.Designer.vb">
+      <DependentUpon>ForgotPasswordForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ForgotPasswordForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OTPEmailForm.Designer.vb">
+      <DependentUpon>OTPEmailForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="OTPEmailForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="HomeForm.Designer.vb">
       <DependentUpon>HomeForm.vb</DependentUpon>
     </Compile>
@@ -251,6 +263,12 @@
     <Compile Include="UserMessageForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="VerifyOTPForm.Designer.vb">
+      <DependentUpon>VerifyOTPForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="VerifyOTPForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ViewDonationForm.Designer.vb">
       <DependentUpon>ViewDonationForm.vb</DependentUpon>
     </Compile>
@@ -294,6 +312,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EditRequestForm.resx">
       <DependentUpon>EditRequestForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ForgotPasswordForm.resx">
+      <DependentUpon>ForgotPasswordForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OTPEmailForm.resx">
+      <DependentUpon>OTPEmailForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HomeForm.resx">
       <DependentUpon>HomeForm.vb</DependentUpon>
@@ -348,6 +372,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserMessageForm.resx">
       <DependentUpon>UserMessageForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VerifyOTPForm.resx">
+      <DependentUpon>VerifyOTPForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewDonationForm.resx">
       <DependentUpon>ViewDonationForm.vb</DependentUpon>
@@ -445,6 +472,35 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\customer-service.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Outlook">
+      <Guid>{00062FFF-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>9</VersionMajor>
+      <VersionMinor>6</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

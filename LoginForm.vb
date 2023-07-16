@@ -10,7 +10,7 @@ Public Class LoginForm
     Public Shared globalUserID As Integer
     Private Sub LoginForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         connect.ConnectionString = "Provider = Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\USER\CJ\OMC\OMC database.accdb;"
-
+        txtPassword.PasswordChar = "*" ' Set the password character to asterisk
     End Sub
     Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
         Me.Close()
@@ -21,8 +21,14 @@ Public Class LoginForm
             connect.Open()
         End If
 
-        If txtUsername.Text = Nothing Or txtPassword.Text = Nothing Then
-            MessageBox.Show("Please fill in all blank fields.", "Incomplete details", 0, MessageBoxIcon.Error)
+
+
+        If txtUsername.Text = Nothing And txtPassword.Text = Nothing Then
+            MessageBox.Show("Please enter username and password.", "INCOMPLETE DETAILS", 0, MessageBoxIcon.Error)
+        ElseIf txtUsername.Text = Nothing Then
+            MessageBox.Show("Please enter your username.", "USERNAME IS EMPTY", 0, MessageBoxIcon.Error)
+        ElseIf txtPassword.Text = Nothing Then
+            MessageBox.Show("Please enter your password.", "PASSWORD IS EMPTY", 0, MessageBoxIcon.Error)
         Else
             sql = "SELECT * FROM [user] WHERE username = @Username and password = @Password"
             command = New OleDbCommand(sql, connect)
@@ -42,7 +48,7 @@ Public Class LoginForm
                 End If
                 reader.Close()
 
-                MsgBox("Succeeded", 0, "Successful Login")
+                MsgBox("Welcome, " & txtUsername.Text & "!", 0 + MsgBoxStyle.Information, "LOGIN SUCCESSFUL")
 
                 sql = "SELECT * FROM [User] WHERE ID = @UserID"
                 command = New OleDbCommand(sql, connect)
@@ -81,7 +87,7 @@ Public Class LoginForm
 
 
             Else
-                MsgBox("Failed", 0, "Login Failed")
+                MsgBox("User not found. If you are not a member, kindly proceed in the sign up page.", 0 + MsgBoxStyle.Critical, "LOGIN FAILED")
             End If
         End If
     End Sub
@@ -89,5 +95,17 @@ Public Class LoginForm
     Private Sub btnSignUp_Click(sender As Object, e As EventArgs) Handles btnSignUp.Click
         SignUpForm.Show()
         Me.Close()
+    End Sub
+
+    Private Sub btnEye_MouseHover(sender As Object, e As EventArgs) Handles btnEye.MouseHover
+        txtPassword.PasswordChar = ""
+    End Sub
+
+    Private Sub btnEye_MouseLeave(sender As Object, e As EventArgs) Handles btnEye.MouseLeave
+        txtPassword.PasswordChar = "*" ' Set the password character to asterisk
+    End Sub
+
+    Private Sub lblForgotPassword_Click(sender As Object, e As EventArgs) Handles lblForgotPassword.Click
+        OTPEmailForm.ShowDialog()
     End Sub
 End Class

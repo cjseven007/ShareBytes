@@ -134,7 +134,19 @@ Partial Class AddInventoryForm
         '
         Me.btnAddItem.Location = New System.Drawing.Point(176, 398)
         Me.btnAddItem.Name = "btnAddItem"
-        Me.btnAddItem.Size = New System.Drawing.Size(147, 34)
+        Me.btnAddItem.OverrideDefault.Back.Color1 = System.Drawing.Color.Orange
+        Me.btnAddItem.OverrideDefault.Back.Color2 = System.Drawing.Color.Orange
+        Me.btnAddItem.OverrideDefault.Border.DrawBorders = CType((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) _
+            Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) _
+            Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right), ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)
+        Me.btnAddItem.OverrideDefault.Border.Rounding = 15
+        Me.btnAddItem.Size = New System.Drawing.Size(147, 53)
+        Me.btnAddItem.StateCommon.Back.Color1 = System.Drawing.Color.Orange
+        Me.btnAddItem.StateCommon.Back.Color2 = System.Drawing.Color.Orange
+        Me.btnAddItem.StateCommon.Border.DrawBorders = CType((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) _
+            Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) _
+            Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right), ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)
+        Me.btnAddItem.StateCommon.Border.Rounding = 15
         Me.btnAddItem.TabIndex = 12
         Me.btnAddItem.Values.Text = "Add Item"
         '

@@ -24,6 +24,7 @@ Partial Class LoginForm
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.pblBack = New System.Windows.Forms.Panel()
+        Me.btnEye = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.btnLogin = New ComponentFactory.Krypton.Toolkit.KryptonButton()
@@ -37,6 +38,7 @@ Partial Class LoginForm
         Me.Label3 = New System.Windows.Forms.Label()
         Me.btnExit = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.lblForgotPassword = New System.Windows.Forms.Label()
         Me.pblBack.SuspendLayout()
         Me.pnlCard.SuspendLayout()
         CType(Me.picGif, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -45,6 +47,8 @@ Partial Class LoginForm
         'pblBack
         '
         Me.pblBack.BackColor = System.Drawing.Color.White
+        Me.pblBack.Controls.Add(Me.lblForgotPassword)
+        Me.pblBack.Controls.Add(Me.btnEye)
         Me.pblBack.Controls.Add(Me.Label2)
         Me.pblBack.Controls.Add(Me.Label1)
         Me.pblBack.Controls.Add(Me.btnLogin)
@@ -55,6 +59,17 @@ Partial Class LoginForm
         Me.pblBack.Name = "pblBack"
         Me.pblBack.Size = New System.Drawing.Size(780, 450)
         Me.pblBack.TabIndex = 0
+        '
+        'btnEye
+        '
+        Me.btnEye.BackColor = System.Drawing.Color.Transparent
+        Me.btnEye.BackgroundImage = Global.ShareBytes_Prototype.My.Resources.Resources.eye
+        Me.btnEye.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnEye.Location = New System.Drawing.Point(478, 270)
+        Me.btnEye.Name = "btnEye"
+        Me.btnEye.Size = New System.Drawing.Size(35, 35)
+        Me.btnEye.TabIndex = 61
+        Me.btnEye.UseVisualStyleBackColor = False
         '
         'Label2
         '
@@ -225,6 +240,17 @@ Partial Class LoginForm
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
         Me.ContextMenuStrip1.Size = New System.Drawing.Size(61, 4)
         '
+        'lblForgotPassword
+        '
+        Me.lblForgotPassword.AutoSize = True
+        Me.lblForgotPassword.Font = New System.Drawing.Font("Segoe UI", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblForgotPassword.ForeColor = System.Drawing.Color.Gray
+        Me.lblForgotPassword.Location = New System.Drawing.Point(606, 278)
+        Me.lblForgotPassword.Name = "lblForgotPassword"
+        Me.lblForgotPassword.Size = New System.Drawing.Size(113, 17)
+        Me.lblForgotPassword.TabIndex = 62
+        Me.lblForgotPassword.Text = "Forgot Password?"
+        '
         'LoginForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -261,4 +287,6 @@ Partial Class LoginForm
     Friend WithEvents picGif As PictureBox
     Friend WithEvents btnSignUp As ComponentFactory.Krypton.Toolkit.KryptonButton
     Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
+    Friend WithEvents btnEye As Button
+    Friend WithEvents lblForgotPassword As Label
 End Class

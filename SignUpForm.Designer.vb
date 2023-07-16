@@ -41,6 +41,8 @@ Partial Class SignUpForm
         Me.txtUsername = New ComponentFactory.Krypton.Toolkit.KryptonTextBox()
         Me.lblTitle = New System.Windows.Forms.Label()
         Me.btnExit = New ComponentFactory.Krypton.Toolkit.KryptonButton()
+        Me.btnEye2 = New System.Windows.Forms.Button()
+        Me.btnEye1 = New System.Windows.Forms.Button()
         Me.pnlCard.SuspendLayout()
         CType(Me.picGif, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pblBack.SuspendLayout()
@@ -115,6 +117,8 @@ Partial Class SignUpForm
         'pblBack
         '
         Me.pblBack.BackColor = System.Drawing.Color.White
+        Me.pblBack.Controls.Add(Me.btnEye1)
+        Me.pblBack.Controls.Add(Me.btnEye2)
         Me.pblBack.Controls.Add(Me.rbtRequestor)
         Me.pblBack.Controls.Add(Me.rbtDonor)
         Me.pblBack.Controls.Add(Me.Label6)
@@ -295,6 +299,28 @@ Partial Class SignUpForm
         Me.btnExit.TabIndex = 8
         Me.btnExit.Values.Text = "X"
         '
+        'btnEye2
+        '
+        Me.btnEye2.BackColor = System.Drawing.Color.Transparent
+        Me.btnEye2.BackgroundImage = Global.ShareBytes_Prototype.My.Resources.Resources.eye
+        Me.btnEye2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnEye2.Location = New System.Drawing.Point(725, 313)
+        Me.btnEye2.Name = "btnEye2"
+        Me.btnEye2.Size = New System.Drawing.Size(35, 35)
+        Me.btnEye2.TabIndex = 62
+        Me.btnEye2.UseVisualStyleBackColor = False
+        '
+        'btnEye1
+        '
+        Me.btnEye1.BackColor = System.Drawing.Color.Transparent
+        Me.btnEye1.BackgroundImage = Global.ShareBytes_Prototype.My.Resources.Resources.eye
+        Me.btnEye1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnEye1.Location = New System.Drawing.Point(725, 243)
+        Me.btnEye1.Name = "btnEye1"
+        Me.btnEye1.Size = New System.Drawing.Size(35, 35)
+        Me.btnEye1.TabIndex = 63
+        Me.btnEye1.UseVisualStyleBackColor = False
+        '
         'SignUpForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -336,4 +362,6 @@ Partial Class SignUpForm
     Friend WithEvents rbtRequestor As ComponentFactory.Krypton.Toolkit.KryptonRadioButton
     Friend WithEvents rbtDonor As ComponentFactory.Krypton.Toolkit.KryptonRadioButton
     Friend WithEvents btnExit As ComponentFactory.Krypton.Toolkit.KryptonButton
+    Friend WithEvents btnEye1 As Button
+    Friend WithEvents btnEye2 As Button
 End Class
