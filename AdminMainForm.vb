@@ -43,6 +43,6 @@ Public Class AdminMainForm
     End Sub
 
     Private Sub btnStatistics_Click(sender As Object, e As EventArgs) Handles btnStatistics.Click
-
+        OpenChildFormInPanel(AdminStatisticsForm)
     End Sub
 End Class

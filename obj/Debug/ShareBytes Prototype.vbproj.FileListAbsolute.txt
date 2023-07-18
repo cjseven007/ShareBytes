@@ -47,3 +47,5 @@ D:\UTP\Foundation 3rd Sem\VP\OMC stuff\ShareBytes Prototype\obj\Debug\ShareBytes
 D:\UTP\Foundation 3rd Sem\VP\OMC stuff\ShareBytes Prototype\obj\Debug\ShareBytes_Prototype.ForgotPasswordForm.resources
 D:\UTP\Foundation 3rd Sem\VP\OMC stuff\ShareBytes Prototype\obj\Debug\ShareBytes_Prototype.ChooseDonationItemForm.resources
 D:\UTP\Foundation 3rd Sem\VP\OMC stuff\ShareBytes Prototype\obj\Debug\ShareBytes_Prototype.AdminUserForm.resources
+D:\UTP\Foundation 3rd Sem\VP\OMC stuff\ShareBytes Prototype\obj\Debug\ShareBytes_Prototype.AdminStatisticsForm.resources
+D:\UTP\Foundation 3rd Sem\VP\OMC stuff\ShareBytes Prototype\obj\Debug\ShareBytes_Prototype.StartupForm.resources
