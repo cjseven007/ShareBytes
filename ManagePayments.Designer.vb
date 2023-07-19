@@ -24,12 +24,12 @@ Partial Class ManagePayments
     Private Sub InitializeComponent()
         Me.btnExit = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         Me.dgvManage = New System.Windows.Forms.DataGridView()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.btnDelete = New ComponentFactory.Krypton.Toolkit.KryptonButton()
+        Me.ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dgvPaymentMethod = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dgvBankName = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dgvAccountNum = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.dgvIsDelete = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.btnDelete = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         CType(Me.dgvManage, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -56,39 +56,13 @@ Partial Class ManagePayments
         Me.dgvManage.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvManage.BackgroundColor = System.Drawing.Color.White
         Me.dgvManage.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvManage.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.dgvPaymentMethod, Me.dgvBankName, Me.dgvAccountNum, Me.dgvIsDelete})
+        Me.dgvManage.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ID, Me.dgvPaymentMethod, Me.dgvBankName, Me.dgvAccountNum})
         Me.dgvManage.Location = New System.Drawing.Point(77, 101)
         Me.dgvManage.Name = "dgvManage"
         Me.dgvManage.RowHeadersWidth = 51
         Me.dgvManage.RowTemplate.Height = 24
         Me.dgvManage.Size = New System.Drawing.Size(772, 346)
         Me.dgvManage.TabIndex = 42
-        '
-        'dgvPaymentMethod
-        '
-        Me.dgvPaymentMethod.HeaderText = "Payment Method"
-        Me.dgvPaymentMethod.MinimumWidth = 6
-        Me.dgvPaymentMethod.Name = "dgvPaymentMethod"
-        '
-        'dgvBankName
-        '
-        Me.dgvBankName.HeaderText = "Bank Name"
-        Me.dgvBankName.MinimumWidth = 6
-        Me.dgvBankName.Name = "dgvBankName"
-        '
-        'dgvAccountNum
-        '
-        Me.dgvAccountNum.HeaderText = "Account Number"
-        Me.dgvAccountNum.MinimumWidth = 6
-        Me.dgvAccountNum.Name = "dgvAccountNum"
-        '
-        'dgvIsDelete
-        '
-        Me.dgvIsDelete.HeaderText = "Checked"
-        Me.dgvIsDelete.MinimumWidth = 6
-        Me.dgvIsDelete.Name = "dgvIsDelete"
-        Me.dgvIsDelete.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvIsDelete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
         '
         'Label6
         '
@@ -123,6 +97,30 @@ Partial Class ManagePayments
         Me.btnDelete.TabIndex = 64
         Me.btnDelete.Values.Text = "Delete"
         '
+        'ID
+        '
+        Me.ID.HeaderText = "ID"
+        Me.ID.MinimumWidth = 6
+        Me.ID.Name = "ID"
+        '
+        'dgvPaymentMethod
+        '
+        Me.dgvPaymentMethod.HeaderText = "Payment Method"
+        Me.dgvPaymentMethod.MinimumWidth = 6
+        Me.dgvPaymentMethod.Name = "dgvPaymentMethod"
+        '
+        'dgvBankName
+        '
+        Me.dgvBankName.HeaderText = "Bank Name"
+        Me.dgvBankName.MinimumWidth = 6
+        Me.dgvBankName.Name = "dgvBankName"
+        '
+        'dgvAccountNum
+        '
+        Me.dgvAccountNum.HeaderText = "Account Number"
+        Me.dgvAccountNum.MinimumWidth = 6
+        Me.dgvAccountNum.Name = "dgvAccountNum"
+        '
         'ManagePayments
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -145,10 +143,10 @@ Partial Class ManagePayments
 
     Friend WithEvents btnExit As ComponentFactory.Krypton.Toolkit.KryptonButton
     Friend WithEvents dgvManage As DataGridView
+    Friend WithEvents Label6 As Label
+    Friend WithEvents btnDelete As ComponentFactory.Krypton.Toolkit.KryptonButton
+    Friend WithEvents ID As DataGridViewTextBoxColumn
     Friend WithEvents dgvPaymentMethod As DataGridViewTextBoxColumn
     Friend WithEvents dgvBankName As DataGridViewTextBoxColumn
     Friend WithEvents dgvAccountNum As DataGridViewTextBoxColumn
-    Friend WithEvents dgvIsDelete As DataGridViewCheckBoxColumn
-    Friend WithEvents Label6 As Label
-    Friend WithEvents btnDelete As ComponentFactory.Krypton.Toolkit.KryptonButton
 End Class

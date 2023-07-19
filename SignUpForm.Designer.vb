@@ -28,6 +28,8 @@ Partial Class SignUpForm
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.pblBack = New System.Windows.Forms.Panel()
+        Me.btnEye1 = New System.Windows.Forms.Button()
+        Me.btnEye2 = New System.Windows.Forms.Button()
         Me.rbtRequestor = New ComponentFactory.Krypton.Toolkit.KryptonRadioButton()
         Me.rbtDonor = New ComponentFactory.Krypton.Toolkit.KryptonRadioButton()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -41,8 +43,7 @@ Partial Class SignUpForm
         Me.txtUsername = New ComponentFactory.Krypton.Toolkit.KryptonTextBox()
         Me.lblTitle = New System.Windows.Forms.Label()
         Me.btnExit = New ComponentFactory.Krypton.Toolkit.KryptonButton()
-        Me.btnEye2 = New System.Windows.Forms.Button()
-        Me.btnEye1 = New System.Windows.Forms.Button()
+        Me.rbtRider = New ComponentFactory.Krypton.Toolkit.KryptonRadioButton()
         Me.pnlCard.SuspendLayout()
         CType(Me.picGif, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pblBack.SuspendLayout()
@@ -117,6 +118,7 @@ Partial Class SignUpForm
         'pblBack
         '
         Me.pblBack.BackColor = System.Drawing.Color.White
+        Me.pblBack.Controls.Add(Me.rbtRider)
         Me.pblBack.Controls.Add(Me.btnEye1)
         Me.pblBack.Controls.Add(Me.btnEye2)
         Me.pblBack.Controls.Add(Me.rbtRequestor)
@@ -136,9 +138,31 @@ Partial Class SignUpForm
         Me.pblBack.Size = New System.Drawing.Size(780, 498)
         Me.pblBack.TabIndex = 2
         '
+        'btnEye1
+        '
+        Me.btnEye1.BackColor = System.Drawing.Color.Transparent
+        Me.btnEye1.BackgroundImage = Global.ShareBytes_Prototype.My.Resources.Resources.eye
+        Me.btnEye1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnEye1.Location = New System.Drawing.Point(725, 243)
+        Me.btnEye1.Name = "btnEye1"
+        Me.btnEye1.Size = New System.Drawing.Size(35, 35)
+        Me.btnEye1.TabIndex = 63
+        Me.btnEye1.UseVisualStyleBackColor = False
+        '
+        'btnEye2
+        '
+        Me.btnEye2.BackColor = System.Drawing.Color.Transparent
+        Me.btnEye2.BackgroundImage = Global.ShareBytes_Prototype.My.Resources.Resources.eye
+        Me.btnEye2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnEye2.Location = New System.Drawing.Point(725, 313)
+        Me.btnEye2.Name = "btnEye2"
+        Me.btnEye2.Size = New System.Drawing.Size(35, 35)
+        Me.btnEye2.TabIndex = 62
+        Me.btnEye2.UseVisualStyleBackColor = False
+        '
         'rbtRequestor
         '
-        Me.rbtRequestor.Location = New System.Drawing.Point(626, 370)
+        Me.rbtRequestor.Location = New System.Drawing.Point(551, 370)
         Me.rbtRequestor.Name = "rbtRequestor"
         Me.rbtRequestor.Size = New System.Drawing.Size(93, 24)
         Me.rbtRequestor.TabIndex = 11
@@ -299,27 +323,13 @@ Partial Class SignUpForm
         Me.btnExit.TabIndex = 8
         Me.btnExit.Values.Text = "X"
         '
-        'btnEye2
+        'rbtRider
         '
-        Me.btnEye2.BackColor = System.Drawing.Color.Transparent
-        Me.btnEye2.BackgroundImage = Global.ShareBytes_Prototype.My.Resources.Resources.eye
-        Me.btnEye2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnEye2.Location = New System.Drawing.Point(725, 313)
-        Me.btnEye2.Name = "btnEye2"
-        Me.btnEye2.Size = New System.Drawing.Size(35, 35)
-        Me.btnEye2.TabIndex = 62
-        Me.btnEye2.UseVisualStyleBackColor = False
-        '
-        'btnEye1
-        '
-        Me.btnEye1.BackColor = System.Drawing.Color.Transparent
-        Me.btnEye1.BackgroundImage = Global.ShareBytes_Prototype.My.Resources.Resources.eye
-        Me.btnEye1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnEye1.Location = New System.Drawing.Point(725, 243)
-        Me.btnEye1.Name = "btnEye1"
-        Me.btnEye1.Size = New System.Drawing.Size(35, 35)
-        Me.btnEye1.TabIndex = 63
-        Me.btnEye1.UseVisualStyleBackColor = False
+        Me.rbtRider.Location = New System.Drawing.Point(650, 370)
+        Me.rbtRider.Name = "rbtRider"
+        Me.rbtRider.Size = New System.Drawing.Size(59, 24)
+        Me.rbtRider.TabIndex = 64
+        Me.rbtRider.Values.Text = "Rider"
         '
         'SignUpForm
         '
@@ -364,4 +374,5 @@ Partial Class SignUpForm
     Friend WithEvents btnExit As ComponentFactory.Krypton.Toolkit.KryptonButton
     Friend WithEvents btnEye1 As Button
     Friend WithEvents btnEye2 As Button
+    Friend WithEvents rbtRider As ComponentFactory.Krypton.Toolkit.KryptonRadioButton
 End Class

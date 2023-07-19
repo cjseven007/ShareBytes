@@ -1,12 +1,20 @@
 ﻿Imports System.Data.OleDb
+Imports System.Runtime.Remoting.Contexts
 Imports Microsoft.VisualBasic.ApplicationServices
 
-Public Class ManagePayments
+Public Class PayForm
     Dim connect As New OleDbConnection
     Dim command As New OleDbCommand
     Dim sql As String = Nothing
 
-    Private Sub ManagePaymentRefreshData()
+    Private _requestID As Integer
+
+    Public Sub New(requestID As Integer)
+        InitializeComponent()
+        _requestID = requestID
+    End Sub
+
+    Private Sub PayFormRefreshData()
         If connect.State = ConnectionState.Closed Then
             connect.Open()
         End If
@@ -32,36 +40,37 @@ Public Class ManagePayments
         End While
         connect.Close()
     End Sub
-    Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
-        If dgvManage.SelectedRows.Count > 0 Then
-            ' Get the value of the ID column for the selected row
-            Dim res As String = MsgBox("Are you sure you want to delete account?", MsgBoxStyle.YesNo, "DELETE USER")
-            If res = vbYes Then
-                Dim id As Integer = CInt(dgvManage.SelectedRows(0).Cells("ID").Value)
-                If connect.State = ConnectionState.Closed Then
-                    connect.Open()
-                End If
-                sql = "DELETE FROM PaymentMethod WHERE ID = @ID"
-                command = New OleDbCommand(sql, connect)
-                command.Parameters.AddWithValue("@ID", id.ToString())
-                command.ExecuteNonQuery()
-                MsgBox("Account Deleted", 0 & MsgBoxStyle.Information, "ACCOUNT DELETED")
-                ManagePaymentRefreshData()
-            End If
-
-
-
-        End If
-    End Sub
-
-    Private Sub ManagePayments_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub PayForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         connect.ConnectionString = "Provider = Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\USER\CJ\OMC\OMC database.accdb;"
 
-        ManagePaymentRefreshData()
+        PayFormRefreshData()
+    End Sub
+
+    Private Sub btnPay_Click(sender As Object, e As EventArgs) Handles btnPay.Click
+
+        'Get paymentID
+        If dgvManage.SelectedRows.Count > 0 Then
+            ' Get the value of the ID column for the selected row
+
+            Dim id As Integer = CInt(dgvManage.SelectedRows(0).Cells("ID").Value)
+            If connect.State = ConnectionState.Closed Then
+                connect.Open()
+
+
+            End If
+            sql = "UPDATE Donations SET deliverStatus = 'Paid', paymentID = @paymentID WHERE requestID = @RequestID"
+            command = New OleDbCommand(sql, connect)
+            command.Parameters.AddWithValue("@paymentID", id.ToString())
+            command.Parameters.AddWithValue("@paymentID", _requestID)
+            command.ExecuteNonQuery()
+            MsgBox("Payment successful", 0 & MsgBoxStyle.Information, "PAID")
+            Me.Close()
+        End If
+
+
     End Sub
 
     Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
-
         Me.Close()
     End Sub
 End Class

@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class StartupForm
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class StartupForm
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.btnMain = New System.Windows.Forms.Button()
         Me.btnAdmin = New System.Windows.Forms.Button()
@@ -28,7 +28,7 @@ Partial Class StartupForm
         '
         'btnMain
         '
-        Me.btnMain.Location = New System.Drawing.Point(63, 27)
+        Me.btnMain.Location = New System.Drawing.Point(63, 23)
         Me.btnMain.Name = "btnMain"
         Me.btnMain.Size = New System.Drawing.Size(114, 42)
         Me.btnMain.TabIndex = 0
@@ -37,9 +37,9 @@ Partial Class StartupForm
         '
         'btnAdmin
         '
-        Me.btnAdmin.Location = New System.Drawing.Point(63, 84)
+        Me.btnAdmin.Location = New System.Drawing.Point(63, 87)
         Me.btnAdmin.Name = "btnAdmin"
-        Me.btnAdmin.Size = New System.Drawing.Size(114, 42)
+        Me.btnAdmin.Size = New System.Drawing.Size(114, 44)
         Me.btnAdmin.TabIndex = 1
         Me.btnAdmin.Text = "Admin"
         Me.btnAdmin.UseVisualStyleBackColor = True
@@ -48,7 +48,7 @@ Partial Class StartupForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(240, 150)
+        Me.ClientSize = New System.Drawing.Size(240, 160)
         Me.Controls.Add(Me.btnAdmin)
         Me.Controls.Add(Me.btnMain)
         Me.Name = "StartupForm"

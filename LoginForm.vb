@@ -75,6 +75,14 @@ Public Class LoginForm
                             EditProfileForm.Email = reader1("email").ToString()
                             editProfileForm.ShowDialog()
                         End If
+                    ElseIf reader1("usertype").ToString() = "Rider" Then
+                        RiderMainForm.Show()
+                        If reader1("organization") Is DBNull.Value Or reader1("address") Is DBNull.Value Or reader1("latitude") Is DBNull.Value Or reader1("longitude") Is DBNull.Value Then
+                            MsgBox("It appears there are additional details that you need to fill in. Please complete them to proceed.", 0, "Additional Details Required")
+                            EditProfileForm.Username = reader1("username").ToString()
+                            EditProfileForm.Email = reader1("email").ToString()
+                            editProfileForm.ShowDialog()
+                        End If
                     Else
                         MsgBox("Login failed")
                     End If

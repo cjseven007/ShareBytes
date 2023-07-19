@@ -34,7 +34,7 @@ Public Class SignUpForm
             connect.Open()
         End If
 
-        If txtEmail.Text = Nothing Or txtUsername.Text = Nothing Or txtPassword.Text = Nothing Or txtConfirmPassword.Text = Nothing Or (rbtDonor.Checked = False And rbtRequestor.Checked = False) Then
+        If txtEmail.Text = Nothing Or txtUsername.Text = Nothing Or txtPassword.Text = Nothing Or txtConfirmPassword.Text = Nothing Or (rbtDonor.Checked = False And rbtRequestor.Checked = False And rbtRider.Checked = False) Then
             MessageBox.Show("Please fill in all blank fields.", "Incomplete details", 0, MessageBoxIcon.Exclamation)
         ElseIf txtPassword.Text <> txtConfirmPassword.Text Then
             MessageBox.Show("Please make sure the passwords are the same.", "Password Not the Same", 0, MessageBoxIcon.Exclamation)
@@ -61,6 +61,8 @@ Public Class SignUpForm
                     command.Parameters.AddWithValue("@Usertype", "Donor")
                 ElseIf rbtRequestor.Checked = True Then
                     command.Parameters.AddWithValue("@Usertype", "Requestor")
+                ElseIf rbtRider.Checked = True Then
+                    command.Parameters.AddWithValue("@Usertype", "Rider")
                 End If
 
                 command.ExecuteNonQuery()

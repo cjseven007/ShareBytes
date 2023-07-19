@@ -210,6 +210,12 @@
     <Compile Include="MessagesForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="PayForm.Designer.vb">
+      <DependentUpon>PayForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PayForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="PaymentForm.Designer.vb">
       <DependentUpon>PaymentForm.vb</DependentUpon>
     </Compile>
@@ -238,6 +244,24 @@
       <DependentUpon>RequestorTrackingForm.vb</DependentUpon>
     </Compile>
     <Compile Include="RequestorTrackingForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RiderDeliveryForm.Designer.vb">
+      <DependentUpon>RiderDeliveryForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="RiderDeliveryForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RiderHomeForm.Designer.vb">
+      <DependentUpon>RiderHomeForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="RiderHomeForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RiderMainForm.Designer.vb">
+      <DependentUpon>RiderMainForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="RiderMainForm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SelectLocationForm.Designer.vb">
@@ -379,6 +403,9 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="PayForm.resx">
+      <DependentUpon>PayForm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PaymentForm.resx">
       <DependentUpon>PaymentForm.vb</DependentUpon>
     </EmbeddedResource>
@@ -393,6 +420,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RequestorTrackingForm.resx">
       <DependentUpon>RequestorTrackingForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RiderDeliveryForm.resx">
+      <DependentUpon>RiderDeliveryForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RiderHomeForm.resx">
+      <DependentUpon>RiderHomeForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RiderMainForm.resx">
+      <DependentUpon>RiderMainForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SelectLocationForm.resx">
       <DependentUpon>SelectLocationForm.vb</DependentUpon>

@@ -49,3 +49,7 @@ D:\UTP\Foundation 3rd Sem\VP\OMC stuff\ShareBytes Prototype\obj\Debug\ShareBytes
 D:\UTP\Foundation 3rd Sem\VP\OMC stuff\ShareBytes Prototype\obj\Debug\ShareBytes_Prototype.AdminUserForm.resources
 D:\UTP\Foundation 3rd Sem\VP\OMC stuff\ShareBytes Prototype\obj\Debug\ShareBytes_Prototype.AdminStatisticsForm.resources
 D:\UTP\Foundation 3rd Sem\VP\OMC stuff\ShareBytes Prototype\obj\Debug\ShareBytes_Prototype.StartupForm.resources
+D:\UTP\Foundation 3rd Sem\VP\OMC stuff\ShareBytes Prototype\obj\Debug\ShareBytes_Prototype.RiderMainForm.resources
+D:\UTP\Foundation 3rd Sem\VP\OMC stuff\ShareBytes Prototype\obj\Debug\ShareBytes_Prototype.RiderHomeForm.resources
+D:\UTP\Foundation 3rd Sem\VP\OMC stuff\ShareBytes Prototype\obj\Debug\ShareBytes_Prototype.RiderDeliveryForm.resources
+D:\UTP\Foundation 3rd Sem\VP\OMC stuff\ShareBytes Prototype\obj\Debug\ShareBytes_Prototype.PayForm.resources

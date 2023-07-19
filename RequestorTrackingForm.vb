@@ -18,6 +18,9 @@ Public Class RequestorTrackingForm
         'Filter according to status
         If selectedStatus = "All" Then
             sql = "SELECT * FROM Donations WHERE requestorID = @RequestorID"
+        ElseIf selectedStatus = "Delivered" Then
+            sql = "SELECT * FROM Donations WHERE requestorID = @RequestorID AND deliverStatus = @Status OR deliverStatus = 'Delivering'"
+
         Else
             sql = "SELECT * FROM Donations WHERE requestorID = @RequestorID AND deliverStatus = @Status"
         End If
@@ -137,7 +140,7 @@ Public Class RequestorTrackingForm
             ElseIf status = "Paid" Then
                 lblStatus.ForeColor = Color.Green
                 numPaid += 1 'Add counter
-            ElseIf status = "Delivered" Then
+            ElseIf status = "Delivered" Or status = "Delivering" Then
                 lblStatus.ForeColor = Color.Blue
                 numDelivered += 1 'counter
             End If
@@ -178,26 +181,30 @@ Public Class RequestorTrackingForm
                                       End Sub
             '////////////////////////////////////
 
-            'Delete Button
-            Dim btnPay As KryptonButton = New KryptonButton()
-            btnPay.Values.Text = "Pay"
-            btnPay.Location = New System.Drawing.Point(370, 100)
-            btnPay.Name = "btnPay"
-            btnPay.OverrideDefault.Back.Color1 = System.Drawing.Color.Orange
-            btnPay.OverrideDefault.Back.Color2 = System.Drawing.Color.Orange
-            btnPay.Size = New System.Drawing.Size(50, 30)
-            btnPay.StateCommon.Back.Color1 = System.Drawing.Color.Orange
-            btnPay.StateCommon.Back.Color2 = System.Drawing.Color.Orange
-            btnPay.StateCommon.Border.DrawBorders = CType((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) _
-                Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) _
-                Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right), ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)
-            btnPay.StateCommon.Border.Rounding = 10
-            btnPay.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White
-            btnPay.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.White
-            btnPay.StateCommon.Content.ShortText.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-            'Delete function
-            btnPay.Tag = requestID
-            '///////////////////////////////////////
+            If status = "Pending Payment" Then
+                'Delete Button
+                Dim btnPay As KryptonButton = New KryptonButton()
+                btnPay.Values.Text = "Pay"
+                btnPay.Location = New System.Drawing.Point(370, 100)
+                btnPay.Name = "btnPay"
+                btnPay.OverrideDefault.Back.Color1 = System.Drawing.Color.Orange
+                btnPay.OverrideDefault.Back.Color2 = System.Drawing.Color.Orange
+                btnPay.Size = New System.Drawing.Size(50, 30)
+                btnPay.StateCommon.Back.Color1 = System.Drawing.Color.Orange
+                btnPay.StateCommon.Back.Color2 = System.Drawing.Color.Orange
+                btnPay.StateCommon.Border.DrawBorders = CType((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) _
+                    Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) _
+                    Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right), ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)
+                btnPay.StateCommon.Border.Rounding = 10
+                btnPay.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White
+                btnPay.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.White
+                btnPay.StateCommon.Content.ShortText.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+                'Delete function
+                btnPay.Tag = requestID
+                '///////////////////////////////////////
+                customContainer.Controls.Add(btnPay)
+                AddHandler btnPay.Click, AddressOf btnPay_Click
+            End If
 
 
             customContainer.Controls.Add(lblTitle)
@@ -205,7 +212,7 @@ Public Class RequestorTrackingForm
             customContainer.Controls.Add(lblFare)
             customContainer.Controls.Add(lblStatus)
             customContainer.Controls.Add(btnView)
-            customContainer.Controls.Add(btnPay)
+
 
             ' Calculate the index for the TableLayoutPanel
             Dim columnIndex As Integer = (reader.GetOrdinal("ID") - 1) Mod columnCount
@@ -227,7 +234,17 @@ Public Class RequestorTrackingForm
 
         reader.Close()
     End Sub
+    'handles the event of btnPay 
+    Private Sub btnPay_Click(sender As Object, e As EventArgs)
+        Dim button As KryptonButton = DirectCast(sender, KryptonButton)
+        Dim requestID As Integer = CInt(button.Tag)
+        ' Create the PayForm instance and pass the requestID to the constructor
+        Dim payForm As New PayForm(requestID)
 
+        ' Show the PayForm as a modal dialog
+        payForm.ShowDialog()
+
+    End Sub
 
     Private Sub btnPendingFilter_Click(sender As Object, e As EventArgs) Handles btnPendingFilter.Click
         FilterByStatus("Pending Payment")
@@ -247,4 +264,5 @@ Public Class RequestorTrackingForm
     Private Sub btnPayment_Click(sender As Object, e As EventArgs) Handles btnPayment.Click
         PaymentForm.ShowDialog()
     End Sub
+
 End Class
