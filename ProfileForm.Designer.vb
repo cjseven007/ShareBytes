@@ -36,6 +36,7 @@ Partial Class ProfileForm
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.btnChoosePic = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         Me.btnEdit = New ComponentFactory.Krypton.Toolkit.KryptonButton()
+        Me.btnChangePassword = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         CType(Me.picProfile, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
@@ -206,12 +207,36 @@ Partial Class ProfileForm
         Me.btnEdit.TabIndex = 34
         Me.btnEdit.Values.Text = "Edit Profile"
         '
+        'btnChangePassword
+        '
+        Me.btnChangePassword.Location = New System.Drawing.Point(464, 619)
+        Me.btnChangePassword.Name = "btnChangePassword"
+        Me.btnChangePassword.OverrideDefault.Back.Color1 = System.Drawing.Color.Gold
+        Me.btnChangePassword.OverrideDefault.Back.Color2 = System.Drawing.Color.Gold
+        Me.btnChangePassword.OverrideDefault.Border.DrawBorders = CType((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) _
+            Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) _
+            Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right), ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)
+        Me.btnChangePassword.OverrideDefault.Border.Rounding = 10
+        Me.btnChangePassword.Size = New System.Drawing.Size(243, 46)
+        Me.btnChangePassword.StateCommon.Back.Color1 = System.Drawing.Color.Gold
+        Me.btnChangePassword.StateCommon.Back.Color2 = System.Drawing.Color.Gold
+        Me.btnChangePassword.StateCommon.Border.Color1 = System.Drawing.Color.Gold
+        Me.btnChangePassword.StateCommon.Border.Color2 = System.Drawing.Color.Gold
+        Me.btnChangePassword.StateCommon.Border.DrawBorders = CType((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) _
+            Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) _
+            Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right), ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)
+        Me.btnChangePassword.StateCommon.Border.Rounding = 10
+        Me.btnChangePassword.StateCommon.Content.ShortText.Font = New System.Drawing.Font("Segoe UI", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnChangePassword.TabIndex = 35
+        Me.btnChangePassword.Values.Text = "Change Password"
+        '
         'ProfileForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(972, 700)
+        Me.Controls.Add(Me.btnChangePassword)
         Me.Controls.Add(Me.btnEdit)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Panel1)
@@ -239,4 +264,5 @@ Partial Class ProfileForm
     Friend WithEvents Panel1 As Panel
     Friend WithEvents btnEdit As ComponentFactory.Krypton.Toolkit.KryptonButton
     Friend WithEvents btnChoosePic As ComponentFactory.Krypton.Toolkit.KryptonButton
+    Friend WithEvents btnChangePassword As ComponentFactory.Krypton.Toolkit.KryptonButton
 End Class

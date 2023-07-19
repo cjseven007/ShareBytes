@@ -111,4 +111,8 @@ Public Class ProfileForm
             openFileDialog.Dispose()
         End Try
     End Sub
+
+    Private Sub btnChangePassword_Click(sender As Object, e As EventArgs) Handles btnChangePassword.Click
+        ChangePasswordForm.ShowDialog()
+    End Sub
 End Class

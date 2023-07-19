@@ -107,7 +107,7 @@ Public Class RiderDeliveryForm
 
                 Dim lblPrice As Label = New Label()
                 lblPrice.AutoSize = True
-                lblPrice.Text = "RM " & fare
+                lblPrice.Text = "RM " & (CDbl(fare) * 0.7).ToString("0.00")
                 lblPrice.Location = New Point(420, 20)
                 lblPrice.Font = New System.Drawing.Font("Segoe UI", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
                 lblPrice.Name = "lblPrice"
