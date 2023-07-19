@@ -29,6 +29,7 @@ Partial Class RiderMainForm
         Me.btnHome = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         Me.pnlChildForm = New System.Windows.Forms.Panel()
         Me.btnExit = New ComponentFactory.Krypton.Toolkit.KryptonButton()
+        Me.btnRevenue = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         Me.Panel1.SuspendLayout()
         Me.pnlChildForm.SuspendLayout()
         Me.SuspendLayout()
@@ -36,6 +37,7 @@ Partial Class RiderMainForm
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.MediumSeaGreen
+        Me.Panel1.Controls.Add(Me.btnRevenue)
         Me.Panel1.Controls.Add(Me.btnLogOut)
         Me.Panel1.Controls.Add(Me.btnProfile)
         Me.Panel1.Controls.Add(Me.btnDelivery)
@@ -67,7 +69,7 @@ Partial Class RiderMainForm
         '
         'btnProfile
         '
-        Me.btnProfile.Location = New System.Drawing.Point(38, 332)
+        Me.btnProfile.Location = New System.Drawing.Point(38, 400)
         Me.btnProfile.Name = "btnProfile"
         Me.btnProfile.OverrideDefault.Back.Color1 = System.Drawing.Color.LightGreen
         Me.btnProfile.OverrideDefault.Back.Color2 = System.Drawing.Color.LightGreen
@@ -170,6 +172,32 @@ Partial Class RiderMainForm
         Me.btnExit.TabIndex = 12
         Me.btnExit.Values.Text = "X"
         '
+        'btnRevenue
+        '
+        Me.btnRevenue.Location = New System.Drawing.Point(38, 332)
+        Me.btnRevenue.Name = "btnRevenue"
+        Me.btnRevenue.OverrideDefault.Back.Color1 = System.Drawing.Color.LightGreen
+        Me.btnRevenue.OverrideDefault.Back.Color2 = System.Drawing.Color.LightGreen
+        Me.btnRevenue.OverrideDefault.Border.Color1 = System.Drawing.Color.LightGreen
+        Me.btnRevenue.OverrideDefault.Border.Color2 = System.Drawing.Color.LightGreen
+        Me.btnRevenue.OverrideDefault.Border.DrawBorders = CType((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) _
+            Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) _
+            Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right), ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)
+        Me.btnRevenue.Size = New System.Drawing.Size(210, 50)
+        Me.btnRevenue.StateCommon.Back.Color1 = System.Drawing.Color.LightGreen
+        Me.btnRevenue.StateCommon.Back.Color2 = System.Drawing.Color.LightGreen
+        Me.btnRevenue.StateCommon.Border.Color1 = System.Drawing.Color.LightGreen
+        Me.btnRevenue.StateCommon.Border.Color2 = System.Drawing.Color.LightGreen
+        Me.btnRevenue.StateCommon.Border.DrawBorders = CType((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) _
+            Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) _
+            Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right), ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)
+        Me.btnRevenue.StateCommon.Border.Rounding = 20
+        Me.btnRevenue.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer))
+        Me.btnRevenue.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer))
+        Me.btnRevenue.StateCommon.Content.ShortText.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnRevenue.TabIndex = 18
+        Me.btnRevenue.Values.Text = "REVENUE"
+        '
         'RiderMainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -195,4 +223,5 @@ Partial Class RiderMainForm
     Friend WithEvents btnProfile As ComponentFactory.Krypton.Toolkit.KryptonButton
     Friend WithEvents btnDelivery As ComponentFactory.Krypton.Toolkit.KryptonButton
     Friend WithEvents btnLogOut As ComponentFactory.Krypton.Toolkit.KryptonButton
+    Friend WithEvents btnRevenue As ComponentFactory.Krypton.Toolkit.KryptonButton
 End Class
