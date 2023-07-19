@@ -7,19 +7,24 @@ Public Class RiderDeliveryForm
     Dim sql As String = Nothing
 
     Private Sub button_Click(sender As Object, e As EventArgs)
-        ' Handle the Edit button click event
-        If connect.State = ConnectionState.Closed Then
-            connect.Open()
-        End If
-        Dim button As KryptonButton = DirectCast(sender, KryptonButton)
-        Dim requestID As Integer = CInt(button.Tag)
-        sql = "UPDATE Donations SET deliverStatus = 'Delivering' WHERE requestID = @RequestID"
-        command = New OleDbCommand(sql, connect)
-        command.Parameters.AddWithValue("@RequestID", OleDbType.VarChar).Value = requestID
-        command.ExecuteNonQuery()
+        Dim res As String
+        res = MsgBox("Have you delivered this donation?", MsgBoxStyle.YesNo + MsgBoxStyle.Question, "DELIVERED?")
+        If res = vbYes Then
 
-        MsgBox("Delivery added to your list.", 0 & MsgBoxStyle.Information, "RECORD ADDED")
-        RefreshData()
+            If connect.State = ConnectionState.Closed Then
+                connect.Open()
+            End If
+            Dim button As KryptonButton = DirectCast(sender, KryptonButton)
+            Dim requestID As Integer = CInt(button.Tag)
+            sql = "UPDATE Donations SET deliverStatus = 'Delivered' WHERE requestID = @RequestID"
+            command = New OleDbCommand(sql, connect)
+            command.Parameters.AddWithValue("@RequestID", OleDbType.VarChar).Value = requestID
+            command.ExecuteNonQuery()
+
+            MsgBox("Delivered", 0 & MsgBoxStyle.Information, "Delivered")
+            RefreshData()
+        End If
+
     End Sub
 
     Public Sub RefreshData()
@@ -27,9 +32,10 @@ Public Class RiderDeliveryForm
             connect.Open()
         End If
 
-        sql = "SELECT * FROM Donations WHERE deliverStatus = 'Delivering' OR deliverStatus = 'Delivered'"
+        sql = "SELECT * FROM Donations WHERE riderID = @RiderID AND (deliverStatus = 'Delivering' OR deliverStatus = 'Delivered')"
 
         command = New OleDbCommand(sql, connect)
+        command.Parameters.AddWithValue("@RiderID", LoginForm.globalUserID)
         Dim reader As OleDbDataReader = command.ExecuteReader()
 
         'generate table
@@ -54,6 +60,7 @@ Public Class RiderDeliveryForm
             Dim requestID As String = reader("requestID").ToString()
             Dim donorID As String = reader("donorID").ToString()
             Dim fare As String = reader("fare").ToString()
+            Dim status As String = reader("deliverStatus").ToString()
 
             sql = "SELECT * FROM Requests WHERE RequestID = @RequestID"
             command = New OleDbCommand(sql, connect)
@@ -86,6 +93,16 @@ Public Class RiderDeliveryForm
                 lblLocation.Name = "lblLocation"
                 lblLocation.Size = New System.Drawing.Size(350, 40)
 
+                Dim lblStatus As Label = New Label()
+                lblStatus.AutoSize = True
+                If status = "Delivered" Then
+                    lblStatus.ForeColor = Color.Green
+                Else
+                    lblStatus.ForeColor = Color.Orange
+                End If
+                lblStatus.Text = "Status: " & status
+                lblStatus.Location = New Point(420, 50)
+                lblStatus.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
                 'From where
                 sql = "SELECT address FROM [User] WHERE ID = @ID"
                 command = New OleDbCommand(sql, connect)
@@ -138,39 +155,42 @@ Public Class RiderDeliveryForm
                 'get RequestID
 
                 '////////////////////////////////////
+                If status = "Delivering" Then
+                    'Update Button
+                    Dim btnUpdate As KryptonButton = New KryptonButton()
+                    btnUpdate.Values.Text = "Update"
 
-                'Delete Button
-                Dim btnAccept As KryptonButton = New KryptonButton()
-                btnAccept.Values.Text = "Accept"
-
-                btnAccept.Location = New System.Drawing.Point(420, 100)
-                btnAccept.Name = "btnAccept"
-                btnAccept.OverrideDefault.Back.Color1 = System.Drawing.Color.MediumSeaGreen
-                btnAccept.OverrideDefault.Back.Color2 = System.Drawing.Color.MediumSeaGreen
-                btnAccept.Size = New System.Drawing.Size(100, 30)
-                btnAccept.StateCommon.Back.Color1 = System.Drawing.Color.MediumSeaGreen
-                btnAccept.StateCommon.Back.Color2 = System.Drawing.Color.MediumSeaGreen
-                btnAccept.StateCommon.Border.DrawBorders = CType((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) _
+                    btnUpdate.Location = New System.Drawing.Point(420, 100)
+                    btnUpdate.Name = "btnUpdate"
+                    btnUpdate.OverrideDefault.Back.Color1 = System.Drawing.Color.MediumSeaGreen
+                    btnUpdate.OverrideDefault.Back.Color2 = System.Drawing.Color.MediumSeaGreen
+                    btnUpdate.Size = New System.Drawing.Size(100, 30)
+                    btnUpdate.StateCommon.Back.Color1 = System.Drawing.Color.MediumSeaGreen
+                    btnUpdate.StateCommon.Back.Color2 = System.Drawing.Color.MediumSeaGreen
+                    btnUpdate.StateCommon.Border.DrawBorders = CType((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) _
                     Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) _
                     Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right), ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)
-                btnAccept.StateCommon.Border.Rounding = 10
-                btnAccept.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.Black
-                btnAccept.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.Black
-                btnAccept.StateCommon.Content.ShortText.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-                'Acccept function
-                btnAccept.Tag = requestID
-                AddHandler btnAccept.Click, AddressOf button_Click
+                    btnUpdate.StateCommon.Border.Rounding = 10
+                    btnUpdate.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.Black
+                    btnUpdate.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.Black
+                    btnUpdate.StateCommon.Content.ShortText.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+                    'Update function
+                    btnUpdate.Tag = requestID
+                    AddHandler btnUpdate.Click, AddressOf button_Click
 
-                '///////////////////////////////////////
+                    '///////////////////////////////////////
+                    customContainer.Controls.Add(btnUpdate)
+
+                End If
 
 
                 customContainer.Controls.Add(lblTitle)
                 customContainer.Controls.Add(lblLocation)
                 customContainer.Controls.Add(lblPax)
                 customContainer.Controls.Add(lblPrice)
+                customContainer.Controls.Add(lblStatus)
 
-                'customContainer.Controls.Add(btnView)
-                customContainer.Controls.Add(btnAccept)
+
 
                 ' Calculate the index for the TableLayoutPanel
                 Dim columnIndex As Integer = (reader.GetOrdinal("ID") - 1) Mod columnCount

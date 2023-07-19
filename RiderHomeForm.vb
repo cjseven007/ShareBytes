@@ -13,9 +13,11 @@ Public Class RiderHomeForm
         End If
         Dim button As KryptonButton = DirectCast(sender, KryptonButton)
         Dim requestID As Integer = CInt(button.Tag)
-        sql = "UPDATE Donations SET deliverStatus = 'Delivering' WHERE requestID = @RequestID"
+        sql = "UPDATE Donations SET deliverStatus = 'Delivering', riderID = @RiderID WHERE requestID = @RequestID"
         command = New OleDbCommand(sql, connect)
+        command.Parameters.AddWithValue("@RiderID", LoginForm.globalUserID)
         command.Parameters.AddWithValue("@RequestID", OleDbType.VarChar).Value = requestID
+
         command.ExecuteNonQuery()
 
         MsgBox("Delivery added to your list.", 0 & MsgBoxStyle.Information, "RECORD ADDED")

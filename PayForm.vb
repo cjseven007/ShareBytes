@@ -1,4 +1,6 @@
 ﻿Imports System.Data.OleDb
+Imports System.Data.SqlClient
+Imports System.IO
 Imports System.Runtime.Remoting.Contexts
 Imports Microsoft.VisualBasic.ApplicationServices
 
@@ -64,6 +66,49 @@ Public Class PayForm
             command.Parameters.AddWithValue("@paymentID", _requestID)
             command.ExecuteNonQuery()
             MsgBox("Payment successful", 0 & MsgBoxStyle.Information, "PAID")
+
+
+            'Create a receipt
+            Try
+
+                sql = "SELECT * FROM [User] WHERE ID = @UserID"
+                command = New OleDbCommand(sql, connect)
+                command.Parameters.AddWithValue("@UserID", LoginForm.globalUserID)
+                Dim reader As OleDbDataReader = command.ExecuteReader()
+
+                If reader.Read() Then
+                    ' Specify the file path and name
+                    Dim fileName As String = "receipt_ID" & _requestID.ToString() & ".txt"
+
+                    ' Combine the file path with the application's startup path to create the full file path
+                    Dim filePath As String = Path.Combine(Application.StartupPath, fileName)
+
+                    ' Create a new text file and write the content to it
+                    Using writer As New StreamWriter(filePath)
+                        writer.WriteLine("Receipt Of Payment")
+                        writer.WriteLine("Request ID:" & _requestID.ToString())
+                        writer.WriteLine("Paid by: " & reader("ID").ToString() & " - " & reader("username").ToString())
+                        writer.WriteLine("_______________________________________________")
+                        sql = "SELECT * FROM Donations WHERE requestID = @RequestID"
+                        command = New OleDbCommand(sql, connect)
+                        command.Parameters.AddWithValue("@ReqeustID", _requestID)
+                        Dim reader1 As OleDbDataReader = command.ExecuteReader()
+                        While reader1.Read()
+
+                            writer.WriteLine("Amount: RM" & reader1("fare").ToString())
+                        End While
+
+
+                    End Using
+
+                    MessageBox.Show("Text written to file successfully.", "File Saved", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                End If
+
+
+            Catch ex As Exception
+                MessageBox.Show("Error writing to file: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
+
             Me.Close()
         End If
 
