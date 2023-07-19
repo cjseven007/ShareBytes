@@ -60,4 +60,8 @@
     Private Sub btnRevenue_Click(sender As Object, e As EventArgs) Handles btnRevenue.Click
         OpenChildFormInPanel(RiderRevenueForm)
     End Sub
+
+    Private Sub btnAdminChat_Click(sender As Object, e As EventArgs) Handles btnAdminChat.Click
+        OpenChildFormInPanel(UserMessageForm)
+    End Sub
 End Class

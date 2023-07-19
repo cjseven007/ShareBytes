@@ -23,13 +23,14 @@ Partial Class RiderMainForm
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.btnRevenue = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         Me.btnLogOut = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         Me.btnProfile = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         Me.btnDelivery = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         Me.btnHome = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         Me.pnlChildForm = New System.Windows.Forms.Panel()
         Me.btnExit = New ComponentFactory.Krypton.Toolkit.KryptonButton()
-        Me.btnRevenue = New ComponentFactory.Krypton.Toolkit.KryptonButton()
+        Me.btnAdminChat = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.pnlChildForm.SuspendLayout()
         Me.SuspendLayout()
@@ -37,6 +38,7 @@ Partial Class RiderMainForm
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.MediumSeaGreen
+        Me.Panel1.Controls.Add(Me.btnAdminChat)
         Me.Panel1.Controls.Add(Me.btnRevenue)
         Me.Panel1.Controls.Add(Me.btnLogOut)
         Me.Panel1.Controls.Add(Me.btnProfile)
@@ -47,6 +49,32 @@ Partial Class RiderMainForm
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(228, 700)
         Me.Panel1.TabIndex = 0
+        '
+        'btnRevenue
+        '
+        Me.btnRevenue.Location = New System.Drawing.Point(38, 332)
+        Me.btnRevenue.Name = "btnRevenue"
+        Me.btnRevenue.OverrideDefault.Back.Color1 = System.Drawing.Color.LightGreen
+        Me.btnRevenue.OverrideDefault.Back.Color2 = System.Drawing.Color.LightGreen
+        Me.btnRevenue.OverrideDefault.Border.Color1 = System.Drawing.Color.LightGreen
+        Me.btnRevenue.OverrideDefault.Border.Color2 = System.Drawing.Color.LightGreen
+        Me.btnRevenue.OverrideDefault.Border.DrawBorders = CType((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) _
+            Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) _
+            Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right), ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)
+        Me.btnRevenue.Size = New System.Drawing.Size(210, 50)
+        Me.btnRevenue.StateCommon.Back.Color1 = System.Drawing.Color.LightGreen
+        Me.btnRevenue.StateCommon.Back.Color2 = System.Drawing.Color.LightGreen
+        Me.btnRevenue.StateCommon.Border.Color1 = System.Drawing.Color.LightGreen
+        Me.btnRevenue.StateCommon.Border.Color2 = System.Drawing.Color.LightGreen
+        Me.btnRevenue.StateCommon.Border.DrawBorders = CType((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) _
+            Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) _
+            Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right), ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)
+        Me.btnRevenue.StateCommon.Border.Rounding = 20
+        Me.btnRevenue.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer))
+        Me.btnRevenue.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer))
+        Me.btnRevenue.StateCommon.Content.ShortText.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnRevenue.TabIndex = 18
+        Me.btnRevenue.Values.Text = "REVENUE"
         '
         'btnLogOut
         '
@@ -172,31 +200,17 @@ Partial Class RiderMainForm
         Me.btnExit.TabIndex = 12
         Me.btnExit.Values.Text = "X"
         '
-        'btnRevenue
+        'btnAdminChat
         '
-        Me.btnRevenue.Location = New System.Drawing.Point(38, 332)
-        Me.btnRevenue.Name = "btnRevenue"
-        Me.btnRevenue.OverrideDefault.Back.Color1 = System.Drawing.Color.LightGreen
-        Me.btnRevenue.OverrideDefault.Back.Color2 = System.Drawing.Color.LightGreen
-        Me.btnRevenue.OverrideDefault.Border.Color1 = System.Drawing.Color.LightGreen
-        Me.btnRevenue.OverrideDefault.Border.Color2 = System.Drawing.Color.LightGreen
-        Me.btnRevenue.OverrideDefault.Border.DrawBorders = CType((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) _
-            Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) _
-            Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right), ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)
-        Me.btnRevenue.Size = New System.Drawing.Size(210, 50)
-        Me.btnRevenue.StateCommon.Back.Color1 = System.Drawing.Color.LightGreen
-        Me.btnRevenue.StateCommon.Back.Color2 = System.Drawing.Color.LightGreen
-        Me.btnRevenue.StateCommon.Border.Color1 = System.Drawing.Color.LightGreen
-        Me.btnRevenue.StateCommon.Border.Color2 = System.Drawing.Color.LightGreen
-        Me.btnRevenue.StateCommon.Border.DrawBorders = CType((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) _
-            Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) _
-            Or ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right), ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)
-        Me.btnRevenue.StateCommon.Border.Rounding = 20
-        Me.btnRevenue.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer))
-        Me.btnRevenue.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer), CType(CType(32, Byte), Integer))
-        Me.btnRevenue.StateCommon.Content.ShortText.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnRevenue.TabIndex = 18
-        Me.btnRevenue.Values.Text = "REVENUE"
+        Me.btnAdminChat.BackColor = System.Drawing.Color.LightGreen
+        Me.btnAdminChat.FlatAppearance.BorderSize = 0
+        Me.btnAdminChat.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAdminChat.Image = Global.ShareBytes_Prototype.My.Resources.Resources.customer_service
+        Me.btnAdminChat.Location = New System.Drawing.Point(70, 36)
+        Me.btnAdminChat.Name = "btnAdminChat"
+        Me.btnAdminChat.Size = New System.Drawing.Size(90, 90)
+        Me.btnAdminChat.TabIndex = 13
+        Me.btnAdminChat.UseVisualStyleBackColor = False
         '
         'RiderMainForm
         '
@@ -224,4 +238,5 @@ Partial Class RiderMainForm
     Friend WithEvents btnDelivery As ComponentFactory.Krypton.Toolkit.KryptonButton
     Friend WithEvents btnLogOut As ComponentFactory.Krypton.Toolkit.KryptonButton
     Friend WithEvents btnRevenue As ComponentFactory.Krypton.Toolkit.KryptonButton
+    Friend WithEvents btnAdminChat As Button
 End Class
