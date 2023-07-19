@@ -23,6 +23,7 @@ Partial Class AdminMainForm
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.btnRevenue = New System.Windows.Forms.Button()
         Me.btnLogOut = New System.Windows.Forms.Button()
         Me.btnMessages = New System.Windows.Forms.Button()
         Me.btnStatistics = New System.Windows.Forms.Button()
@@ -36,6 +37,7 @@ Partial Class AdminMainForm
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.Navy
+        Me.Panel1.Controls.Add(Me.btnRevenue)
         Me.Panel1.Controls.Add(Me.btnLogOut)
         Me.Panel1.Controls.Add(Me.btnMessages)
         Me.Panel1.Controls.Add(Me.btnStatistics)
@@ -46,12 +48,24 @@ Partial Class AdminMainForm
         Me.Panel1.Size = New System.Drawing.Size(200, 450)
         Me.Panel1.TabIndex = 0
         '
+        'btnRevenue
+        '
+        Me.btnRevenue.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.btnRevenue.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnRevenue.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnRevenue.Location = New System.Drawing.Point(0, 183)
+        Me.btnRevenue.Name = "btnRevenue"
+        Me.btnRevenue.Size = New System.Drawing.Size(200, 46)
+        Me.btnRevenue.TabIndex = 4
+        Me.btnRevenue.Text = "Revenue"
+        Me.btnRevenue.UseVisualStyleBackColor = False
+        '
         'btnLogOut
         '
         Me.btnLogOut.BackColor = System.Drawing.Color.LightSteelBlue
         Me.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnLogOut.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnLogOut.Location = New System.Drawing.Point(0, 298)
+        Me.btnLogOut.Location = New System.Drawing.Point(0, 332)
         Me.btnLogOut.Name = "btnLogOut"
         Me.btnLogOut.Size = New System.Drawing.Size(200, 46)
         Me.btnLogOut.TabIndex = 3
@@ -63,7 +77,7 @@ Partial Class AdminMainForm
         Me.btnMessages.BackColor = System.Drawing.Color.LightSteelBlue
         Me.btnMessages.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnMessages.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnMessages.Location = New System.Drawing.Point(0, 218)
+        Me.btnMessages.Location = New System.Drawing.Point(0, 235)
         Me.btnMessages.Name = "btnMessages"
         Me.btnMessages.Size = New System.Drawing.Size(200, 46)
         Me.btnMessages.TabIndex = 2
@@ -75,7 +89,7 @@ Partial Class AdminMainForm
         Me.btnStatistics.BackColor = System.Drawing.Color.LightSteelBlue
         Me.btnStatistics.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnStatistics.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnStatistics.Location = New System.Drawing.Point(0, 166)
+        Me.btnStatistics.Location = New System.Drawing.Point(0, 131)
         Me.btnStatistics.Name = "btnStatistics"
         Me.btnStatistics.Size = New System.Drawing.Size(200, 46)
         Me.btnStatistics.TabIndex = 1
@@ -87,7 +101,7 @@ Partial Class AdminMainForm
         Me.btnUsers.BackColor = System.Drawing.Color.LightSteelBlue
         Me.btnUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnUsers.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnUsers.Location = New System.Drawing.Point(0, 114)
+        Me.btnUsers.Location = New System.Drawing.Point(0, 79)
         Me.btnUsers.Name = "btnUsers"
         Me.btnUsers.Size = New System.Drawing.Size(200, 46)
         Me.btnUsers.TabIndex = 0
@@ -147,4 +161,5 @@ Partial Class AdminMainForm
     Friend WithEvents btnUsers As Button
     Friend WithEvents btnLogOut As Button
     Friend WithEvents btnExit As ComponentFactory.Krypton.Toolkit.KryptonButton
+    Friend WithEvents btnRevenue As Button
 End Class

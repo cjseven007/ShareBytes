@@ -107,6 +107,12 @@
     <Compile Include="AdminMessagesForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="AdminRevenueForm.Designer.vb">
+      <DependentUpon>AdminRevenueForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AdminRevenueForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="AdminStatisticsForm.Designer.vb">
       <DependentUpon>AdminStatisticsForm.vb</DependentUpon>
     </Compile>
@@ -357,6 +363,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminMessagesForm.resx">
       <DependentUpon>AdminMessagesForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminRevenueForm.resx">
+      <DependentUpon>AdminRevenueForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminStatisticsForm.resx">
       <DependentUpon>AdminStatisticsForm.vb</DependentUpon>

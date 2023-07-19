@@ -1,19 +1,29 @@
 ﻿Imports System.Runtime.Remoting.Contexts
 
 Public Class AdminMainForm
-    Private activeForm As Form = Nothing
+    Private activeChildForm As Form = Nothing
+
     Private Sub OpenChildFormInPanel(childForm As Form)
-        If activeForm IsNot Nothing Then
-            activeForm.Hide()
+        If activeChildForm IsNot Nothing Then
+            ' Check if the new form is the same as the currently displayed one
+            If activeChildForm.GetType() = childForm.GetType() Then
+                ' If it's the same form, bring it to the front and return
+                activeChildForm.BringToFront()
+                Return
+            Else
+                ' If it's a different form, close the current one
+                activeChildForm.Close()
+            End If
         End If
 
-        activeForm = childForm
+        activeChildForm = childForm ' Update the active child form to the new one
+
         childForm.TopLevel = False
         childForm.FormBorderStyle = FormBorderStyle.None
         childForm.Dock = DockStyle.Fill
         pnlChildForm.Controls.Add(childForm)
         pnlChildForm.Tag = childForm
-        'childForm.BringToFront()
+        childForm.BringToFront()
         childForm.Show()
     End Sub
     Private Sub AdminMainForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -44,5 +54,9 @@ Public Class AdminMainForm
 
     Private Sub btnStatistics_Click(sender As Object, e As EventArgs) Handles btnStatistics.Click
         OpenChildFormInPanel(AdminStatisticsForm)
+    End Sub
+
+    Private Sub btnRevenue_Click(sender As Object, e As EventArgs) Handles btnRevenue.Click
+        OpenChildFormInPanel(AdminRevenueForm)
     End Sub
 End Class
